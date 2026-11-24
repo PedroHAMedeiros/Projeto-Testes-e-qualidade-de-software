@@ -18,20 +18,20 @@ Ciclo completo de qualidade sobre um sistema existente (SUT): planejamento basea
 - **Pipeline de CI** em 4 estágios com quality gates → [docs/07](docs/07-ci-cd.md)
 
 ## Documentação (ordem do relatório)
-| Doc | Conteúdo | Entregável da professora |
-|---|---|---|
-| [00 — Capa e identificação](docs/00-capa.md) | disciplina, integrantes, matrículas | 01 |
+| Doc | Conteúdo |
+|---|---|
+| [00 — Capa e identificação](docs/00-capa.md) | disciplina, integrantes, matrículas | 
 | [01 — Plano de testes](docs/01-plano-de-testes.md) | objetivos, escopo, riscos, critérios, ambiente, dados | 02 |
-| [02 — Casos manuais](docs/02-casos-de-teste-manuais.md) | 15 casos estruturados + status de execução | 02 |
-| [03 — Sessões exploratórias](docs/03-sessoes-exploratorias.md) | 6 sessões com charter + modelo de sessão | 02 |
-| [04 — Automação e cobertura](docs/04-automacao-e-cobertura.md) | arquitetura, técnicas, métricas, cobertura de endpoints | 03 |
-| [05 — Qualidade e refatoração](docs/05-qualidade-e-refatoracao.md) | revisão do SUT, smells da suíte, impacto de mudança, proposta de evolução | 04 |
-| [06 — Gestão de defeitos](docs/06-gestao-de-defeitos.md) | BUG-001..007, critérios de severidade/prioridade | 04 |
-| [07 — CI/CD](docs/07-ci-cd.md) | pipeline, quality gates, resultados | 05 |
-| [08 — Conclusões](docs/08-conclusoes-e-licoes.md) | **a escrever pela equipe** (roteiro de perguntas) | 05 |
-| [09 — Apresentação](docs/09-apresentacao.md) | roteiro, demonstração ao vivo, perguntas prováveis | — |
-| [10 — Rastreabilidade e auditoria](docs/10-rastreabilidade-e-auditoria.md) | requisito → atividade → artefato → evidência → resultado | — |
-| [PROGRESSO](docs/PROGRESSO.md) | registro das etapas, decisões e problemas | — |
+| [02 — Casos manuais](docs/02-casos-de-teste-manuais.md) | 15 casos estruturados + status de execução | 
+| [03 — Sessões exploratórias](docs/03-sessoes-exploratorias.md) | 6 sessões com charter + modelo de sessão | 
+| [04 — Automação e cobertura](docs/04-automacao-e-cobertura.md) | arquitetura, técnicas, métricas, cobertura de endpoints | 
+| [05 — Qualidade e refatoração](docs/05-qualidade-e-refatoracao.md) | revisão do SUT, smells da suíte, impacto de mudança, proposta de evolução | 
+| [06 — Gestão de defeitos](docs/06-gestao-de-defeitos.md) | BUG-001..007, critérios de severidade/prioridade | 
+| [07 — CI/CD](docs/07-ci-cd.md) | pipeline, quality gates, resultados | 
+| [08 — Conclusões](docs/08-conclusoes-e-licoes.md) | **a escrever pela equipe** (roteiro de perguntas) | 
+| [09 — Apresentação](docs/09-apresentacao.md) | roteiro, demonstração ao vivo, perguntas prováveis | 
+| [10 — Rastreabilidade e auditoria](docs/10-rastreabilidade-e-auditoria.md) | requisito → atividade → artefato → evidência → resultado | 
+| [PROGRESSO](docs/PROGRESSO.md) | registro das etapas, decisões e problemas | 
 
 ## Tecnologias
 Node.js ≥ 20 · TypeScript 5.9 · Playwright 1.65 (API, UI e E2E num só framework) · ESLint 10 + typescript-eslint + eslint-plugin-playwright · jscpd (duplicação) · GitHub Actions. Tudo gratuito e de código aberto.
