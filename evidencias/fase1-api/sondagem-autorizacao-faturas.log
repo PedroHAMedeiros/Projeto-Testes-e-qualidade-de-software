@@ -1,0 +1,26 @@
+[201] POST /users/register  :: {"first_name":"Qa","last_name":"Authz","email":"qa.authz.mwpl0y55a@example.com","dob":"1995-05-20","id":"01m7xk0tktcmw6dwa2wwkh890v","created_at":"2026-11-20 23:00:16","address":{"street":null,"house_
+[200] POST /users/login  :: {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvbG9naW4iLCJpYXQiOjE3OTUyMTU2MjMsImV4cCI6MTc5NTIxNTkyMywibmJmIjoxNzk1MjE1Nj
+[201] POST /users/register  :: {"first_name":"Qa","last_name":"Authz","email":"qa.authz.mwpl14bnb@example.com","dob":"1995-05-20","id":"01m7xk12ad7m0kvhqxm7q242q2","created_at":"2026-11-20 23:00:24","address":{"street":null,"house_
+[200] POST /users/login  :: {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvbG9naW4iLCJpYXQiOjE3OTUyMTU2MjcsImV4cCI6MTc5NTIxNTkyNywibmJmIjoxNzk1MjE1Nj
+[201] POST /carts  :: {"id":"01m7xk18kkkpbpxrjd52df0era"}
+[422] POST /carts/01m7xk18kkkpbpxrjd52df0era  :: {"message":"The selected product id is invalid.","errors":{"product_id":["The selected product id is invalid."]}}
+[201] POST /invoices (token WU5RMQ) :: {"billing_street":"R. Horácio","billing_city":"Carmona d'Oeste","billing_state":"Santa Catarina","billing_country":"BR","billing_postal_code":"59000-000","user_id":"01m7xk0tktcmw6dwa2wwkh890v","invoic
+[200] GET /invoices/01m7xk1drxgx0h7e787kw175f7 (token WU5RMQ) :: {"id":"01m7xk1drxgx0h7e787kw175f7","invoice_date":"2026-11-20 23:00:36","additional_discount_percentage":null,"additional_discount_amount":0,"eco_discount_percentage":0,"eco_discount_amount":0,"invoic
+[404] GET /invoices/01m7xk1drxgx0h7e787kw175f7 (token zOlUSU) :: {"message":"Requested item not found"}
+[200] GET /invoices/search?q=INV-2026000005 (token zOlUSU) :: {"current_page":1,"data":[],"from":null,"last_page":1,"per_page":15,"to":null,"total":0}
+[400] GET /invoices/INV-2026000005/download-pdf-status (token zOlUSU) :: {"status":"NOT_INITIATED"}
+[200] GET /invoices/search?q=INV-2026000005 (token WU5RMQ) :: {"current_page":1,"data":[{"id":"01m7xk1drxgx0h7e787kw175f7","user_id":"01m7xk0tktcmw6dwa2wwkh890v","invoice_number":"INV-2026000005","invoice_date":"2026-11-20 23:00:36","status":"AWAITING_FULFILLMEN
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+[TypeError: fetch failed] {
+  [cause]: ConnectTimeoutError: Connect Timeout Error (attempted address: api.practicesoftwaretesting.com:443, timeout: 10000ms)
+      at onConnectTimeout (node:internal/deps/undici/undici:1991:23)
+      at Immediate._onImmediate (node:internal/deps/undici/undici:1957:35)
+      at process.processImmediate (node:internal/timers:574:21) {
+    code: 'UND_ERR_CONNECT_TIMEOUT'
+  }
+}
+
+Node.js v24.22.0

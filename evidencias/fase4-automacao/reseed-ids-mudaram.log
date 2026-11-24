@@ -1,0 +1,7 @@
+# Evidência: re-seed do ambiente público (IDs mudam) — 2026-11-20T22:10:11Z
+ID antigo (Fase 1, ~21:40Z) de Combination Pliers: 01M7XC56PE2A3HM6VQJDSCYSHQ
+GET /products/01M7XC56PE2A3HM6VQJDSCYSHQ -> 404
+IDs atuais:
+01M7XFJZ83MYBF3MSEC92NR7C0 Combination Pliers
+01M7XFJZ896QNVBC9G3ENRTXTS Pliers
+01M7XFJZ8BXRWT3NBSJSC71JR7 Bolt Cutters

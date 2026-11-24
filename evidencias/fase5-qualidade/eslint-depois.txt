@@ -1,0 +1,17 @@
+npm notice run pst-qa@1.0.0 npx
+npm notice run eslint .
+
+\tests\api\auth.api.spec.ts
+  7:51  warning  Arrow function has too many lines (83). Maximum allowed is 60  max-lines-per-function
+
+\tests\api\cart.api.spec.ts
+  8:36  warning  Arrow function has too many lines (81). Maximum allowed is 60  max-lines-per-function
+
+\tests\api\products.api.spec.ts
+  8:36  warning  Arrow function has too many lines (102). Maximum allowed is 60  max-lines-per-function
+
+\tests\e2e\checkout.e2e.spec.ts
+  9:43  warning  Arrow function has too many lines (63). Maximum allowed is 60  max-lines-per-function
+
+✖ 4 problems (0 errors, 4 warnings)
+

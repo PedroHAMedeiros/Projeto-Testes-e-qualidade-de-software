@@ -1,0 +1,4 @@
+  [rede] POST 401 {"error":"Unauthorized"}
+inexistente → erro exibido? true "Invalid email or password" (1915 ms)
+  [rede] POST 401 {"error":"Unauthorized"}
+inexistente-2 → erro exibido? true "Invalid email or password" (889 ms)

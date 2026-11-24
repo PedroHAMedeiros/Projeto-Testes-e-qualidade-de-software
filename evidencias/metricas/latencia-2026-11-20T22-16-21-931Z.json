@@ -1,0 +1,121 @@
+{
+  "executado_em": "2026-11-20T22:16:21.931Z",
+  "amostras_por_endpoint": 10,
+  "api": "https://api.practicesoftwaretesting.com",
+  "resultados": {
+    "GET /products": {
+      "min": 862,
+      "mediana": 880,
+      "p90": 10218,
+      "max": 16191,
+      "erros": 1,
+      "amostras_ms": [
+        16191,
+        876,
+        876,
+        862,
+        880,
+        2254,
+        3209,
+        867,
+        10218,
+        1907
+      ]
+    },
+    "GET /products?page=2": {
+      "min": 883,
+      "mediana": 938,
+      "p90": 4976,
+      "max": 31538,
+      "erros": 0,
+      "amostras_ms": [
+        938,
+        1907,
+        3780,
+        4976,
+        972,
+        31538,
+        924,
+        893,
+        887,
+        883
+      ]
+    },
+    "GET /products/{id}": {
+      "min": 860,
+      "mediana": 903,
+      "p90": 2271,
+      "max": 2307,
+      "erros": 0,
+      "amostras_ms": [
+        905,
+        902,
+        889,
+        888,
+        903,
+        2271,
+        2307,
+        939,
+        917,
+        860
+      ]
+    },
+    "GET /products/{id}/related": {
+      "min": 883,
+      "mediana": 1942,
+      "p90": 10303,
+      "max": 14926,
+      "erros": 1,
+      "amostras_ms": [
+        2510,
+        959,
+        883,
+        10303,
+        1942,
+        902,
+        14926,
+        4210,
+        955,
+        8015
+      ]
+    },
+    "GET /products/search?q=…": {
+      "min": 881,
+      "mediana": 941,
+      "p90": 985,
+      "max": 1003,
+      "erros": 0,
+      "amostras_ms": [
+        881,
+        931,
+        941,
+        979,
+        985,
+        941,
+        920,
+        981,
+        1003,
+        893
+      ]
+    },
+    "GET /categories/tree": {
+      "min": 851,
+      "mediana": 907,
+      "p90": 2464,
+      "max": 10315,
+      "erros": 1,
+      "amostras_ms": [
+        10315,
+        2464,
+        851,
+        907,
+        1271,
+        899,
+        873,
+        865,
+        910,
+        913
+      ]
+    }
+  }
+}

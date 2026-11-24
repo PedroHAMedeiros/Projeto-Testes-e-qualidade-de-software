@@ -1,0 +1,2566 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+  @page { size: A4; margin: 18mm 16mm; }
+  body { font: 10.5pt/1.45 "Segoe UI", Arial, sans-serif; color: #1d1d1f; }
+  .doc { page-break-after: always; }
+  h1 { font-size: 19pt; border-bottom: 2px solid #c58a2c; padding-bottom: 4px; }
+  h2 { font-size: 14pt; margin-top: 18px; } h3 { font-size: 12pt; }
+  table { border-collapse: collapse; width: 100%; font-size: 8.6pt; margin: 8px 0; page-break-inside: auto; }
+  th, td { border: 1px solid #c9c9c9; padding: 3px 5px; vertical-align: top; text-align: left; }
+  th { background: #f4ead8; } tr { page-break-inside: avoid; }
+  code { font: 8.8pt Consolas, monospace; background: #f3f3f3; padding: 0 2px; }
+  pre { background: #f6f6f6; padding: 8px; font-size: 8pt; white-space: pre-wrap; }
+  blockquote { border-left: 4px solid #c58a2c; margin: 8px 0; padding: 4px 10px; background: #fbf6ec; }
+  figure { page-break-inside: avoid; margin: 10px 0; } img { max-width: 100%; max-height: 210mm; border: 1px solid #ddd; }
+  figcaption { font-size: 8pt; color: #555; } a.repo { color: inherit; text-decoration: none; }
+</style></head><body><section class="doc"><h1>Relatório de Testes e Qualidade de Software</h1>
+<p><strong>Disciplina:</strong> Testes e Qualidade de Software
+<strong>Professora:</strong> Monique Soares
+<strong>Opção escolhida:</strong> <strong>Opção 1 — Practice Software Testing</strong> (<a href="https://practicesoftwaretesting.com">https://practicesoftwaretesting.com</a>)</p>
+<h2>Integrantes</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nome completo</th>
+<th>Matrícula</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>PEDRO HENRIQUE DE ARAÚJO MEDEIROS</td>
+<td>00000853094</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DAVI MAGALHÃES MENDES</td>
+<td>00000852600</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PEDRO MOTA MENDES</td>
+<td>00000852045</td>
+</tr>
+<tr>
+<td>4</td>
+<td>LUIZ HENRIQUE DE MOURA MENEZES MIRANDA CAMELL</td>
+<td>00000852839</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ARTUR LIMA PINTO BACALHAU</td>
+<td>00000852137</td>
+</tr>
+<tr>
+<td>6</td>
+<td>VINÍCIUS NUNES ANANIAS HELCIAS RODRIGUES</td>
+<td>00000853329</td>
+</tr>
+</tbody></table>
+</section>
+<section class="doc"><h1>1. Plano de Testes e Estratégia de V&amp;V</h1>
+<blockquote>
+<p><strong>Eixo 1 — Planejamento e Estratégia (10%)</strong></p>
+<p>Este plano foi construído <strong>depois</strong> da exploração real do sistema (Fase 1, 20/11/2026). Tudo que aparece como funcionalidade foi observado na aplicação ou no contrato OpenAPI — ver <code>evidencias/fase1-exploracao/</code> e <code>evidencias/fase1-api/</code>.</p>
+</blockquote>
+<h2>1.1 Objetivos</h2>
+<ul>
+<li><strong>Verificação</strong> (construímos certo?): o SUT cumpre o <strong>contrato</strong> declarado — OpenAPI &quot;Toolshop API 5.0.0&quot;, regras de validação e códigos HTTP documentados.</li>
+<li><strong>Validação</strong> (construímos a coisa certa?): um cliente consegue <strong>encontrar, escolher e comprar</strong> produtos com dados corretos, e recebe mensagens compreensíveis quando erra.</li>
+<li>Encontrar defeitos nas áreas de maior risco (dinheiro, dados do cliente, autenticação), documentá-los de forma reproduzível e deixar uma <strong>suíte de regressão</strong> executável em CI.</li>
+</ul>
+<h2>1.2 Sistema sob teste</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Valor observado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Aplicação</td>
+<td>Practice Software Testing — &quot;Toolshop&quot; (loja de ferramentas de demonstração)</td>
+</tr>
+<tr>
+<td>Front-end</td>
+<td>Angular 20.0.5 — <a href="https://practicesoftwaretesting.com">https://practicesoftwaretesting.com</a> (rodapé: v2.5, build 2026-10-11)</td>
+</tr>
+<tr>
+<td>API</td>
+<td>REST (Laravel) — <a href="https://api.practicesoftwaretesting.com">https://api.practicesoftwaretesting.com</a>; Swagger em <code>/api/documentation</code>; contrato JSON em <code>/docs?api-docs.json</code> (OpenAPI 3.2, ~90 operações)</td>
+</tr>
+<tr>
+<td>Dados</td>
+<td>Seed público: 50 produtos, 9 por página, 3 categorias raiz e subcategorias, 2 marcas. <strong>Re-semeado periodicamente</strong> (IDs mudam — OBS-06)</td>
+</tr>
+<tr>
+<td>Código-fonte</td>
+<td>Público no GitHub (testsmith-io/practice-software-testing). Usado <strong>somente para leitura</strong> na análise de causa dos defeitos; não executamos nem alteramos o SUT</td>
+</tr>
+</tbody></table>
+<h2>1.3 Escopo</h2>
+<h3>1.3.1 Funcionalidades incluídas (confirmadas na exploração)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Funcionalidade</th>
+<th>Onde testamos</th>
+<th>Por quê</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RF-01</td>
+<td>Listagem e paginação do catálogo</td>
+<td>API + UI</td>
+<td>Porta de entrada do usuário</td>
+</tr>
+<tr>
+<td>RF-02</td>
+<td>Busca por texto</td>
+<td>API + UI</td>
+<td>Alto uso; entrada livre (risco de injeção)</td>
+</tr>
+<tr>
+<td>RF-03</td>
+<td>Filtros (categoria, faixa de preço)</td>
+<td>API + UI</td>
+<td>Lógica de consulta; consistência UI↔API</td>
+</tr>
+<tr>
+<td>RF-04</td>
+<td>Ordenação</td>
+<td>API + UI</td>
+<td>Parâmetro controlado pelo cliente (gerou BUG-001)</td>
+</tr>
+<tr>
+<td>RF-05</td>
+<td>Detalhe de produto / relacionados / estoque</td>
+<td>API + UI</td>
+<td>Dados exibidos devem bater com a fonte</td>
+</tr>
+<tr>
+<td>RF-06</td>
+<td>Carrinho (adicionar, atualizar, remover, persistir)</td>
+<td>API + UI</td>
+<td>Regra de quantidade (RN-01); envolve dinheiro</td>
+</tr>
+<tr>
+<td>RF-07</td>
+<td>Cadastro de cliente</td>
+<td>API + UI</td>
+<td>Dados pessoais; regras RN-02 (idade) e RN-03 (senha)</td>
+</tr>
+<tr>
+<td>RF-08</td>
+<td>Login, sessão (JWT), logout</td>
+<td>API + UI</td>
+<td>Segurança</td>
+</tr>
+<tr>
+<td>RF-09</td>
+<td>Verificação de pagamento</td>
+<td>API</td>
+<td>Controle mais sensível do fluxo</td>
+</tr>
+<tr>
+<td>RF-10</td>
+<td>Checkout completo (4 passos) e fatura</td>
+<td>E2E + API</td>
+<td>Fluxo de negócio principal</td>
+</tr>
+<tr>
+<td>RF-11</td>
+<td>Formulário de contato (validação)</td>
+<td>Manual</td>
+<td>Entrada livre de usuário</td>
+</tr>
+</tbody></table>
+<p>Regras de negócio derivadas (observadas na API/contrato): <strong>RN-01</strong> quantidade inteira 1..99; <strong>RN-02</strong> idade entre 18 e 75 anos; <strong>RN-03</strong> senha ≥ 8 com maiúscula, minúscula, número e símbolo.</p>
+<h3>1.3.2 Funcionalidades excluídas (e por quê)</h3>
+<table>
+<thead>
+<tr>
+<th>Excluído</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Área administrativa (CRUD de produtos/marcas/categorias, gestão de usuários, pedidos e mensagens, relatórios)</td>
+<td>O ambiente é <strong>público e compartilhado</strong>: alterar o catálogo afeta outras pessoas. Exigiria usar a conta admin compartilhada. Ética de teste &gt; cobertura.</td>
+</tr>
+<tr>
+<td>Login social (Google), TOTP/2FA</td>
+<td>Dependem de terceiros/dispositivo; fora do tempo do projeto.</td>
+</tr>
+<tr>
+<td>Testes de carga/estresse</td>
+<td>Proibido na prática: geraria carga em serviço que não é nosso. Fizemos apenas <strong>medição leve de latência</strong> (10 amostras sequenciais por endpoint).</td>
+</tr>
+<tr>
+<td>Testes de segurança invasivos (força bruta, varredura)</td>
+<td>Mesmo motivo. Fizemos apenas entradas maliciosas simples em campos (busca com <code>&#39; OR 1=1 --</code> e <code>&lt;script&gt;</code>).</td>
+</tr>
+<tr>
+<td>Versões alternativas do SUT (<code>with-bugs</code>, sprints anteriores)</td>
+<td>O escopo da disciplina é o sistema escolhido (versão atual).</td>
+</tr>
+<tr>
+<td>Multi-idioma, acessibilidade, compatibilidade entre navegadores</td>
+<td>Prioridade baixa frente ao prazo. Automação usa só Chromium. <strong>Limitação declarada.</strong></td>
+</tr>
+</tbody></table>
+<h2>1.4 Abordagem (estratégia)</h2>
+<ul>
+<li><strong>Baseada em risco:</strong> o esforço segue a matriz da seção 1.5.</li>
+<li><strong>Pirâmide de testes adaptada:</strong> maioria na <strong>API</strong> (rápidos, estáveis, sem navegador), menos na <strong>UI</strong>, poucos <strong>E2E</strong> que cruzam o sistema inteiro. Testes de unidade <strong>não se aplicam</strong>: não temos o código do SUT em execução (ver seção 1.9).</li>
+<li><strong>Caixa-preta + leitura do código-fonte</strong> só para explicar causa de defeito já encontrado (análise de causa raiz), nunca para &quot;adivinhar&quot; testes.</li>
+<li><strong>Técnicas:</strong> particionamento de equivalência, análise de valor-limite, tabela de decisão (pagamento), testes negativos, testes exploratórios com charter, teste de contrato (status + formato), testes de caracterização (fixam o comportamento atual), mocks/stubs na UI, verificação cruzada UI ↔ API.</li>
+<li><strong>Defeitos conhecidos</strong> viram testes que <strong>esperam o comportamento correto</strong> e são marcados com <code>test.fail()</code> — a suíte fica verde, mas avisa quando o defeito for corrigido.</li>
+</ul>
+<h2>1.5 Riscos e priorização</h2>
+<p>Probabilidade (P) e Impacto (I) de 1 a 3; <strong>Risco = P × I</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risco</th>
+<th align="right">P</th>
+<th align="right">I</th>
+<th align="right">Risco</th>
+<th>Prioridade</th>
+<th>Mitigação (testes)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>R1</td>
+<td>Pagamento aprovado indevidamente</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right"><strong>6</strong></td>
+<td>Alta</td>
+<td>API-PAY-*, tabela de decisão → <strong>encontrou BUG-005</strong></td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Pedido gravado com valores/endereço errados</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right"><strong>6</strong></td>
+<td>Alta</td>
+<td>E2E-01 com verificação da fatura via API → <strong>encontrou BUG-007</strong></td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Regras do carrinho burladas (quantidade/estoque)</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right"><strong>6</strong></td>
+<td>Alta</td>
+<td>API-CART-* (BVA) → <strong>BUG-002, BUG-003</strong></td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Validação só no front-end (API aceita dado inválido)</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right"><strong>6</strong></td>
+<td>Alta</td>
+<td>Mesmos dados inválidos na UI e na API → <strong>BUG-003, BUG-004, OBS-03</strong></td>
+</tr>
+<tr>
+<td>R5</td>
+<td>Acesso a dados de outro usuário / sessão inválida aceita</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td>Média</td>
+<td>API-AUTH-06..09 (token) e API-AUTHZ-* (cliente A × cliente B) → <strong>encontrou BUG-008</strong></td>
+</tr>
+<tr>
+<td>R6</td>
+<td>Cadastro aceita dados fora da regra (idade, senha)</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td>Média</td>
+<td>API-AUTH-04/05 (partições + limites) → <strong>BUG-006</strong></td>
+</tr>
+<tr>
+<td>R7</td>
+<td>Catálogo exibe dados divergentes da fonte</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td>Baixa</td>
+<td>UI-CAT-05/07 (UI × API)</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>Erros não tratados (500)</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td>Baixa</td>
+<td>Testes negativos → <strong>BUG-001</strong></td>
+</tr>
+<tr>
+<td>R9</td>
+<td><strong>Risco de projeto:</strong> ambiente instável/lento ou re-semeado</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td>Alta</td>
+<td>Timeouts calibrados por medição; 1 retry contabilizado; IDs resolvidos em tempo de execução (doc 05, S-01)</td>
+</tr>
+</tbody></table>
+<h2>1.6 Critérios de entrada</h2>
+<ol>
+<li>SUT acessível (UI e API respondem 200 na home e em <code>/products</code>).</li>
+<li>Contrato OpenAPI disponível para consulta.</li>
+<li>Ambiente de automação instalado (<code>npm ci</code> + <code>npx playwright install chromium</code>) e <code>npm run typecheck</code> sem erros.</li>
+<li>Dados de referência do seed presentes (a fixture <code>catalog</code> falha cedo e com mensagem clara se um produto de referência sumir).</li>
+</ol>
+<h2>1.7 Critérios de saída</h2>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>Meta</th>
+<th>Como medir</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Casos de teste de prioridade Alta executados</td>
+<td>100%</td>
+<td>Docs 02 e 04</td>
+</tr>
+<tr>
+<td>Falhas <strong>inesperadas</strong> na regressão automatizada</td>
+<td>0</td>
+<td><code>reports/summary.md</code></td>
+</tr>
+<tr>
+<td>Testes instáveis (flaky)</td>
+<td>≤ 5% das execuções</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>Defeitos encontrados</td>
+<td>100% com relatório, evidência e teste associado</td>
+<td>Doc 06</td>
+</tr>
+<tr>
+<td>Cobertura de operações da API em escopo</td>
+<td>≥ 60%</td>
+<td><code>reports/endpoint-coverage.md</code> (gate do CI)</td>
+</tr>
+<tr>
+<td>Riscos com nota ≥ 6</td>
+<td>100% com ao menos 1 teste</td>
+<td>Seção 1.5</td>
+</tr>
+<tr>
+<td>Pipeline de CI</td>
+<td>Executa sozinho e publica relatórios</td>
+<td>Doc 07</td>
+</tr>
+</tbody></table>
+<h2>1.8 Ambiente e dados de teste</h2>
+<p><strong>Ambiente:</strong> produção pública do SUT (não há homologação disponível). Cliente: Windows 11 / Node 24 (local) e Ubuntu / Node 22 (CI); Playwright 1.65.1 com Chromium; TypeScript 5.9.</p>
+<p><strong>Estratégia de dados:</strong></p>
+<ul>
+<li><strong>Usuários:</strong> criados <strong>na hora</strong>, via API, por teste (fixture <code>registeredUser</code>), com e-mail único <code>qa.tqs.&lt;id&gt;@example.com</code> — o domínio <code>example.com</code> é reservado (RFC 2606), então nenhum e-mail real é atingido. Não usamos as contas de demonstração compartilhadas, para não depender do estado que outras pessoas deixam.</li>
+<li><strong>Senhas:</strong> geradas por execução; nunca há credencial real no repositório.</li>
+<li><strong>Carrinhos:</strong> um carrinho novo por teste, apagado no <em>teardown</em> (fixture <code>cartId</code>).</li>
+<li><strong>Catálogo:</strong> referenciado por <strong>nome</strong> (estável); o ID atual é resolvido em tempo de execução (fixture <code>catalog</code>) — necessário porque o ambiente é re-semeado.</li>
+<li><strong>Dados extremos/impossíveis</strong> (catálogo vazio, API fora do ar, preço 1234,50): produzidos com <strong>stubs</strong> (<code>page.route</code>) sem tocar no ambiente real.</li>
+<li><strong>Limitação:</strong> contas criadas não podem ser apagadas pelo cliente (<code>DELETE /users/{id}</code> exige admin). O re-seed periódico do ambiente acaba limpando-as.</li>
+</ul>
+<h2>1.9 Tipos de teste e justificativa das escolhas técnicas</h2>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Aplicado?</th>
+<th>Ferramenta</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Unidade</td>
+<td><strong>Não</strong></td>
+<td>—</td>
+<td>Não temos o SUT rodando localmente; testar unidades do código dele seria testar código que não executamos. Poderia ser feito subindo o SUT via Docker (o repositório oferece) — registrado como trabalho futuro.</td>
+</tr>
+<tr>
+<td>API / contrato</td>
+<td>Sim</td>
+<td>Playwright <code>request</code></td>
+<td>Maior parte dos riscos está nas regras do servidor; testes rápidos e determinísticos.</td>
+</tr>
+<tr>
+<td>UI / componente</td>
+<td>Sim</td>
+<td>Playwright + Chromium</td>
+<td>Validação de front-end, renderização, consistência com a API.</td>
+</tr>
+<tr>
+<td>Integração</td>
+<td>Sim</td>
+<td>Playwright</td>
+<td>UI ↔ API (UI-CAT-05/07) e E2E com verificação da fatura no back-end.</td>
+</tr>
+<tr>
+<td>E2E</td>
+<td>Sim</td>
+<td>Playwright</td>
+<td>Fluxo de compra completo (RF-10).</td>
+</tr>
+<tr>
+<td>Regressão</td>
+<td>Sim</td>
+<td>tag <code>@regression</code> + CI diário</td>
+<td>SUT externo muda sem aviso.</td>
+</tr>
+<tr>
+<td>Manual / exploratório</td>
+<td>Sim</td>
+<td>Navegador + scripts de apoio</td>
+<td>Encontra o que não sabemos que procurar (BUG-007 surgiu assim).</td>
+</tr>
+<tr>
+<td>Mocks/stubs</td>
+<td>Sim</td>
+<td><code>page.route</code></td>
+<td>Cenários impossíveis de reproduzir com segurança no ambiente real.</td>
+</tr>
+<tr>
+<td>Desempenho</td>
+<td>Só medição leve</td>
+<td><code>scripts/measure-latency.mjs</code></td>
+<td>Calibrar timeouts; não é teste de carga.</td>
+</tr>
+</tbody></table>
+<h3>1.9.1 Justificativa das ferramentas e tecnologias</h3>
+<p>A escolha das ferramentas considerou os tipos de teste necessários, a facilidade de manutenção e a integração com o pipeline de CI.</p>
+<p><strong>Playwright:</strong> escolhido por permitir testes de API, interface e E2E utilizando a mesma ferramenta. Isso facilita o compartilhamento de recursos, reduz a necessidade de ferramentas adicionais e oferece mecanismos de espera automática, assertions com retentativas e captura de evidências. Selenium, Cypress e Postman também são alternativas válidas, mas o Playwright atende melhor à necessidade de centralizar os diferentes tipos de teste.</p>
+<p><strong>TypeScript:</strong> utilizado para estruturar a suíte e implementar recursos reutilizáveis. A tipagem ajuda a identificar inconsistências durante o desenvolvimento e facilita a manutenção de fixtures, clientes de API e Page Objects.</p>
+<p><strong>Chromium:</strong> definido como navegador de referência para padronizar a execução dos testes. Essa escolha, entretanto, limita a validação de compatibilidade a esse navegador.</p>
+<p><strong>ESLint:</strong> utilizado para identificar problemas de padronização e práticas inadequadas, mantendo a consistência do código.</p>
+<p><strong>jscpd:</strong> utilizado para identificar duplicações e reduzir redundâncias, facilitando futuras alterações.</p>
+<p><strong>GitHub Actions:</strong> responsável por automatizar a execução dos testes e da regressão, permitindo acompanhar resultados e gerar relatórios. Como o SUT é externo, as execuções também dependem da disponibilidade do serviço e de mecanismos de proteção, como o Cloudflare.</p>
+<p>As ferramentas foram escolhidas de acordo com as necessidades do projeto. A solução busca integrar automação, análise de qualidade e execução contínua sem adicionar tecnologias desnecessárias.</p>
+<h3>1.9.2 Justificativa dos critérios de prioridade</h3>
+<p>A prioridade indica a urgência de correção do defeito, considerando o risco e o impacto no fluxo afetado.</p>
+<ul>
+<li><strong>P1 — Urgente:</strong> exige correção imediata devido ao risco relevante.</li>
+<li><strong>P2 — Alta:</strong> afeta regras de negócio, dados ou funcionalidades importantes.</li>
+<li><strong>P3 — Baixa:</strong> possui impacto mais limitado e menor exposição.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Defeito</th>
+<th>Prioridade</th>
+<th>Justificativa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BUG-001</td>
+<td>P3</td>
+<td>Parâmetro de ordenação inválido não compromete o fluxo principal.</td>
+</tr>
+<tr>
+<td>BUG-002</td>
+<td>P2</td>
+<td>Permite ultrapassar o limite de quantidade no carrinho, violando uma regra comercial.</td>
+</tr>
+<tr>
+<td>BUG-003</td>
+<td>P2</td>
+<td>Permite adicionar produtos sem estoque pela API.</td>
+</tr>
+<tr>
+<td>BUG-004</td>
+<td>P2</td>
+<td>Permite persistir e-mail inválido no cadastro.</td>
+</tr>
+<tr>
+<td>BUG-005</td>
+<td>P1</td>
+<td>Aprova método de pagamento desconhecido, exigindo correção urgente.</td>
+</tr>
+<tr>
+<td>BUG-006</td>
+<td>P3</td>
+<td>Ultrapassa o limite de idade em um cenário específico de menor exposição.</td>
+</tr>
+<tr>
+<td>BUG-007</td>
+<td>P2</td>
+<td>Pode persistir endereço incorreto na fatura.</td>
+</tr>
+<tr>
+<td>BUG-008</td>
+<td>P2</td>
+<td>Permite acessar favoritos de outro usuário, violando a autorização.</td>
+</tr>
+<tr>
+<td>BUG-009</td>
+<td>P3</td>
+<td>Retorna endereços inconsistentes para CEPs equivalentes, com impacto mais limitado.</td>
+</tr>
+</tbody></table>
+<p>A prioridade considera a urgência e o risco de correção, não apenas a existência do defeito.</p>
+</section>
+<section class="doc"><h1>2. Casos de Teste Manuais</h1>
+<blockquote>
+<p><strong>Eixo 2 — Testes Manuais e Exploratórios (15%)</strong> — parte 1 de 2 (sessões exploratórias no doc 03).</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p><strong>Status honesto da execução:</strong></p>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>&quot;Executado (exploração assistida)&quot;</strong> = os passos foram percorridos em 20/11/2026 por scripts de exploração (Playwright controlando o navegador), com prints reais salvos. Não foi uma pessoa clicando.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>&quot;Não executado&quot;</strong> = caso especificado, aguardando execução manual.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>&quot;Executado manualmente&quot;</strong> = integrante realizou os passos no navegador, registrou o resultado observado e registrou as evidências correspondentes.</li>
+</ul>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p><strong>Evidências da execução manual:</strong> <code>evidencias/minha-execucao/manuais/MT-XX-&lt;nome&gt;.png</code>.</p>
+</blockquote>
+<p><strong>Prioridade:</strong> Alta = cobre risco ≥ 6 da matriz (doc 01, 1.5) · Média = risco 3–5 · Baixa = risco ≤ 2.</p>
+<p><strong>Técnicas:</strong> POS = cenário positivo · NEG = negativo · BVA = valor-limite · PE = particionamento de equivalência · ALT = fluxo alternativo · EXC = exceção.</p>
+<h2>Resumo</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Técnica</th>
+<th>Prioridade</th>
+<th>Status</th>
+<th>Automação correspondente</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MT-01</td>
+<td>Comprar como cliente autenticado (fluxo principal)</td>
+<td>POS</td>
+<td>Alta</td>
+<td>Exploração assistida: passou; reexecução manual: passou (23/11/2026)</td>
+<td>E2E-01</td>
+</tr>
+<tr>
+<td>MT-02</td>
+<td>Checkout como visitante não autenticado</td>
+<td>ALT</td>
+<td>Alta</td>
+<td>Exploração assistida: passou; reexecução manual: passou (23/11/2026)</td>
+<td>E2E-02</td>
+</tr>
+<tr>
+<td>MT-03</td>
+<td>Endereço digitado preservado após busca de CEP</td>
+<td>EXC</td>
+<td>Alta</td>
+<td>Exploração assistida: falhou (BUG-007); verificação manual parcial: sem reprodução (23/11/2026)</td>
+<td>UI-CHK-02</td>
+</tr>
+<tr>
+<td>MT-04</td>
+<td>Produto sem estoque não pode ir ao carrinho</td>
+<td>NEG</td>
+<td>Alta</td>
+<td>Executado (exploração assistida)</td>
+<td>UI-CAT-08 / API-CART-09</td>
+</tr>
+<tr>
+<td>MT-05</td>
+<td>Quantidade no carrinho: limites 0, 1, 99, 100</td>
+<td>BVA</td>
+<td>Alta</td>
+<td>Não executado (UI)</td>
+<td>API-CART-02</td>
+</tr>
+<tr>
+<td>MT-06</td>
+<td>Login com credenciais válidas</td>
+<td>POS</td>
+<td>Alta</td>
+<td>Executado (exploração assistida)</td>
+<td>UI-AUTH-01</td>
+</tr>
+<tr>
+<td>MT-07</td>
+<td>Login com senha errada e com e-mail inexistente</td>
+<td>NEG</td>
+<td>Média</td>
+<td>Executado (exploração assistida)</td>
+<td>UI-AUTH-02/03</td>
+</tr>
+<tr>
+<td>MT-08</td>
+<td>Cadastro com campos obrigatórios vazios</td>
+<td>NEG</td>
+<td>Média</td>
+<td>Executado (exploração assistida)</td>
+<td>UI-AUTH-04</td>
+</tr>
+<tr>
+<td>MT-09</td>
+<td>Cadastro com e-mail em formato inválido</td>
+<td>NEG/PE</td>
+<td>Média</td>
+<td>Executado (exploração assistida)</td>
+<td>UI-AUTH-05 / API-AUTH-10</td>
+</tr>
+<tr>
+<td>MT-10</td>
+<td>Cadastro: idade nos limites (17a364d, 18a1d, 75a, 75a1d)</td>
+<td>BVA</td>
+<td>Média</td>
+<td>Não executado (UI)</td>
+<td>API-AUTH-05/05b</td>
+</tr>
+<tr>
+<td>MT-11</td>
+<td>Cadastro: regras de senha (UI × API)</td>
+<td>PE</td>
+<td>Média</td>
+<td>Não executado</td>
+<td>API-AUTH-04</td>
+</tr>
+<tr>
+<td>MT-12</td>
+<td>Busca por termo existente e inexistente</td>
+<td>POS/NEG</td>
+<td>Baixa</td>
+<td>Executado manualmente — Passou (23/11/2026)</td>
+<td>UI-CAT-02/03</td>
+</tr>
+<tr>
+<td>MT-13</td>
+<td>Filtro por categoria + ordenação por preço</td>
+<td>POS</td>
+<td>Baixa</td>
+<td>Executado manualmente — Passou (23/11/2026)</td>
+<td>UI-CAT-04/05</td>
+</tr>
+<tr>
+<td>MT-14</td>
+<td>Formulário de contato: validações</td>
+<td>NEG</td>
+<td>Baixa</td>
+<td>Não executado</td>
+<td>— (só manual)</td>
+</tr>
+<tr>
+<td>MT-15</td>
+<td>Carrinho persiste após recarregar a página</td>
+<td>ALT</td>
+<td>Baixa</td>
+<td>Executado manualmente — Passou (23/11/2026)</td>
+<td>UI-CART-05</td>
+</tr>
+</tbody></table>
+<hr>
+<h3>MT-01 — Comprar como cliente autenticado (fluxo principal)</h3>
+<ul>
+<li><p><strong>Objetivo:</strong> validar que um cliente consegue comprar e que o pedido é registrado com os dados informados.</p>
+</li>
+<li><p><strong>Pré-condições:</strong> conta de cliente criada (cadastro próprio, com e-mail <code>@example.com</code>); carrinho vazio.</p>
+</li>
+<li><p><strong>Dados:</strong> produto &quot;Combination Pliers&quot;, quantidade 1; país Brasil, CEP 59000-000, nº 100; pagamento &quot;Cash on Delivery&quot;.</p>
+</li>
+<li><p><strong>Passos:</strong> 1) Entrar em <strong>Sign in</strong> e autenticar. 2) Abrir o produto e clicar <strong>Add to cart</strong>. 3) Abrir o carrinho (ícone) → <strong>Proceed to checkout</strong>. 4) No passo 2, <strong>Proceed to checkout</strong>. 5) Preencher o endereço → <strong>Proceed to checkout</strong>. 6) Escolher &quot;Cash on Delivery&quot; → <strong>Confirm</strong>. 7) Clicar <strong>Confirm</strong> novamente.</p>
+</li>
+<li><p><strong>Resultado esperado:</strong> mensagem &quot;Payment was successful&quot;; depois &quot;Thanks for your order! Your invoice number is INV-…&quot;; a fatura aparece em <strong>My invoices</strong> com o endereço digitado.</p>
+</li>
+<li><p><strong>Resultado obtido:</strong> pedido concluído, fatura <code>INV-2026000005</code> exibida. (O endereço da fatura não foi conferido nesta execução — ver MT-03.)</p>
+</li>
+<li><p><strong>Status:</strong> Executado (exploração assistida) — <strong>Passou</strong>.</p>
+</li>
+<li><p><strong>Evidências:</strong> <code>evidencias/fase1-exploracao/checkout-step3-endereco.png</code>, <code>checkout-step4-pagamento-ok.png</code>, <code>checkout-confirmacao.png</code>.</p>
+</li>
+<li><p><strong>Prioridade:</strong> Alta · <strong>Executado por/em:</strong> script <code>scripts/explore-flows.mjs</code>, 20/11/2026 · Reexecução manual: Artur Lima Pinto Bacalhau, 23/11/2026.</p>
+</li>
+</ul>
+<p><strong>Reexecução manual — 23/11/2026</strong></p>
+<ul>
+<li><strong>Executado por:</strong> Artur Lima Pinto Bacalhau.</li>
+<li><strong>Resultado obtido:</strong> Foi realizado o login com uma conta de teste, adicionada uma unidade de Combination Pliers ao carrinho e concluído o checkout com Cash on Delivery. O pedido foi confirmado e a fatura apareceu em My invoices com os dados corretos.</li>
+<li><strong>Status da reexecução manual:</strong> <strong>Passou</strong>.</li>
+<li><strong>Observações:</strong> Nenhuma.</li>
+<li><strong>Evidências:</strong><ul>
+<li><code>evidencias/minha-execucao/manuais/MT-01-carrinho.png</code></li>
+<li><code>evidencias/minha-execucao/manuais/MT-01-checkout-endereco.png</code></li>
+<li><code>evidencias/minha-execucao/manuais/MT-01-pagamento.png</code></li>
+<li><code>evidencias/minha-execucao/manuais/MT-01-pedido-confirmado.png</code></li>
+<li><code>evidencias/minha-execucao/manuais/MT-01-fatura.png</code></li>
+</ul>
+</li>
+</ul>
+<h3>MT-02 — Checkout como visitante não autenticado</h3>
+<ul>
+<li><p><strong>Objetivo:</strong> fluxo alternativo — visitante deve ser levado a se identificar no passo 2.</p>
+</li>
+<li><p><strong>Pré-condições:</strong> sessão sem login.</p>
+</li>
+<li><p><strong>Passos:</strong> 1) Adicionar um produto ao carrinho. 2) Abrir o carrinho → <strong>Proceed to checkout</strong>.</p>
+</li>
+<li><p><strong>Esperado:</strong> passo 2 mostra formulário de login (e opção de compra como convidado, se existir).</p>
+</li>
+<li><p><strong>Obtido:</strong> passo 2 exibiu os campos de login (<code>email</code>, <code>password</code>, <code>login-submit</code>) e campos de convidado (<code>guest-email</code>, <code>guest-first-name</code>, <code>guest-last-name</code>).</p>
+</li>
+<li><p><strong>Status:</strong> Executado (exploração assistida) — <strong>Passou</strong>.</p>
+</li>
+<li><p><strong>Evidências:</strong> <code>evidencias/fase1-exploracao/checkout-step2-signin.png</code>, <code>checkout-step2-guest.png</code>.</p>
+</li>
+<li><p><strong>Prioridade:</strong> Alta · Reexecução manual: Artur Lima Pinto Bacalhau, 23/11/2026.</p>
+</li>
+</ul>
+<p><strong>Reexecução manual — 23/11/2026</strong></p>
+<ul>
+<li><strong>Executado por:</strong> Artur Lima Pinto Bacalhau.</li>
+<li><strong>Resultado obtido:</strong> Sem autenticação, após adicionar um produto e avançar no checkout, o sistema exibiu a etapa 2 (Sign In), com as opções Sign in e Continue as Guest. O formulário de convidado apresentava campos de e-mail, nome e sobrenome.</li>
+<li><strong>Status da reexecução manual:</strong> <strong>Passou</strong>.</li>
+<li><strong>Observações:</strong> Não foi necessário concluir o pedido.</li>
+<li><strong>Evidências:</strong><ul>
+<li><code>evidencias/minha-execucao/manuais/MT-02-checkout-convidado.png</code></li>
+<li><code>evidencias/minha-execucao/manuais/MT-02-checkout-login.png</code></li>
+</ul>
+</li>
+</ul>
+<h3>MT-03 — Endereço digitado preservado após a busca automática de CEP</h3>
+<ul>
+<li><p><strong>Objetivo:</strong> caso de exceção — dados digitados pelo usuário não podem ser alterados sem ação dele.</p>
+</li>
+<li><p><strong>Pré-condições:</strong> logado, 1 item no carrinho, no passo 3 (<strong>Billing Address</strong>).</p>
+</li>
+<li><p><strong>Dados:</strong> país Brasil; CEP 59000-000; nº 100; rua &quot;Rua das Flores&quot;; cidade &quot;Natal&quot;; estado &quot;RN&quot;.</p>
+</li>
+<li><p><strong>Passos:</strong> 1) Selecionar o país. 2) Digitar CEP e número. 3) <strong>Logo em seguida</strong> digitar rua, cidade e estado. 4) Aguardar ~5 s sem tocar no formulário. 5) Observar os campos.</p>
+</li>
+<li><p><strong>Esperado:</strong> rua/cidade/estado continuam como digitados.</p>
+</li>
+<li><p><strong>Obtido:</strong> em 3 de 3 execuções os campos mudaram sozinhos — 2× substituídos por &quot;R. Horácio / Carmona d&#39;Oeste / Santa Catarina&quot;, 1× apagados.</p>
+</li>
+<li><p><strong>Status:</strong> <strong>Falhou</strong> → <strong>BUG-007</strong>.</p>
+</li>
+<li><p><strong>Evidências:</strong> <code>evidencias/fase3-exploratorios/SE-04-cep-console.log</code>, <code>SE-04-cep-execucao-1.png</code> … <code>-3.png</code>.</p>
+</li>
+<li><p><strong>Prioridade:</strong> Alta · Verificação manual: Artur Lima Pinto Bacalhau, 23/11/2026.</p>
+</li>
+</ul>
+<p><strong>Verificação manual — 23/11/2026</strong></p>
+<ul>
+<li><strong>Executado por:</strong> Artur Lima Pinto Bacalhau.</li>
+<li><strong>Procedimento efetivamente realizado:</strong> Após o CEP <code>59000-000</code> e o número <code>100</code> acionarem o preenchimento automático (R. Horácio / Carmona d&#39;Oeste / Santa Catarina), os campos foram alterados para Rua das Flores, Natal e RN. Após aguardar, os valores informados manualmente foram preservados.</li>
+<li><strong>Resultado observado:</strong> Os campos permaneceram com os valores digitados após a edição manual.</li>
+<li><strong>Status da verificação:</strong> <strong>Passou no cenário observado; execução parcial do MT-03 original</strong>.</li>
+<li><strong>Limitação:</strong> O documento original exige digitar rua, cidade e estado <em>logo em seguida</em> ao CEP, antes de a consulta possivelmente terminar. Essa condição de concorrência não foi comprovadamente exercitada; portanto, a tentativa não invalida o BUG-007 observado na exploração assistida.</li>
+<li><strong>Evidências:</strong><ul>
+<li><code>evidencias/minha-execucao/manuais/MT-03-endereco-antes.png</code></li>
+<li><code>evidencias/minha-execucao/manuais/MT-03-endereco-depois.png</code></li>
+<li><code>evidencias/minha-execucao/manuais/MT-03-preenchimento-automatico.png</code></li>
+</ul>
+</li>
+</ul>
+<h3>MT-04 — Produto sem estoque não pode ser adicionado ao carrinho</h3>
+<ul>
+<li><p><strong>Pré-condições:</strong> produto marcado &quot;Out of stock&quot; (no seed: &quot;Long Nose Pliers&quot;).</p>
+</li>
+<li><p><strong>Passos:</strong> abrir a página do produto.</p>
+</li>
+<li><p><strong>Esperado:</strong> aviso &quot;Out of stock&quot; e botão <strong>Add to cart</strong> desabilitado.</p>
+</li>
+<li><p><strong>Obtido:</strong> aviso exibido e botão desabilitado. Atenção: pela <strong>API</strong> o mesmo produto é aceito (BUG-003) — a regra existe só no front-end.</p>
+</li>
+<li><p><strong>Status:</strong> Executado (exploração assistida) — <strong>Passou</strong> (UI).</p>
+</li>
+<li><p><strong>Evidências:</strong> <code>evidencias/fase1-exploracao/produto-sem-estoque.png</code>; <code>evidencias/fase1-api/sondagem-api.log</code>.</p>
+</li>
+<li><p><strong>Prioridade:</strong> Alta</p>
+</li>
+</ul>
+<h3>MT-05 — Quantidade no carrinho: valores-limite</h3>
+<ul>
+<li><p><strong>Objetivo:</strong> RN-01 (1..99) pela interface.</p>
+</li>
+<li><p><strong>Dados (BVA):</strong> 0, 1, 99, 100; e também: digitar &quot;abc&quot; e &quot;-1&quot;.</p>
+</li>
+<li><p><strong>Passos:</strong> na página do produto, digitar a quantidade e clicar <strong>Add to cart</strong>; repetir no carrinho alterando a quantidade.</p>
+</li>
+<li><p><strong>Esperado:</strong> 1 e 99 aceitos; 0, 100, -1 e texto rejeitados com mensagem clara.</p>
+</li>
+<li><p><strong>Obtido:</strong> — · <strong>Status:</strong> Não executado · <strong>Prioridade:</strong> Alta</p>
+</li>
+<li><p><strong>Dica:</strong> pela API os limites estão corretos (API-CART-02 passa). Descubram se a <strong>UI</strong> se comporta igual — e tentem também adicionar 60 + 60 (BUG-002).</p>
+</li>
+</ul>
+<h3>MT-06 — Login com credenciais válidas</h3>
+<ul>
+<li><p><strong>Pré-condições:</strong> conta criada.</p>
+</li>
+<li><p><strong>Passos:</strong> <strong>Sign in</strong> → e-mail e senha → <strong>Login</strong>.</p>
+</li>
+<li><p><strong>Esperado:</strong> redireciona para <strong>My account</strong> e mostra o nome do cliente no menu.</p>
+</li>
+<li><p><strong>Obtido:</strong> URL <code>/account</code>, título &quot;My account&quot;, menu com o nome do cliente.</p>
+</li>
+<li><p><strong>Status:</strong> Executado (exploração assistida) — <strong>Passou</strong> · <strong>Evidência:</strong> <code>evidencias/fase1-exploracao/conta-apos-login.png</code> · <strong>Prioridade:</strong> Alta</p>
+</li>
+</ul>
+<h3>MT-07 — Login com senha errada e com e-mail inexistente</h3>
+<ul>
+<li><p><strong>Objetivo:</strong> a mensagem não pode revelar se o e-mail existe (evita enumeração de usuários).</p>
+</li>
+<li><p><strong>Passos:</strong> (a) e-mail existente + senha errada; (b) e-mail inexistente + qualquer senha.</p>
+</li>
+<li><p><strong>Esperado:</strong> a <strong>mesma</strong> mensagem genérica nos dois casos.</p>
+</li>
+<li><p><strong>Obtido:</strong> &quot;Invalid email or password&quot; nos dois casos (API retorna 401 <code>{&quot;error&quot;:&quot;Unauthorized&quot;}</code> nos dois).</p>
+</li>
+<li><p><strong>Status:</strong> Executado (exploração assistida) — <strong>Passou</strong> · <strong>Evidência:</strong> <code>evidencias/fase3-exploratorios/login-email-inexistente.log</code> · <strong>Prioridade:</strong> Média</p>
+</li>
+</ul>
+<h3>MT-08 — Cadastro com campos obrigatórios vazios</h3>
+<ul>
+<li><p><strong>Passos:</strong> <strong>Register your account</strong> → informar só o e-mail → <strong>Register</strong>.</p>
+</li>
+<li><p><strong>Esperado:</strong> uma mensagem por campo obrigatório, sem enviar o formulário.</p>
+</li>
+<li><p><strong>Obtido:</strong> mensagens para nome, sobrenome, data de nascimento, país, CEP, número, rua, cidade, estado, telefone e senha.</p>
+</li>
+<li><p><strong>Status:</strong> Executado (exploração assistida) — <strong>Passou</strong> · <strong>Evidência:</strong> <code>evidencias/fase1-exploracao/cadastro-email-invalido-ui.png</code> · <strong>Prioridade:</strong> Média</p>
+</li>
+</ul>
+<h3>MT-09 — Cadastro com e-mail em formato inválido</h3>
+<ul>
+<li><p><strong>Dados (PE — classe inválida):</strong> <code>nao-e-email</code>.</p>
+</li>
+<li><p><strong>Esperado:</strong> rejeição com mensagem de formato.</p>
+</li>
+<li><p><strong>Obtido (UI):</strong> &quot;Email format is invalid&quot;. <strong>Obtido (API, mesmo dado):</strong> 201 Created → BUG-004.</p>
+</li>
+<li><p><strong>Status:</strong> Executado (exploração assistida) — <strong>Passou na UI / Falhou na API</strong> · <strong>Evidência:</strong> print acima + <code>evidencias/fase1-api/sondagem-api.log</code> · <strong>Prioridade:</strong> Média</p>
+</li>
+</ul>
+<h3>MT-10 — Cadastro: idade nos limites</h3>
+<ul>
+<li><p><strong>Dados (BVA, calcular a partir da data de hoje):</strong> 17 anos e 364 dias; 18 anos e 1 dia; 75 anos menos 1 dia; 75 anos e 1 dia.</p>
+</li>
+<li><p><strong>Esperado:</strong> só os dois do meio aceitos.</p>
+</li>
+<li><p><strong>Obtido:</strong> — · <strong>Status:</strong> Não executado (UI). Pela API, &quot;75 anos e 1 dia&quot; foi aceito → BUG-006; falta verificar se a UI tem a mesma falha. · <strong>Prioridade:</strong> Média</p>
+</li>
+</ul>
+<h3>MT-11 — Cadastro: regras de senha, UI × API</h3>
+<ul>
+<li><p><strong>Dados (PE — uma regra violada por vez):</strong> <code>Ab1!xyz</code> (7 caracteres), <code>abcdefg1!</code> (sem maiúscula), <code>ABCDEFG1!</code> (sem minúscula), <code>Abcdefgh!</code> (sem número), <code>Abcdefgh1</code> (sem símbolo).</p>
+</li>
+<li><p><strong>Esperado:</strong> a UI deve aplicar a <strong>mesma</strong> regra da API (≥ 8, maiúscula, minúscula, número, símbolo).</p>
+</li>
+<li><p><strong>Obtido:</strong> — · <strong>Status:</strong> Não executado. Na exploração a UI mostrou &quot;Password must be minimal 6 characters long.&quot; enquanto a API exige 8 (OBS-03); falta confirmar o que acontece com <code>Ab1!xyz</code>. · <strong>Prioridade:</strong> Média</p>
+</li>
+</ul>
+<h3>MT-12 — Busca por termo existente e inexistente</h3>
+<ul>
+<li><p><strong>Dados:</strong> <code>thor hammer</code> (busca existente efetivamente utilizada), <code>zzzzzz</code> (sem correspondência) e <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> (entrada especial).</p>
+</li>
+<li><p><strong>Esperado:</strong> exibir o produto Thor Hammer; informar ausência de resultados para <code>zzzzzz</code>; tratar a entrada especial como texto, sem executar JavaScript.</p>
+</li>
+<li><p><strong>Obtido:</strong> a pesquisa por <code>thor hammer</code> retornou o produto Thor Hammer. A busca por <code>zzzzzz</code> não encontrou produtos. No terceiro cenário, não foi observada execução de JavaScript. Os três cenários passaram na execução manual.</p>
+</li>
+<li><p><strong>Status:</strong> Executado manualmente — <strong>Passou (3/3 cenários)</strong>.</p>
+</li>
+<li><p><strong>Executado por/em:</strong> Artur Lima Pinto Bacalhau — 23/11/2026.</p>
+</li>
+<li><p><strong>Evidências:</strong></p>
+<ul>
+<li><p><code>evidencias/minha-execucao/manuais/MT-12-busca-existente.png</code></p>
+</li>
+<li><p><code>evidencias/minha-execucao/manuais/MT-12-busca-inexistente.png</code></p>
+</li>
+<li><p><code>evidencias/minha-execucao/manuais/MT-12-entrada-especial.png</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Prioridade:</strong> Baixa.</p>
+</li>
+<li><p><strong>Observação:</strong> A entrada especial não executou JavaScript durante a pesquisa.</p>
+</li>
+</ul>
+<h3>MT-13 — Filtro por categoria + ordenação por preço</h3>
+<ul>
+<li><p><strong>Passos:</strong> marcar a categoria &quot;Pliers&quot; e ordenar por &quot;Price (Low - High)&quot;.</p>
+</li>
+<li><p><strong>Esperado:</strong> somente alicates, em ordem crescente de preço.</p>
+</li>
+<li><p><strong>Obtido:</strong> com o filtro &quot;Pliers&quot; ativo, a listagem exibiu apenas alicates. Ao selecionar &quot;Price (Low - High)&quot;, os preços apareceram do menor para o maior, conforme a verificação manual.</p>
+</li>
+<li><p><strong>Status:</strong> Executado manualmente — <strong>Passou (2/2 verificações)</strong>.</p>
+</li>
+<li><p><strong>Executado por/em:</strong> Artur Lima Pinto Bacalhau — 23/11/2026.</p>
+</li>
+<li><p><strong>Evidências:</strong></p>
+<ul>
+<li><p><code>evidencias/minha-execucao/manuais/MT-13-filtro-pliers.png</code></p>
+</li>
+<li><p><code>evidencias/minha-execucao/manuais/MT-13-ordenacao-crescente.png</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Prioridade:</strong> Baixa.</p>
+</li>
+<li><p><strong>Observações:</strong> Nenhuma.</p>
+</li>
+</ul>
+<h3>MT-14 — Formulário de contato: validações</h3>
+<ul>
+<li><p><strong>Passos:</strong> <strong>Contact</strong> → enviar vazio; depois mensagem muito curta; depois e-mail inválido. <strong>Não enviar mensagem válida</strong> (o ambiente é compartilhado).</p>
+</li>
+<li><p><strong>Esperado:</strong> mensagens de validação por campo; contrato da API: <code>subject</code> e <code>message</code> obrigatórios, <code>message</code> até 250 caracteres.</p>
+</li>
+<li><p><strong>Obtido:</strong> — · <strong>Status:</strong> Não executado · <strong>Prioridade:</strong> Baixa</p>
+</li>
+</ul>
+<h3>MT-15 — Carrinho persiste após recarregar a página</h3>
+<ul>
+<li><p><strong>Passos:</strong> adicionar 1 item ao carrinho; apertar F5.</p>
+</li>
+<li><p><strong>Esperado:</strong> contador do carrinho continua em 1.</p>
+</li>
+<li><p><strong>Obtido:</strong> após adicionar uma unidade ao carrinho e recarregar a página com F5, o contador permaneceu indicando 1 item, após a atualização da página.</p>
+</li>
+<li><p><strong>Status:</strong> Executado manualmente — <strong>Passou</strong>.</p>
+</li>
+<li><p><strong>Executado por/em:</strong> Artur Lima Pinto Bacalhau — 23/11/2026.</p>
+</li>
+<li><p><strong>Evidências:</strong></p>
+<ul>
+<li><p><code>evidencias/minha-execucao/manuais/MT-15-carrinho-antes-f5.png</code></p>
+</li>
+<li><p><code>evidencias/minha-execucao/manuais/MT-15-carrinho-depois-f5.png</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Prioridade:</strong> Baixa.</p>
+</li>
+</ul>
+</section>
+<section class="doc"><h1>3. Sessões de Teste Exploratório</h1>
+<blockquote>
+<p><strong>Eixo 2 — parte 2 de 2.</strong> Formato <em>Session-Based Test Management</em>: cada sessão tem <strong>charter</strong> (missão), tempo limitado, anotações e descobertas.</p>
+<p><strong>Como foram conduzidas:</strong> as sessões SE-01 a SE-05 foram realizadas em 20/11/2026 com o apoio de scripts Playwright, que executavam as ações e registravam as respostas — os scripts estão em <code>scripts/</code> e os registros brutos em <code>evidencias/</code>. As hipóteses e observações abaixo são as anotações reais daquela exploração.</p>
+</blockquote>
+<hr>
+<h2>SE-01 — Validação de entradas na API pública</h2>
+<ul>
+<li><strong>Charter:</strong> <em>Explorar</em> os endpoints públicos de catálogo, carrinho, cadastro e pagamento <em>com</em> valores inválidos, limites e tipos errados <em>para descobrir</em> onde a API confia demais no cliente.</li>
+<li><strong>Área:</strong> API REST (<code>/products</code>, <code>/carts</code>, <code>/users</code>, <code>/payment/check</code>, <code>/messages</code>).</li>
+<li><strong>Duração:</strong> ~25 min · <strong>Ferramentas:</strong> contrato OpenAPI, <code>scripts/probe-api.mjs</code> (45 requisições com registro de status e resposta).</li>
+<li><strong>Hipóteses iniciais:</strong><ol>
+<li>Parâmetros de consulta (<code>page</code>, <code>sort</code>, <code>between</code>) podem não ser validados.</li>
+<li>A regra de quantidade do carrinho pode ter furos nas bordas.</li>
+<li>Validações vistas na UI podem não existir na API.</li>
+</ol>
+</li>
+<li><strong>Observações (anotações da sessão):</strong><ul>
+<li><code>page=0/-1/abc</code> → volta à página 1 sem erro (tolerante). <code>page=999</code> → lista vazia com metadados coerentes.</li>
+<li><code>sort=foo,bar</code> → <strong>500</strong> &quot;Something went wrong&quot;. Válidos (<code>price,asc</code>) funcionam.</li>
+<li><code>between=price,20,10</code> (invertido) → vazio, sem aviso.</li>
+<li>Busca com <code>&#39; OR 1=1 --</code> → 0 resultados, sem erro (sem sinal de injeção).</li>
+<li>Carrinho: 0, -1, 1000000, 1.5 → 422 com mensagens claras (mín. 1, máx. 99, inteiro). Bordas bem tratadas <strong>por requisição</strong>.</li>
+<li>Produto sem estoque → <strong>aceito</strong> (200).</li>
+<li>Cadastro: senha fraca → 422 com lista de regras; menor de idade → 422; e-mail <code>nao-e-email</code> → <strong>201</strong>.</li>
+<li>Pagamento: <code>bitcoin</code> → <strong>200 &quot;Payment was successful&quot;</strong>.</li>
+<li>Uma requisição falhou por timeout de conexão → o script ganhou novas tentativas (problema de ambiente, não do SUT).</li>
+</ul>
+</li>
+<li><strong>Descobertas → defeitos:</strong> BUG-001, BUG-003, BUG-004, BUG-005. <strong>Observações:</strong> OBS-01, OBS-02.</li>
+<li><strong>Nova hipótese gerada:</strong> &quot;se a validação é por requisição, somar duas adições burla o máximo?&quot; → testado logo depois → <strong>BUG-002</strong> (<code>evidencias/fase1-api/limite-quantidade-acumulada.log</code>).</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/sondagem-api.log</code> e <code>.json</code>.</li>
+<li><strong>Conclusão:</strong> a API valida bem o <strong>formato</strong> de cada campo isolado, mas falha em regras que envolvem <strong>estado</strong> (estoque, total acumulado) ou <strong>listas fechadas</strong> (método de pagamento, coluna de ordenação).</li>
+</ul>
+<h2>SE-02 — Validações: front-end × API</h2>
+<ul>
+<li><strong>Charter:</strong> <em>Comparar</em> as validações do formulário de cadastro e da página de produto <em>com</em> as da API <em>para descobrir</em> regras que existem só em uma das camadas.</li>
+<li><strong>Área:</strong> UI <code>/auth/register</code>, <code>/product/{id}</code>; API <code>/users/register</code>, <code>/carts</code>.</li>
+<li><strong>Duração:</strong> ~15 min · <strong>Ferramentas:</strong> <code>scripts/explore-ui-checks.mjs</code>.</li>
+<li><strong>Hipótese:</strong> o front-end protege mais do que o servidor.</li>
+<li><strong>Observações:</strong><ul>
+<li>Produto sem estoque: UI mostra &quot;Out of stock&quot; e <strong>desabilita</strong> <em>Add to cart</em> (<code>isDisabled = true</code>). A API aceita (SE-01).</li>
+<li>Cadastro com <code>nao-e-email</code>: UI → &quot;Email format is invalid&quot;. API → aceita.</li>
+<li>Mensagens de senha na UI: &quot;Password must be minimal 6 characters long.&quot; — a API exige ≥ 8 + maiúscula, minúscula, número e símbolo → <strong>regras divergentes</strong> (OBS-03).</li>
+<li>Ordenação na UI oferece só 6 opções válidas — por isso o BUG-001 só aparece por chamada direta à API.</li>
+</ul>
+</li>
+<li><strong>Descobertas:</strong> confirma BUG-003 e BUG-004 como &quot;validação só no cliente&quot;; registra OBS-03.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-exploracao/produto-sem-estoque.png</code>, <code>cadastro-email-invalido-ui.png</code>.</li>
+<li><strong>Conclusão:</strong> testar só pela interface teria deixado esses defeitos invisíveis — motivo de a estratégia priorizar testes de API.</li>
+</ul>
+<h2>SE-03 — Fluxos principais e comportamento do ambiente</h2>
+<ul>
+<li><strong>Charter:</strong> <em>Percorrer</em> busca, login e checkout completo <em>com</em> um cliente novo <em>para mapear</em> seletores, mensagens reais e pontos de sincronização para a automação.</li>
+<li><strong>Área:</strong> UI completa; rede do navegador.</li>
+<li><strong>Duração:</strong> ~40 min (com depuração) · <strong>Ferramentas:</strong> <code>scripts/explore.mjs</code>, <code>explore-cart.mjs</code>, <code>explore-flows.mjs</code>, inspeção de rede via Playwright.</li>
+<li><strong>Observações:</strong><ul>
+<li>Busca sem resultado: &quot;0 products found for &#39;zzzzzz&#39;&quot; + &quot;There are no products found.&quot;.</li>
+<li>Login errado: &quot;Invalid email or password&quot;. Login certo → <code>/account</code>, nome no menu.</li>
+<li>Checkout: 4 passos (Cart → Sign in → Billing Address → Payment). Anotamos que o endereço do cadastro &quot;não é pré-preenchido&quot; no passo 3 — <strong>anotação errada</strong>, corrigida depois: o pré-preenchimento é assíncrono e lemos os campos cedo demais (OBS-07). Métodos de pagamento: bank-transfer, cash-on-delivery, credit-card, buy-now-pay-later, gift-card.</li>
+<li>Pedido concluído: &quot;Thanks for your order! Your invoice number is INV-2026000005&quot;.</li>
+<li><strong>Descoberta técnica importante:</strong> a UI consulta produtos com o <strong>método HTTP <code>QUERY</code></strong> (com corpo), não <code>GET</code> com <em>query string</em>. Nossos primeiros mocks e esperas de rede não funcionavam por isso (doc 05, S-02).</li>
+<li>Visitante anônimo: a home chama <code>GET /users/me</code> e recebe 401, gerando erro no console (OBS-05).</li>
+<li>Meu próprio script de exploração falhou uma vez por clicar antes de a página carregar — lembrete de por que a suíte proíbe esperas fixas.</li>
+<li><strong>Re-seed:</strong> ~30 min após a exploração, os IDs dos produtos mudaram e 10 testes quebraram de uma vez (OBS-06, <code>evidencias/fase4-automacao/reseed-ids-mudaram.log</code>).</li>
+</ul>
+</li>
+<li><strong>Evidências:</strong> prints em <code>evidencias/fase1-exploracao/</code> (home, login, register, checkout passos 1–4, confirmação), <code>mapa-data-test.json</code> (seletores por página).</li>
+<li><strong>Conclusão:</strong> o ambiente é mutável e lento em picos → testes precisam resolver dados em tempo de execução e sincronizar por eventos, não por tempo.</li>
+</ul>
+<h2>SE-04 — Busca automática de CEP no checkout</h2>
+<ul>
+<li><strong>Charter:</strong> <em>Investigar</em> o passo 3 do checkout <em>com</em> digitação rápida após o CEP <em>para descobrir</em> se a busca automática interfere nos dados do usuário.</li>
+<li><strong>Gatilho:</strong> a fatura do E2E-01 saiu com a cidade &quot;Carmona d&#39;Oeste&quot;, não &quot;Natal&quot; (a que o teste digitou).</li>
+<li><strong>Duração:</strong> ~20 min · <strong>Ferramentas:</strong> <code>scripts/investigate-postcode.mjs</code> (3 repetições, registro das respostas de <code>/postcode-lookup</code>).</li>
+<li><strong>Hipótese:</strong> a resposta assíncrona da busca de CEP sobrescreve campos já preenchidos (condição de corrida).</li>
+<li><strong>Observações:</strong><ul>
+<li>Execução 1: digitado &quot;Rua das Flores / Natal / RN&quot; → após 5 s &quot;R. Horácio / Carmona d&#39;Oeste / Santa Catarina&quot;.</li>
+<li>Execução 2: idem (sobrescrito).</li>
+<li>Execução 3: campos <strong>apagados</strong>.</li>
+<li>A resposta da busca para o CEP de Natal é um endereço de outro estado (dados simulados — OBS-04).</li>
+</ul>
+</li>
+<li><strong>Descoberta:</strong> <strong>BUG-007</strong> (Alta). Também explicou a falha intermitente do E2E-01.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase3-exploratorios/SE-04-cep-console.log</code>, <code>SE-04-cep-sobrescreve-campos.json</code>, <code>SE-04-cep-execucao-{1,2,3}.png</code>.</li>
+<li><strong>Conclusão:</strong> um teste automatizado falhando &quot;estranho&quot; virou sessão exploratória, que virou defeito confirmado — as duas abordagens se complementam.</li>
+</ul>
+<h2>SE-05 — Autorização entre clientes e recursos da conta</h2>
+<ul>
+<li><strong>Charter:</strong> <em>Explorar</em> favoritos, faturas e sessão <em>com</em> dois clientes diferentes (A e B) <em>para descobrir</em> se um consegue ler ou alterar dados do outro (risco R5).</li>
+<li><strong>Gatilho:</strong> a métrica de cobertura de endpoints (47,9% das operações em escopo) mostrou que favoritos, faturas e troca/renovação de token não tinham nenhum teste.</li>
+<li><strong>Duração:</strong> ~25 min · <strong>Ferramentas:</strong> <code>scripts/probe-api-2.mjs</code>, <code>scripts/probe-invoice-authz.mjs</code>, leitura de <code>FavoriteService.php</code>.</li>
+<li><strong>Hipótese:</strong> endpoints de leitura por ID podem não verificar o dono do recurso (padrão BOLA/IDOR).</li>
+<li><strong>Observações:</strong><ul>
+<li>B lê o favorito de A: <strong>200</strong> com o <code>user_id</code> de A → <strong>BUG-008</strong>. No código, <code>getFavoriteById</code> não filtra pelo dono; <code>getAllFavorites</code> e <code>deleteFavorite</code> filtram.</li>
+<li>B tenta apagar o favorito de A: <strong>204</strong>, mas o favorito continua lá (OBS-09).</li>
+<li>Faturas: B lendo a fatura de A → <strong>404</strong> (correto); B buscando o número da fatura de A → lista vazia (correto). Uma vez a busca deu 500 e não se repetiu (OBS-10).</li>
+<li>Criar fatura com &quot;Natal/RN&quot; para o CEP 59000-000 foi <strong>rejeitado</strong>: a API valida cidade e estado contra o próprio serviço de CEP (<code>AddressMatchesCountry</code>). Isso explicou o &quot;porquê&quot; do BUG-007.</li>
+<li>O mesmo CEP com e sem hífen gera endereços diferentes → <strong>BUG-009</strong>.</li>
+</ul>
+</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/sondagem-api-2.log</code>, <code>sondagem-autorizacao-faturas.log</code>, <code>evidencias/fase3-exploratorios/SE-04-postcode-formatos.log</code>.</li>
+<li><strong>Conclusão:</strong> a métrica de cobertura apontou a lacuna, a exploração achou o defeito e os testes API-AUTHZ-* passaram a vigiar o risco. Também é importante registrar o resultado <strong>positivo</strong>: as faturas estão bem protegidas.</li>
+</ul>
+<hr>
+<h2>3.6 Charters sugeridos para as sessões da equipe</h2>
+<ul>
+<li><strong>Charter:</strong> <em>Explorar</em> o formulário de contato <em>com</em> campos vazios, mensagens nos limites, caracteres especiais, e-mails inválidos e anexos <em>para descobrir</em> possíveis falhas de validação.</li>
+<li><strong>Área:</strong> UI — página Contact.</li>
+<li><strong>Ferramentas:</strong> navegador Google Chrome, capturas de tela e gravações.</li>
+<li><strong>Hipóteses:</strong><ol>
+<li>Campos obrigatórios devem apresentar mensagens de erro quando vazios.</li>
+<li>O campo Message deve validar corretamente os limites de caracteres.</li>
+<li>Os campos de nome podem aceitar entradas compostas apenas por símbolos.</li>
+<li>O sistema deve restringir o formato e tamanho dos anexos.</li>
+</ol>
+</li>
+<li><strong>Observações (anotações da sessão):</strong>
+Formulário com campos vazios: mensagens de obrigatoriedade exibidas corretamente.
+Message com &quot;oi&quot;: erro indicando mínimo de 50 caracteres.
+Message com aproximadamente 1.000 caracteres: erro indicando máximo de 250 caracteres.
+First name com &quot;@@@@@&quot; e Last name com &quot;!!!!!&quot;: nenhuma mensagem de validação de nome foi exibida.
+Last name com texto em formato de e-mail: campo aceitou a entrada durante a exploração.
+Seletor de anexos: filtro para arquivos TXT; imagens PNG/JPG não apareceram na listagem filtrada.
+Arquivo TXT com conteúdo: sistema exibiu &quot;File should be empty.&quot;.
+Arquivo TXT vazio: formulário aceitou o anexo; foi observada confirmação de envio em um dos testes.
+E-mail incompleto &quot;teste@&quot;: exibiu &quot;Email format is invalid&quot;.</li>
+<li><strong>Descobertas:</strong><ul>
+<li>Validações de obrigatoriedade, comprimento da mensagem, formato de e-mail e arquivo TXT não vazio funcionaram nos cenários observados.</li>
+<li>Os campos First name e Last name não apresentaram erro para entradas compostas exclusivamente por símbolos.</li>
+<li>A seleção de arquivos aplica filtro TXT, mas isso isoladamente não comprova validação do formato no servidor.</li>
+</ul>
+</li>
+<li><strong>Problemas encontrados → observação a investigar:</strong><ul>
+<li>Possível validação insuficiente nos campos First name e Last name, pendente de confirmação das regras de negócio. Não classificado como BUG confirmado.</li>
+</ul>
+</li>
+<li><strong>Evidências:</strong> <code>evidencias/exploratorios-equipe/SE-06-contato/</code>.</li>
+<li><strong>Conclusão:</strong> o formulário apresentou validações adequadas nos principais limites testados. A aceitação visual de nomes compostos exclusivamente por símbolos merece investigação adicional e comparação com os requisitos. Recomenda-se verificar também as validações no servidor.</li>
+</ul>
+<h2>3.7 Modelo de sessão</h2>
+<pre><code>## SE-XX — &lt;título curto&gt;
+- Testador(a): ____    Data: __/__/2026    Duração: __ min
+- Charter: Explorar &lt;área&gt; com &lt;recursos/dados&gt; para descobrir &lt;informação/risco&gt;.
+- Hipóteses iniciais:
+  1.
+- Anotações (com horário):
+  - hh:mm —
+- Descobertas (defeito? observação? dúvida?):
+- Problemas encontrados → BUG-XX / OBS-XX:
+- Evidências (prints em evidencias/exploratorios-equipe/):
+- Conclusão (o que aprendemos sobre o sistema? o que testar a seguir?):
+</code></pre>
+</section>
+<section class="doc"><h1>4. Testes Automatizados e Cobertura</h1>
+<blockquote>
+<p><strong>Eixo 3 — Testes Automatizados + Cobertura (25%)</strong>
+Código: <code>src/</code> e <code>tests/</code>. Como executar: <a class="repo">README</a>.</p>
+</blockquote>
+<h2>4.1 Arquitetura da suíte</h2>
+<pre><code>tests/ (o QUÊ testar)                     src/ (o COMO — reutilizável)
+├── api/  ──────── usa ──────────────►   api/api-client.ts      cliente único: URL, token, timeout, registro de cobertura
+├── ui/   ──────── usa ──────────────►   pages/*.ts             Page Objects (seletores data-test num só lugar)
+└── e2e/  ──────── usa ──────────────►   fixtures/test-fixtures.ts
+                                            ├─ catalog        (worker)  IDs atuais por nome (resiste ao re-seed)
+                                            ├─ registeredUser (teste)   usuário novo via API
+                                            ├─ otherUser      (teste)   2º usuário (autorização)
+                                            ├─ cartId         (teste)   carrinho novo; APAGADO no teardown
+                                            └─ trackUiApiCalls (auto, UI) registra as chamadas da UI à API
+                                          data/factories.ts      dados únicos por execução
+</code></pre>
+<p><strong>Projetos do Playwright</strong> (<code>playwright.config.ts</code>): <code>api</code> (sem navegador), <code>ui</code> e <code>e2e</code> (Chromium). Cada teste tem tags para seleção: <code>@smoke</code> (caminho crítico), <code>@regression</code>, <code>@negative</code>, <code>@boundary</code>, <code>@e2e</code>, <code>@known-defect</code>.</p>
+<h2>4.2 Técnicas aplicadas (onde ver no código)</h2>
+<table>
+<thead>
+<tr>
+<th>Técnica</th>
+<th>Exemplo</th>
+<th>Arquivo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Análise de valor-limite</td>
+<td>quantidade 0/1/99/100; idade 18 e 75 anos ± 1 dia</td>
+<td><code>cart.api.spec.ts</code>, <code>auth.api.spec.ts</code></td>
+</tr>
+<tr>
+<td>Particionamento de equivalência</td>
+<td>5 classes inválidas de senha (uma regra violada por vez)</td>
+<td><code>auth.api.spec.ts</code></td>
+</tr>
+<tr>
+<td>Tabela de decisão</td>
+<td>cartão: um campo inválido por vez, demais válidos</td>
+<td><code>payment.api.spec.ts</code></td>
+</tr>
+<tr>
+<td>Testes negativos</td>
+<td>IDs inexistentes, token malformado, entradas maliciosas na busca</td>
+<td>vários</td>
+</tr>
+<tr>
+<td>Teste de contrato</td>
+<td>campos e tipos da listagem, códigos HTTP documentados (ex.: 409)</td>
+<td><code>products.api.spec.ts</code>, <code>auth.api.spec.ts</code></td>
+</tr>
+<tr>
+<td>Autorização (cliente A × cliente B)</td>
+<td>favoritos e faturas</td>
+<td><code>authorization.api.spec.ts</code></td>
+</tr>
+<tr>
+<td>Integração UI ↔ API</td>
+<td>filtro da UI = resultado da API; detalhe exibido = API</td>
+<td><code>catalog.ui.spec.ts</code></td>
+</tr>
+<tr>
+<td>E2E com verificação no back-end</td>
+<td>compra pela UI → fatura conferida via API (total e cidade)</td>
+<td><code>checkout.e2e.spec.ts</code></td>
+</tr>
+<tr>
+<td>Mocks/stubs</td>
+<td>catálogo vazio, API 500, preço extremo, latência de 3 s</td>
+<td><code>mocks.ui.spec.ts</code></td>
+</tr>
+<tr>
+<td>Teste de caracterização</td>
+<td>fixa o limite real de 93 anos (BUG-006) para detectar mudança</td>
+<td><code>auth.api.spec.ts</code> (API-AUTH-05c)</td>
+</tr>
+<tr>
+<td>Janela de estabilidade (defeito intermitente)</td>
+<td>campo não pode mudar sozinho em 8 s</td>
+<td><code>checkout-address.ui.spec.ts</code></td>
+</tr>
+<tr>
+<td>Defeito conhecido como teste</td>
+<td><code>test.fail()</code> + anotação <code>defect</code></td>
+<td>todos os <code>@known-defect</code></td>
+</tr>
+</tbody></table>
+<h2>4.3 Isolamento, dados, setup/teardown e sincronização</h2>
+<ul>
+<li><strong>Independência:</strong> nenhum teste depende de outro nem da ordem. Cada um cria os próprios dados (usuário, carrinho), e por isso os testes rodam em paralelo (<code>fullyParallel</code>).</li>
+<li><strong>Setup por API, verificação pela UI:</strong> as pré-condições são criadas via API (rápido e confiável) e a UI só é usada no que está sendo testado. Exemplo: o E2E não testa o cadastro, que tem testes próprios.</li>
+<li><strong>Teardown:</strong> os carrinhos são apagados. As contas não podem ser apagadas pelo cliente (limitação documentada no doc 01 §1.8).</li>
+<li><strong>Sincronização sem esperas fixas:</strong> asserções com nova tentativa automática, <code>waitForResponse</code> para eventos de rede e <code>expect.poll</code> para estabilidade. A regra de lint <code>playwright/no-wait-for-timeout</code> <strong>proíbe</strong> <code>waitForTimeout</code> nos testes.</li>
+<li><strong>Tratamento de falhas:</strong> trace, vídeo e print guardados em toda falha; 1 nova tentativa por teste, <strong>contabilizada</strong> como flaky.</li>
+</ul>
+<h2>4.4 Por que não há cobertura de código — e o que medimos no lugar</h2>
+<p>Cobertura de código (linhas e ramos executados) exige instrumentar o <strong>servidor</strong> do SUT, que não é nosso. Medi-la sobre o código <strong>dos testes</strong> não diz nada sobre a qualidade do sistema. Por isso usamos três medidas honestas:</p>
+<ol>
+<li><strong>Cobertura da superfície da API</strong>: operações do contrato OpenAPI exercitadas pela suíte (<code>scripts/endpoint-coverage.mjs</code>, que cruza as chamadas registradas durante os testes com o contrato baixado na hora).</li>
+<li><strong>Cobertura de requisitos e riscos</strong>: matriz do doc 10 §10.2.</li>
+<li><strong>Cobertura de técnicas</strong>: tabela 4.2.</li>
+</ol>
+<blockquote>
+<p>O caminho para ter cobertura de código real seria subir o SUT localmente com o <code>docker-compose.coverage.yml</code> do repositório oficial (trabalho futuro, doc 08).</p>
+</blockquote>
+<h2>4.5 Resultados de execução</h2>
+<p><strong>Execução oficial final:</strong> 20/11/2026, início 23:08:40 UTC, Windows 11, Node 24.22, Playwright 1.65.1, 2 workers, 1 nova tentativa por teste.
+Fonte: <code>evidencias/execucao-oficial-3/</code> (<code>results.json</code>, <code>junit.xml</code>, <code>summary.md</code>, <code>endpoint-coverage.md</code>, <code>console.log</code>, <code>relatorio-html/</code>). Código de saída do Playwright: <strong>0</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Projeto</th>
+<th align="right">Testes</th>
+<th align="right">Passou</th>
+<th align="right">Falha inesperada</th>
+<th align="right">Flaky</th>
+<th align="right">Defeito conhecido (falha esperada)</th>
+<th align="right">Tempo somado (s)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>api</td>
+<td align="right">77</td>
+<td align="right">67</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">8</td>
+<td align="right">539,6</td>
+</tr>
+<tr>
+<td>ui</td>
+<td align="right">25</td>
+<td align="right">24</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">203,0</td>
+</tr>
+<tr>
+<td>e2e</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">51,8</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td align="right"><strong>104</strong></td>
+<td align="right"><strong>93</strong></td>
+<td align="right"><strong>0</strong></td>
+<td align="right"><strong>2</strong></td>
+<td align="right"><strong>9</strong></td>
+<td align="right">450,3 s de relógio (≈ 7,5 min)</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Resultado conforme o esperado: 100%</strong> (passou + defeitos conhecidos confirmados + flaky que passou na nova tentativa).</li>
+<li><strong>Taxa de flaky: 1,9%</strong> (2/104). As duas falhas da 1ª tentativa foram timeout de 45 s em requisição ao SUT (API-CART-01 e API-CAT-02), ou seja, ambiente. Meta do plano: ≤ 5% OK.</li>
+<li><strong>Os 9 testes <code>@known-defect</code> falharam como esperado</strong>: os 9 defeitos (BUG-001..009) continuam presentes no SUT nesta data.</li>
+</ul>
+<p><strong>Cobertura de operações da API (contrato OpenAPI × chamadas registradas):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Medida</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Operações no contrato</td>
+<td>88 (48 em escopo, 40 fora de escopo: administração, relatórios, TOTP, imagens, stream)</td>
+</tr>
+<tr>
+<td>Chamadas registradas na execução</td>
+<td>434, todas reconhecidas no contrato</td>
+</tr>
+<tr>
+<td><strong>Operações em escopo cobertas</strong></td>
+<td><strong>38/48 = 79,2%</strong> (36 só pelos testes de API; o restante pela UI) · gate ≥ 60% OK</td>
+</tr>
+<tr>
+<td>Contrato inteiro</td>
+<td>43,2%</td>
+</tr>
+</tbody></table>
+<p>Operações em escopo <strong>sem</strong> teste, por decisão: variantes <code>QUERY</code> de busca (<code>/brands/search</code>, <code>/categories/tree</code>, <code>/categories/search</code>, <code>/invoices/search</code>), que fazem a mesma consulta já coberta pelas versões <code>GET</code> ou pela UI; <code>POST /messages/{id}/attach-file</code> (exigiria criar mensagens no ambiente compartilhado); <code>POST /invoices/guest</code> (compra como convidado, candidato a próximo teste); download/status de PDF de fatura; <code>GET /products/{id}/specs/{specId}</code>; <code>POST /users/forgot-password</code> (dispara e-mail).</p>
+<p><strong>Evolução da cobertura (o que a métrica mudou no projeto):</strong> na execução oficial 2 a cobertura em escopo era <strong>47,9%</strong>, abaixo da meta. Em vez de baixar a meta, usamos a lista de lacunas para orientar a sessão exploratória SE-05 e os novos testes de autorização, conta, catálogo auxiliar, contato e CEP. Assim a cobertura subiu para 79,2% e surgiram <strong>BUG-008</strong> e <strong>BUG-009</strong>.</p>
+<p><strong>Histórico das execuções completas</strong> (<code>evidencias/execucoes-anteriores/</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Execução</th>
+<th align="right">Testes</th>
+<th align="right">Falhas inesperadas</th>
+<th align="right">Flaky</th>
+<th align="right">Defeitos conhecidos</th>
+<th>Principal aprendizado</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1ª completa (~22:22Z)</td>
+<td align="right">85</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td>E2E-01 revelou o BUG-007; UI-AUTH-03 = ambiente</td>
+</tr>
+<tr>
+<td>Oficial 1 (~22:40Z)</td>
+<td align="right">87</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">7</td>
+<td>o endereço muda <strong>depois</strong> da leitura → espera de estabilidade</td>
+</tr>
+<tr>
+<td>Oficial 2 (~22:52Z)</td>
+<td align="right">87</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td>cobertura de 47,9% &lt; meta → SE-05</td>
+</tr>
+<tr>
+<td><strong>Oficial 3 (~23:08Z)</strong></td>
+<td align="right"><strong>104</strong></td>
+<td align="right"><strong>0</strong></td>
+<td align="right"><strong>2</strong></td>
+<td align="right"><strong>9</strong></td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h2>4.6 Estabilidade: o que aprendemos com um ambiente público</h2>
+<ul>
+<li><strong>Latência medida</strong> (<code>npm run latency</code>, 10 amostras por endpoint): mediana ≈ 0,9 s, p90 de até ≈ 10 s, máximo ≈ 31 s, com erros ocasionais (<code>evidencias/metricas/</code>). Os timeouts foram calibrados a partir disso.</li>
+<li><strong>Re-seed:</strong> os IDs mudam, por isso a fixture <code>catalog</code> (S-01).</li>
+<li><strong>Classificação de cada instabilidade observada:</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Sintoma</th>
+<th>Causa</th>
+<th>Classificação</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Timeout de 45 s em <code>POST /users/register</code> e <code>/users/login</code></td>
+<td>ambiente (lentidão do SUT)</td>
+<td>problema de ambiente (OBS-11)</td>
+<td>1 nova tentativa contabilizada</td>
+</tr>
+<tr>
+<td>Produto não renderiza em 20 s</td>
+<td>pico de latência em <code>GET /products/{id}</code></td>
+<td>problema de ambiente</td>
+<td><code>goto()</code> espera a resposta da API por até 45 s (S-06)</td>
+</tr>
+<tr>
+<td>UI-CHK-02 passou na 1ª tentativa</td>
+<td>defeito intermitente + asserção ingênua</td>
+<td><strong>erro do teste</strong></td>
+<td>janela de estabilidade (S-04)</td>
+</tr>
+<tr>
+<td>UI-CHK-01 &quot;flaky&quot;</td>
+<td>pré-preenchimento assíncrono reescrevia os campos limpos</td>
+<td><strong>erro do teste</strong> (desenho)</td>
+<td>espera de estabilidade antes de agir</td>
+</tr>
+<tr>
+<td>E2E-01: fatura com cidade diferente da digitada</td>
+<td>BUG-007</td>
+<td><strong>defeito do SUT</strong></td>
+<td>teste confere o valor final; defeito com teste próprio</td>
+</tr>
+<tr>
+<td>No GitHub Actions, produto, checkout e conta param em &quot;Verify you are human&quot;</td>
+<td>desafio anti-robô do Cloudflare para IPs de datacenter (OBS-12)</td>
+<td>problema de ambiente</td>
+<td>observador de <code>cf-mitigated: challenge</code> + testes pulados com motivo (doc 07 §7.6)</td>
+</tr>
+</tbody></table>
+</section>
+<section class="doc"><h1>5. Qualidade de Software, Métricas e Refatoração</h1>
+<blockquote>
+<p><strong>Eixo 4 — Qualidade de Software e Refatoração (15%)</strong>
+Duas análises <strong>separadas</strong>, como pede o plano:</p>
+<ul>
+<li><strong>5.1 Código do SUT</strong> — leitura do código-fonte público (Laravel/PHP), <strong>somente</strong> nos trechos ligados aos defeitos que encontramos por teste. Não alteramos nem executamos esse código; as refatorações são <strong>propostas</strong>.</li>
+<li><strong>5.2 Código da nossa suíte</strong> — análise com ferramentas, smells reais que <strong>nós</strong> introduzimos e refatorações <strong>implementadas e validadas</strong>.</li>
+</ul>
+</blockquote>
+<h2>5.1 Revisão do código do SUT (trechos ligados a defeitos)</h2>
+<p>Fonte: <code>github.com/testsmith-io/practice-software-testing</code>, commit <code>ae7caec</code> (11/10/2026), pasta <code>sprint5/API/app</code>. A data do commit coincide com a do build em produção (&quot;Built 2026-10-11&quot;).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Arquivo / trecho</th>
+<th>Code smell</th>
+<th>Defeito causado</th>
+<th>Refatoração proposta</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SUT-1</td>
+<td><code>Http/Controllers/PaymentController.php</code>, <code>check()</code>, linhas 35–70</td>
+<td><strong>Cadeia de condicionais sobre um &quot;tipo&quot;</strong> (<em>Switch Statements</em>, Fowler) <strong>sem caso padrão</strong> → comportamento <em>fail-open</em></td>
+<td>BUG-005</td>
+<td>(a) Validar <code>payment_method</code> com <code>Rule::in([...])</code> antes de tudo; (b) <strong>Substituir condicional por polimorfismo/Strategy</strong>: um validador por método num mapa; método desconhecido → 422. O projeto já tem uma pasta <code>Payments/</code> (<code>GiftCard.php</code>), o que indica o caminho natural.</td>
+</tr>
+<tr>
+<td>SUT-2</td>
+<td><code>Http/Requests/Customer/StoreCustomer.php</code>, linhas 44–46</td>
+<td><strong>Objeto mutável compartilhado</strong> (efeito colateral escondido): <code>$dt-&gt;subYears(18)</code> altera <code>$dt</code></td>
+<td>BUG-006</td>
+<td>Usar <code>CarbonImmutable</code> (ou <code>now()-&gt;subYears(...)</code> separado para cada limite). Correção de 1 linha, mas exige teste de fronteira.</td>
+</tr>
+<tr>
+<td>SUT-3</td>
+<td><code>StoreCustomer.php</code>, linha 67</td>
+<td><strong>Validação incompleta / regra duplicada entre camadas</strong> (a UI tem a regra, a API não)</td>
+<td>BUG-004</td>
+<td>Acrescentar <code>&#39;email:rfc&#39;</code> à lista de regras; idealmente gerar as mensagens da UI a partir da mesma fonte.</td>
+</tr>
+<tr>
+<td>SUT-4</td>
+<td><code>Services/CartService.php</code> (<code>increment(&#39;quantity&#39;, $quantity)</code>) + <code>CartController.php</code> linha 111 (<code>max:99</code>)</td>
+<td><strong>Regra de negócio espalhada</strong> (<em>Shotgun Surgery</em>): o limite está no controller; a soma no serviço; o estoque em lugar nenhum</td>
+<td>BUG-002, BUG-003</td>
+<td>Centralizar a regra num método de domínio (<code>Cart::addItem($product, $qty)</code>) que valide <strong>quantidade resultante</strong> e <strong>estoque</strong>; controllers só traduzem HTTP.</td>
+</tr>
+<tr>
+<td>SUT-6</td>
+<td><code>Services/FavoriteService.php</code>: <code>getFavoriteById()</code> × <code>getAllFavorites()</code>/<code>deleteFavorite()</code></td>
+<td><strong>Inconsistência dentro da mesma classe</strong> (dois métodos filtram por <code>user_id</code>, um não) — falta de uma política de autorização central</td>
+<td>BUG-008</td>
+<td>Usar uma <em>Policy</em> do Laravel (o projeto já tem a pasta <code>Policies/</code>) ou um <em>scope</em> <code>ownedBy(Auth::id())</code> aplicado em todas as consultas por ID.</td>
+</tr>
+<tr>
+<td>SUT-5</td>
+<td><code>Services/ProductService.php</code>, <code>getAllProducts()</code> (<code>$query-&gt;filter()</code>)</td>
+<td><strong>Entrada do cliente repassada sem lista de permissão</strong> (hipótese — não lemos o pacote de filtro)</td>
+<td>BUG-001</td>
+<td>Validar <code>sort</code> contra a lista documentada (<code>name</code>, <code>price</code>, <code>co2_rating</code> × <code>asc/desc</code>) → 422.</td>
+</tr>
+</tbody></table>
+<p><strong>Métrica de tamanho</strong> (contagem de linhas com <code>wc -l</code>, só para contexto): os maiores arquivos da API são <code>UserController.php</code> (658 linhas), <code>InvoiceController.php</code> (490), <code>ReportController.php</code> (434) e <code>ProductController.php</code> (421). Arquivos de controller acima de ~400 linhas são candidatos a <em>God Class</em> — <strong>não analisamos esses arquivos a fundo</strong> e não afirmamos que tenham problemas.</p>
+<h2>5.2 Qualidade do código da suíte (nosso código)</h2>
+<h3>5.2.1 Ferramentas e métricas</h3>
+<table>
+<thead>
+<tr>
+<th>Métrica</th>
+<th>Ferramenta</th>
+<th>Antes</th>
+<th>Depois</th>
+<th>Gate no CI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Erros de tipo</td>
+<td><code>tsc --noEmit</code> (TypeScript 5.9, <code>strict</code>)</td>
+<td>0</td>
+<td>0</td>
+<td>0 erros</td>
+</tr>
+<tr>
+<td>Problemas de lint</td>
+<td>ESLint 10 + typescript-eslint + eslint-plugin-playwright</td>
+<td>10 avisos, 0 erros</td>
+<td><strong>4 avisos, 0 erros</strong> (5 após os testes novos de autorização)</td>
+<td>0 erros, ≤ 10 avisos</td>
+</tr>
+<tr>
+<td>Duplicação</td>
+<td>jscpd (blocos ≥ 40 tokens)</td>
+<td>0,00%</td>
+<td>0,00%</td>
+<td>≤ 5%</td>
+</tr>
+<tr>
+<td>Esperas fixas (<code>waitForTimeout</code>) nos testes</td>
+<td>regra <code>playwright/no-wait-for-timeout</code></td>
+<td>0</td>
+<td>0</td>
+<td>proibido (erro)</td>
+</tr>
+<tr>
+<td>Complexidade ciclomática por função</td>
+<td>regra ESLint <code>complexity</code> (máx. 8)</td>
+<td>0 violações</td>
+<td>0 violações</td>
+<td>aviso</td>
+</tr>
+</tbody></table>
+<p>Evidências: <code>evidencias/fase5-qualidade/eslint-antes.txt</code>, <code>eslint-depois.txt</code>, <code>jscpd-antes/jscpd-report.json</code>.</p>
+<p>Os avisos restantes (4, depois 5) são todos <code>max-lines-per-function</code> nos blocos <code>test.describe</code> (callbacks que agrupam muitos testes). <strong>Ponto em aberto:</strong> aceitar (um describe é um agrupador, não lógica) ou dividir os arquivos de spec.</p>
+<h3>5.2.2 Code smells encontrados na NOSSA suíte (reais, durante o projeto)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Smell</th>
+<th>Como apareceu</th>
+<th>Refatoração aplicada</th>
+<th>Validação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>S-01</strong></td>
+<td><strong>Dados de teste fixos e frágeis</strong> (<em>hard-coded test data</em>): IDs (ULID) dos produtos escritos no código</td>
+<td>O ambiente foi re-semeado; os IDs mudaram e <strong>10 testes quebraram de uma vez</strong> (<code>evidencias/fase4-automacao/reseed-ids-mudaram.log</code>)</td>
+<td>Os testes guardam só <strong>nomes</strong> estáveis (<code>src/data/test-data.ts</code>); a fixture <code>catalog</code> (escopo <em>worker</em>) resolve os IDs atuais 1× por processo (<code>src/data/catalog.ts</code>)</td>
+<td>Execução completa posterior sem falhas por ID</td>
+</tr>
+<tr>
+<td><strong>S-02</strong></td>
+<td><strong>Suposição não verificada sobre o protocolo</strong> + <strong>teste falso-positivo</strong></td>
+<td>Mocks e esperas usavam <code>/products?</code> + <code>GET</code>; a UI usa o método HTTP <code>QUERY</code> sem query string. O mock nunca era aplicado, e o UI-MOCK-01 <strong>passava sem testar nada</strong> (o <code>toHaveCount(0)</code> era verdadeiro antes da página carregar)</td>
+<td>Casamento por <strong>caminho</strong> (<code>url.pathname === &#39;/products&#39;</code>); todo teste com mock agora <strong>prova que o stub foi usado</strong> (contador <code>served</code> + <code>expect.poll</code>)</td>
+<td>UI-MOCK-01..04 passam e falhariam se o stub não fosse servido</td>
+</tr>
+<tr>
+<td><strong>S-03</strong></td>
+<td><strong>Lógica condicional dentro do teste</strong> (<code>if (!ok) expect(...)</code>) — apontado pelo lint</td>
+<td>Teste de valores-limite do carrinho decidia em tempo de execução quais asserções rodar</td>
+<td>Separado em dois conjuntos (válidos / inválidos), cada teste com um único caminho e asserções sempre executadas (<code>tests/api/cart.api.spec.ts</code>)</td>
+<td>Lint: aviso eliminado; mesmos 7 casos cobertos</td>
+</tr>
+<tr>
+<td><strong>S-04</strong></td>
+<td><strong>Asserção sensível ao tempo em defeito intermitente</strong></td>
+<td>1ª versão do UI-CHK-02 (BUG-007) usou <code>toHaveValue</code>, que lia o valor <em>antes</em> da sobrescrita → resultado &quot;flaky&quot;</td>
+<td><strong>Janela de estabilidade</strong>: <code>waitForFunction</code> espera até 8 s por qualquer alteração não solicitada</td>
+<td>2 repetições consecutivas: defeito detectado nas duas, sem flaky</td>
+</tr>
+<tr>
+<td><strong>S-05</strong></td>
+<td><strong>Timeouts arbitrários</strong></td>
+<td>Valores padrão (10–15 s) geravam falhas de ambiente</td>
+<td>Timeouts calibrados por <strong>medição</strong> (<code>scripts/measure-latency.mjs</code>: p90 ≈ 10 s, máx. ≈ 31 s) e documentados no <code>playwright.config.ts</code></td>
+<td>Taxa de flaky medida e reportada (doc 04)</td>
+</tr>
+<tr>
+<td><strong>S-07</strong></td>
+<td><strong>Estado mutável compartilhado</strong> no cliente de API: <code>withToken()</code> alterava o próprio objeto</td>
+<td>Percebido ao escrever testes com dois usuários (autorização): o token de A &quot;vazaria&quot; para as chamadas seguintes</td>
+<td><code>withToken()</code> devolve um <strong>novo</strong> cliente (<code>src/api/api-client.ts</code>); o original nunca muda. Mesmo tipo de smell do SUT-2 (Carbon mutável), só que no nosso código</td>
+<td>API-AUTHZ-* usam A e B no mesmo teste e passam</td>
+</tr>
+<tr>
+<td><strong>S-06</strong></td>
+<td><strong>Diagnóstico pobre</strong> em falhas de UI</td>
+<td>UI-AUTH-03 falhou sem mensagem e passou isolado — não dava para saber se a API demorou ou se a UI falhou</td>
+<td><code>LoginPage.login()</code> e <code>CheckoutPage.confirmOrder()</code> agora esperam a <strong>resposta da API</strong> correspondente; uma falha diz qual camada travou</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<h3>5.2.3 Boas práticas presentes</h3>
+<ul>
+<li><strong>Page Object Model</strong> (<code>src/pages/</code>): seletores num só lugar.</li>
+<li><strong>Fixtures com setup/teardown</strong> (<code>src/fixtures/test-fixtures.ts</code>): usuário e carrinho novos por teste → testes <strong>independentes</strong> e <strong>paralelizáveis</strong>; carrinho apagado no fim.</li>
+<li><strong>Fábricas de dados</strong> (<code>src/data/factories.ts</code>): dados únicos por execução.</li>
+<li><strong>Cliente de API único</strong> (<code>src/api/api-client.ts</code>): cabeçalhos, token e timeout centralizados.</li>
+<li><strong>Seletores estáveis</strong> <code>data-test</code> (configurados como <code>testIdAttribute</code>), sem CSS frágil — com uma exceção em UI-CART-04 (<code>.btn-danger</code>), registrada como dívida técnica.</li>
+</ul>
+<h2>5.3 Análise de impacto de mudança — correção do BUG-007 (busca de CEP)</h2>
+<p><strong>Mudança proposta, em duas partes:</strong>
+(a) <strong>back-end:</strong> normalizar o CEP antes da consulta (remover hífen/espaços), o que corrige o BUG-009;
+(b) <strong>front-end:</strong> a busca de CEP só preenche campos <strong>vazios</strong>. Se o cliente já digitou ou se veio do perfil, mostra &quot;Encontramos este endereço — usar?&quot; em vez de sobrescrever. Além disso, uma busca nova <strong>cancela</strong> a anterior (só a resposta mais recente vale).</p>
+<table>
+<thead>
+<tr>
+<th>Dimensão</th>
+<th>Análise</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Componentes alterados</strong></td>
+<td>(a) <code>PostcodeService</code> / <code>GET /postcode-lookup</code> (API); (b) componente Angular do passo 3 do checkout; possivelmente o mesmo componente/serviço no <strong>cadastro</strong> (<code>/auth/register</code> também tem <code>postcode-lookup-hint</code>) e no <strong>perfil</strong>.</td>
+</tr>
+<tr>
+<td><strong>Áreas impactadas</strong></td>
+<td>Checkout (passos 3 → 4), cadastro, edição de perfil, <strong>criação da fatura</strong>: a regra <code>AddressMatchesCountry</code> usa o mesmo <code>PostcodeService</code>, então mudar a normalização muda o que a API aceita. Faturas antigas não mudam.</td>
+</tr>
+<tr>
+<td><strong>Riscos de regressão</strong></td>
+<td>(1) Clientes com CEP salvo sem hífen passarem a receber outro endereço sugerido; (2) a fatura ser <strong>rejeitada</strong> (422) se o front-end mantiver o endereço digitado e ele não bater com a regra do back-end. Esse é o maior risco, porque as duas camadas precisam mudar juntas; (3) a busca deixar de preencher campos vazios; (4) o botão <em>Proceed</em> habilitar/desabilitar errado com a nova mensagem; (5) cadastro e perfil herdarem a mudança sem teste.</td>
+</tr>
+<tr>
+<td><strong>Testes necessários</strong></td>
+<td>API-CEP-02 e UI-CHK-02 devem <strong>passar</strong> (remover <code>test.fail()</code>); <strong>novos:</strong> &quot;campos vazios → preenchidos&quot;, &quot;aceitar sugestão&quot;, &quot;manter digitado → fatura aceita ou erro claro&quot;; E2E-01 volta a conferir a cidade <strong>digitada</strong> (hoje confere o valor final por causa do bug); repetir para cadastro e perfil; API-AUTHZ-05/07 (criação de fatura) e toda a regressão <code>@regression</code>.</td>
+</tr>
+<tr>
+<td><strong>Critérios de qualidade (aceite)</strong></td>
+<td>0 sobrescritas em 20 repetições do UI-CHK-02 (<code>--repeat-each=20</code>); mesmo CEP em qualquer formato → mesmo endereço; nenhuma fatura rejeitada por divergência quando o cliente aceita a sugestão; nenhum teste <code>@regression</code> novo falhando; a fatura grava exatamente o endereço visível na tela no momento do <em>Confirm</em>.</td>
+</tr>
+</tbody></table>
+<h2>5.4 Proposta de evolução/correção — validação de pagamento por estratégia (corrige BUG-005)</h2>
+<p><strong>Problema:</strong> <code>PaymentController::check</code> aprova qualquer método desconhecido (fail-open).</p>
+<p><strong>Proposta técnica:</strong></p>
+<ol>
+<li>Contrato: <code>payment_method</code> obrigatório e restrito ao enum já documentado no OpenAPI → <code>422</code> com <code>{&quot;errors&quot;:{&quot;payment_method&quot;:[...]}}</code> para valores fora da lista.</li>
+<li>Implementação: um mapa <code>método → validador</code> (padrão Strategy). Cada validador declara suas regras (<code>BankTransferValidator</code>, <code>CreditCardValidator</code>, …). Método sem validador = erro, nunca sucesso (<em>fail-closed</em>).</li>
+<li>O endpoint passa a responder com o mesmo formato de erro dos outros (422 + <code>errors</code>).</li>
+</ol>
+<p><strong>Critérios de qualidade:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>Meta</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Métodos fora do enum (incl. ausente, vazio, maiúsculas <code>CREDIT-CARD</code>)</td>
+<td>100% rejeitados com 422</td>
+</tr>
+<tr>
+<td>Métodos válidos com dados válidos</td>
+<td>100% aprovados (sem regressão)</td>
+</tr>
+<tr>
+<td>Cada regra de cada método</td>
+<td>coberta por ≥ 1 caso de tabela de decisão</td>
+</tr>
+<tr>
+<td>Contrato OpenAPI × implementação</td>
+<td>0 divergências no teste de contrato</td>
+</tr>
+</tbody></table>
+<p><strong>Validação / estratégia de testes:</strong></p>
+<ul>
+<li>Os testes <strong>já existem</strong>: API-PAY-04 vira verde (remover <code>test.fail()</code>); API-PAY-01..03 garantem a não-regressão.</li>
+<li>Acrescentar casos para <code>payment_method</code> ausente, <code>&quot;&quot;</code>, <code>null</code> e com caixa diferente (particionamento).</li>
+<li>Rodar E2E-01 com os 5 métodos pela UI (parametrizar o teste).</li>
+<li>Gate no CI: a correção só entra com o pipeline verde.</li>
+</ul>
+</section>
+<section class="doc"><h1>6. Gestão de Defeitos</h1>
+<blockquote>
+<p><strong>Eixo 5 — Gestão de Defeitos (10%)</strong>
+Todos os defeitos abaixo foram <strong>reproduzidos</strong> no ambiente público em 20/11/2026 e cada um tem <strong>teste automatizado associado</strong> (marcado com <code>@known-defect</code>) e evidência em <code>evidencias/</code>.</p>
+</blockquote>
+<h2>6.1 Classificação utilizada</h2>
+<p><strong>Severidade</strong> (impacto técnico/negócio do defeito, independe de prazo):</p>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Critério</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Crítica</strong></td>
+<td>Perda/corrupção de dados, falha de segurança explorável, ou fluxo principal (comprar) impossível sem contorno.</td>
+</tr>
+<tr>
+<td><strong>Alta</strong></td>
+<td>Regra de negócio violada com efeito em dados persistidos ou dinheiro (pedido, pagamento, cadastro), com contorno difícil.</td>
+</tr>
+<tr>
+<td><strong>Média</strong></td>
+<td>Regra violada sem efeito financeiro direto, ou erro tratado de forma inadequada (ex.: 500 em vez de 4xx). Existe contorno.</td>
+</tr>
+<tr>
+<td><strong>Baixa</strong></td>
+<td>Inconsistência de mensagem, cosmético, ou impacto apenas em cenários improváveis.</td>
+</tr>
+</tbody></table>
+<p><strong>Prioridade</strong> (urgência de correção, considerando exposição e custo):</p>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>Critério</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>P1</strong></td>
+<td>Corrigir antes da próxima liberação. Afeta usuários reais no fluxo principal.</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>Corrigir na próxima iteração. Afeta integridade de dados mas tem barreira (ex.: UI bloqueia).</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td>Backlog. Baixa exposição.</td>
+</tr>
+</tbody></table>
+<p><strong>Status:</strong> <code>Novo</code> → <code>Confirmado</code> (reproduzido 2+ vezes, com teste) → <code>Reportado</code> (enviado aos mantenedores) → <code>Corrigido</code> → <code>Verificado</code> (teste <code>@known-defect</code> passa a passar e o <code>test.fail()</code> é removido) → <code>Fechado</code>.
+Como <strong>não temos acesso para corrigir o SUT</strong>, todos ficam em <strong>Confirmado</strong>. O status &quot;Reportado&quot; depende da equipe decidir abrir issue no repositório público do SUT (ação externa — <strong>não executada</strong>).</p>
+<p><strong>Distinção usada neste projeto</strong> (exigência do plano):</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Definição</th>
+<th>Exemplos neste projeto</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Defeito confirmado</strong></td>
+<td>Comportamento do SUT diverge de requisito/contrato documentado, reproduzido 2+ vezes.</td>
+<td>BUG-001 a BUG-009</td>
+</tr>
+<tr>
+<td><strong>Comportamento inesperado (não classificado como defeito)</strong></td>
+<td>Diverge do que esperávamos, mas não há requisito que prove que é erro (ou não foi reproduzido).</td>
+<td>OBS-01 a OBS-12</td>
+</tr>
+<tr>
+<td><strong>Falha de teste (erro nosso)</strong></td>
+<td>O teste estava errado; o SUT estava certo.</td>
+<td>API-AUTH-02 esperava 422, contrato diz 409; mocks com padrão de URL errado (ver doc 05, S-02)</td>
+</tr>
+<tr>
+<td><strong>Problema de ambiente</strong></td>
+<td>Falha causada por latência/instabilidade do ambiente público, não reproduzível isoladamente.</td>
+<td>UI-AUTH-03 falhou numa execução e passou isolado; timeouts de rede (doc 04, seção 4.6)</td>
+</tr>
+</tbody></table>
+<h2>6.2 Painel de acompanhamento</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Título</th>
+<th>Severidade</th>
+<th>Prioridade</th>
+<th>Status</th>
+<th>Teste associado</th>
+<th>Camada</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BUG-001</td>
+<td><code>GET /products</code> com <code>sort</code> inválido retorna HTTP 500</td>
+<td>Média</td>
+<td>P3</td>
+<td>Confirmado</td>
+<td>API-PROD-13</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BUG-002</td>
+<td>Adições sucessivas ultrapassam o limite de 99 unidades por item</td>
+<td>Média</td>
+<td>P2</td>
+<td>Confirmado</td>
+<td>API-CART-08</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BUG-003</td>
+<td>API aceita produto <strong>sem estoque</strong> no carrinho (UI bloqueia)</td>
+<td>Alta</td>
+<td>P2</td>
+<td>Confirmado</td>
+<td>API-CART-09</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BUG-004</td>
+<td>Cadastro aceita e-mail sem formato válido (<code>nao-e-email</code>)</td>
+<td>Média</td>
+<td>P2</td>
+<td>Confirmado</td>
+<td>API-AUTH-10</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BUG-005</td>
+<td><code>/payment/check</code> aprova método de pagamento inexistente</td>
+<td>Alta</td>
+<td>P1</td>
+<td>Confirmado</td>
+<td>API-PAY-04</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BUG-006</td>
+<td>Limite superior de idade efetivo é 93 anos (regra/mensagem diz 75)</td>
+<td>Baixa</td>
+<td>P3</td>
+<td>Confirmado</td>
+<td>API-AUTH-05b / 05c</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BUG-007</td>
+<td>Checkout: busca automática de CEP substitui, sem aviso, o endereço digitado ou salvo no perfil</td>
+<td>Alta</td>
+<td>P2</td>
+<td>Confirmado (intermitente)</td>
+<td>UI-CHK-02 (+ efeito observado no E2E-01)</td>
+<td>UI</td>
+</tr>
+<tr>
+<td>BUG-008</td>
+<td><code>GET /favorites/{id}</code> devolve o favorito de <strong>outro</strong> cliente (falha de autorização)</td>
+<td>Média</td>
+<td>P2</td>
+<td>Confirmado</td>
+<td>API-AUTHZ-03</td>
+<td>API</td>
+</tr>
+<tr>
+<td>BUG-009</td>
+<td>Serviço de CEP devolve endereços diferentes para o mesmo CEP com e sem hífen</td>
+<td>Baixa</td>
+<td>P3</td>
+<td>Confirmado</td>
+<td>API-CEP-02</td>
+<td>API</td>
+</tr>
+</tbody></table>
+<p>Severidade: 0 críticas · 3 altas · 4 médias · 2 baixas.</p>
+<hr>
+<h2>6.3 Relatórios de defeito</h2>
+<p>Ambiente comum a todos: Practice Software Testing <strong>v5.0</strong> (rodapé: &quot;v2.5 | Built 2026-10-11 | Angular 20.0.5&quot;), UI <code>https://practicesoftwaretesting.com</code>, API <code>https://api.practicesoftwaretesting.com</code> (OpenAPI &quot;Toolshop API 5.0.0&quot;). Cliente: Windows 11, Node 24.22, Playwright 1.65.1 (Chromium). Data: 20/11/2026.
+Código-fonte do SUT consultado (somente leitura) para análise de causa: <code>github.com/testsmith-io/practice-software-testing</code>, commit <code>ae7caec</code> (11/10/2026 — mesma data do build em produção), pasta <code>sprint5/API</code>.</p>
+<h3>BUG-001 — <code>sort</code> inválido em <code>GET /products</code> retorna HTTP 500</h3>
+<ul>
+<li><strong>Descrição:</strong> valores de ordenação fora da lista suportada derrubam a requisição com erro interno em vez de serem rejeitados como entrada inválida.</li>
+<li><strong>Pré-condições:</strong> nenhuma (endpoint público).</li>
+<li><strong>Passos:</strong> <code>GET /products?sort=foo,bar</code></li>
+<li><strong>Esperado:</strong> HTTP 400/422 com mensagem de validação (ou ordenação ignorada). Valores válidos documentados no contrato: <code>name,asc|desc</code>, <code>price,asc|desc</code>.</li>
+<li><strong>Atual:</strong> <code>HTTP 500 {&quot;message&quot;:&quot;Something went wrong&quot;}</code>.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/sondagem-api.log</code> (linha &quot;sort invalido&quot;); teste API-PROD-13 (falha esperada) no relatório HTML.</li>
+<li><strong>Impacto:</strong> erro 500 polui monitoramento/alertas e indica que o valor chega à consulta SQL sem lista de permissão; facilita varredura automatizada por erros.</li>
+<li><strong>Causa provável (hipótese, não confirmada):</strong> o parâmetro é repassado a um filtro genérico (<code>$query-&gt;filter()</code> em <code>ProductService::getAllProducts</code>) sem validação de coluna.</li>
+</ul>
+<h3>BUG-002 — Limite de 99 unidades é burlado por adições sucessivas</h3>
+<ul>
+<li><strong>Pré-condições:</strong> carrinho criado (<code>POST /carts</code>).</li>
+<li><strong>Passos:</strong> <code>POST /carts/{id}</code> com <code>{product_id, quantity: 60}</code> duas vezes; <code>GET /carts/{id}</code>.</li>
+<li><strong>Esperado:</strong> a regra <code>quantity</code> 1..99 (validada pelo próprio SUT em cada requisição — ver API-CART-02) deveria valer para a quantidade <strong>resultante</strong>; a 2ª adição deveria ser rejeitada (422) ou limitada a 99.</li>
+<li><strong>Atual:</strong> as duas retornam 200 e o item fica com <code>quantity = 120</code>.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/limite-quantidade-acumulada.log</code>; teste API-CART-08.</li>
+<li><strong>Causa (código):</strong> <code>CartService.php</code> faz <code>$existingItem-&gt;increment(&#39;quantity&#39;, $quantity)</code> sem verificar o total; a validação <code>max:99</code> (CartController, linha 111) só olha o valor da requisição.</li>
+<li><strong>Impacto:</strong> pedidos com quantidades acima do permitido; regra de negócio inconsistente entre &quot;adicionar&quot; e &quot;atualizar&quot;.</li>
+</ul>
+<h3>BUG-003 — API aceita produto sem estoque no carrinho</h3>
+<ul>
+<li><strong>Pré-condições:</strong> produto com <code>in_stock=false</code> (no seed: &quot;Long Nose Pliers&quot;).</li>
+<li><strong>Passos:</strong> <code>POST /carts/{id}</code> com o ID desse produto e <code>quantity: 1</code>.</li>
+<li><strong>Esperado:</strong> rejeição (422), coerente com a UI, que <strong>desabilita</strong> o botão &quot;Add to cart&quot; para esse produto (teste UI-CAT-08, print <code>evidencias/fase1-exploracao/produto-sem-estoque.png</code>).</li>
+<li><strong>Atual:</strong> <code>200 {&quot;result&quot;:&quot;item added or updated&quot;}</code>.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/sondagem-api.log</code> (linha &quot;add out-of-stock&quot;); teste API-CART-09.</li>
+<li><strong>Impacto:</strong> a regra existe apenas no front-end. Qualquer cliente da API (app móvel, integração, usuário com DevTools) compra item indisponível. Exemplo clássico de <strong>validação só no cliente</strong>.</li>
+</ul>
+<h3>BUG-004 — Cadastro aceita e-mail inválido</h3>
+<ul>
+<li><strong>Passos:</strong> <code>POST /users/register</code> com dados válidos e <code>email: &quot;nao-e-email&quot;</code>.</li>
+<li><strong>Esperado:</strong> 422 (a UI rejeita com &quot;Email format is invalid&quot; — teste UI-AUTH-05).</li>
+<li><strong>Atual:</strong> <code>201 Created</code> com o usuário persistido.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/sondagem-api.log</code> (linha &quot;register email invalido&quot;); print da UI <code>evidencias/fase1-exploracao/cadastro-email-invalido-ui.png</code>; teste API-AUTH-10.</li>
+<li><strong>Causa (código):</strong> <code>StoreCustomer.php</code>, linha 67: regras <code>[&#39;required&#39;,&#39;unique:users,email&#39;,&#39;string&#39;,&#39;max:256&#39;, ...]</code> — <strong>falta a regra <code>email</code></strong>.</li>
+<li><strong>Impacto:</strong> contas que não recebem e-mail (recuperação de senha impossível), dados sujos.</li>
+</ul>
+<h3>BUG-005 — <code>/payment/check</code> aprova método inexistente</h3>
+<ul>
+<li><strong>Passos:</strong> <code>POST /payment/check</code> com <code>{&quot;payment_method&quot;:&quot;bitcoin&quot;,&quot;payment_details&quot;:{}}</code>.</li>
+<li><strong>Esperado:</strong> 422 — o contrato OpenAPI declara <code>payment_method</code> como enum (<code>bank-transfer, cash-on-delivery, credit-card, buy-now-pay-later, gift-card</code>).</li>
+<li><strong>Atual:</strong> <code>200 {&quot;message&quot;:&quot;Payment was successful&quot;}</code>.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/sondagem-api.log</code> (linha &quot;payment check metodo invalido&quot;); teste API-PAY-04.</li>
+<li><strong>Causa (código):</strong> <code>PaymentController::check</code> (linhas 35–70) é uma sequência de <code>if</code> independentes, um por método, <strong>sem <code>else</code>/caso padrão</strong>; um método desconhecido não entra em nenhum ramo e cai direto no <code>return ... &#39;Payment was successful&#39;</code> (linha 70). Também vale para <code>payment_method</code> ausente.</li>
+<li><strong>Impacto:</strong> a verificação de pagamento — o controle mais sensível do fluxo — falha &quot;aberta&quot; (<em>fail-open</em>). Por isso severidade Alta e P1.</li>
+</ul>
+<h3>BUG-006 — Idade máxima efetiva é 93 anos, não 75</h3>
+<ul>
+<li><strong>Passos:</strong> <code>POST /users/register</code> com <code>dob</code> = hoje − 75 anos − 1 dia (ex.: <code>1951-11-19</code>).</li>
+<li><strong>Esperado:</strong> 422 com &quot;Customer must be younger than 75 years old.&quot; (contrato: &quot;between 18 and 75 years ago&quot;).</li>
+<li><strong>Atual:</strong> 201. O limite real é 93 anos: <code>1933-11-21</code> → 201, <code>1933-11-20</code> → 422.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/fronteira-idade-93-anos.log</code>; testes API-AUTH-05b (falha esperada) e API-AUTH-05c (caracterização do limite real).</li>
+<li><strong>Causa (código):</strong> <code>StoreCustomer.php</code>, linhas 44–46: <code>$dt = new Carbon(); $before = $dt-&gt;subYears(18)...; $after = $dt-&gt;subYears(75)...</code>. <code>Carbon</code> é <strong>mutável</strong>: <code>subYears(18)</code> altera <code>$dt</code>, e o <code>subYears(75)</code> é aplicado sobre a data já deslocada (18 + 75 = 93).</li>
+<li><strong>Impacto:</strong> baixo (público acima de 75 anos), mas é um ótimo exemplo de defeito que <strong>só a análise de valor-limite encontra</strong> — o caso típico (35 anos) nunca falharia.</li>
+</ul>
+<h3>BUG-007 — Checkout: a busca automática de CEP substitui, sem aviso, o endereço digitado ou salvo</h3>
+<ul>
+<li><strong>Pré-condições:</strong> usuário autenticado, 1 item no carrinho, passo 3 do checkout (&quot;Billing Address&quot;).</li>
+<li><strong>Cenário A (endereço digitado):</strong> país = Brasil; CEP <code>59000-000</code>; número <code>100</code>; logo em seguida digitar rua &quot;Rua das Flores&quot;, cidade &quot;Natal&quot;, estado &quot;RN&quot;; aguardar alguns segundos.</li>
+<li><strong>Cenário B (endereço salvo no perfil):</strong> cliente cadastrado com endereço &quot;Rua das Flores, Natal, RN, CEP 59000000&quot;; abrir o passo 3 e <strong>não tocar</strong> no formulário.</li>
+<li><strong>Esperado:</strong> o que o cliente digitou ou salvou é preservado. Uma sugestão da busca de CEP deveria preencher só campos vazios ou pedir confirmação.</li>
+<li><strong>Atual:</strong><ul>
+<li>Cenário A: após a resposta assíncrona de <code>GET /postcode-lookup</code>, os campos são <strong>substituídos</strong> (&quot;R. Horácio / Carmona d&#39;Oeste / Santa Catarina&quot;) ou <strong>apagados</strong>. Em 3 execuções: 2 sobrescritas e 1 apagamento.</li>
+<li>Cenário B: o formulário carrega o endereço do perfil (t ≈ 1 s: &quot;Natal / RN&quot;), a busca de CEP dispara sozinha e o substitui (t ≈ 3 s: &quot;Júlio d&#39;Oeste / Piauí&quot;).</li>
+<li>Comportamento <strong>intermitente</strong> (depende da ordem das respostas assíncronas): a 1ª versão do teste chegou a passar na 1ª tentativa.</li>
+</ul>
+</li>
+<li><strong>Efeito em dado persistido:</strong> na 1ª execução completa (20/11, <del>22:22Z) a fatura do E2E-01 foi gravada com <code>billing_city = &quot;Carmona d&#39;Oeste&quot;</code>, embora o teste tenha digitado &quot;Natal&quot;. Na execução oficial 1 (</del>22:45Z), o teste leu &quot;Júlio d&#39;Oeste&quot; no formulário e a fatura saiu com &quot;Carmona d&#39;Oeste&quot;: o endereço mudou de novo entre a leitura e a confirmação.</li>
+<li><strong>Contexto técnico (código do SUT):</strong> ao criar a fatura, a API valida a cidade e o estado <strong>contra o próprio serviço de CEP</strong> (<code>Rules/AddressMatchesCountry.php</code>). A sobrescrita no front-end parece ser uma tentativa de &quot;alinhar&quot; o formulário a essa regra. Como o serviço de CEP é simulado (OBS-04) e inconsistente entre formatos (BUG-009), o cliente não tem como saber qual endereço vai valer.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase3-exploratorios/SE-04-cep-console.log</code>, <code>SE-04-cep-sobrescreve-campos.json</code>, <code>SE-04-cep-execucao-{1,2,3}.png</code>, <code>observacoes-OBS-05-OBS-07.log</code>, <code>OBS-07-prefill-perfil.png</code>, <code>SE-04-postcode-formatos.log</code>; teste UI-CHK-02.</li>
+<li><strong>Impacto:</strong> o pedido pode ser gravado com um endereço de cobrança diferente do que o cliente informou, sem que ele perceba, o que afeta um dado fiscal (fatura). <strong>Severidade Alta</strong>. <strong>Prioridade P2</strong>, e não P1, porque no ambiente de demonstração o serviço de CEP é simulado.</li>
+</ul>
+<h3>BUG-008 — <code>GET /favorites/{id}</code> devolve favorito de outro cliente</h3>
+<ul>
+<li><strong>Pré-condições:</strong> dois clientes, A e B, autenticados; A tem um favorito.</li>
+<li><strong>Passos:</strong> B chama <code>GET /favorites/{id-do-favorito-de-A}</code> com o próprio token.</li>
+<li><strong>Esperado:</strong> 404 (ou 403). A listagem <code>GET /favorites</code> já filtra pelo dono, e o <code>DELETE</code> também.</li>
+<li><strong>Atual:</strong> <code>200</code> com <code>{&quot;id&quot;:…, &quot;user_id&quot;: &quot;&lt;id de A&gt;&quot;, &quot;product_id&quot;: …}</code>.</li>
+<li><strong>Causa (código):</strong> <code>Services/FavoriteService.php::getFavoriteById()</code> usa <code>Favorite::findOrFail($id)</code> <strong>sem</strong> <code>where(&#39;user_id&#39;, Auth::id())</code>, ao contrário de <code>getAllFavorites()</code> e <code>deleteFavorite()</code> no mesmo arquivo. É uma inconsistência dentro da mesma classe.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase1-api/sondagem-api-2.log</code>; teste API-AUTHZ-03.</li>
+<li><strong>Impacto:</strong> categoria <strong>API1 do OWASP API Security Top 10</strong> (<em>Broken Object Level Authorization</em>). O dado exposto aqui é pouco sensível (ID do cliente e do produto), por isso <strong>Média</strong>, mas o mesmo padrão em outro recurso seria grave. Para comparação: as <strong>faturas</strong> estão corretamente protegidas (API-AUTHZ-06).</li>
+</ul>
+<h3>BUG-009 — Mesmo CEP, endereços diferentes conforme o formato</h3>
+<ul>
+<li><strong>Passos:</strong> <code>GET /postcode-lookup?country=BR&amp;postcode=59000000&amp;house_number=100</code> e o mesmo com <code>59000-000</code>.</li>
+<li><strong>Esperado:</strong> mesmo endereço; o CEP é o mesmo e só muda a formatação.</li>
+<li><strong>Atual:</strong> <code>59000000</code> → &quot;Júlio d&#39;Oeste / Piauí&quot;; <code>59000-000</code> → &quot;Carmona d&#39;Oeste / Santa Catarina&quot;. O resultado é estável para cada formato.</li>
+<li><strong>Evidências:</strong> <code>evidencias/fase3-exploratorios/SE-04-postcode-formatos.log</code>; teste API-CEP-02.</li>
+<li><strong>Impacto:</strong> baixo isoladamente, mas <strong>contribui para o BUG-007</strong>: o perfil guarda o CEP sem hífen e o cliente digita com hífen, e cada formato produz um endereço diferente.</li>
+</ul>
+<hr>
+<h2>6.4 Comportamentos inesperados — registrados, <strong>não</strong> classificados como defeito</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Observação</th>
+<th>Por que não é defeito (por ora)</th>
+<th>Evidência</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OBS-01</td>
+<td><code>page=0</code>, <code>page=-1</code>, <code>page=abc</code> retornam silenciosamente a página 1</td>
+<td>Tolerância é uma escolha de design aceitável; não há requisito contrário.</td>
+<td><code>sondagem-api.log</code></td>
+</tr>
+<tr>
+<td>OBS-02</td>
+<td><code>between=price,20,10</code> (faixa invertida) retorna lista vazia sem aviso</td>
+<td>Idem; poderia ser 422. Sugestão de melhoria.</td>
+<td><code>sondagem-api.log</code></td>
+</tr>
+<tr>
+<td>OBS-03</td>
+<td>A UI valida senha com &quot;mínimo 6 caracteres&quot;, a API exige 8 (+ maiúscula, número, símbolo)</td>
+<td>Inconsistência de regra entre camadas: o usuário só descobre a regra real após enviar. <strong>Candidato a defeito — equipe decide.</strong></td>
+<td>print <code>cadastro-email-invalido-ui.png</code>; testes API-AUTH-04</td>
+</tr>
+<tr>
+<td>OBS-04</td>
+<td>Busca de CEP devolve endereço incompatível com o CEP (59000-000 → Santa Catarina)</td>
+<td>Serviço de CEP simulado na demo.</td>
+<td><code>SE-04-cep-console.log</code></td>
+</tr>
+<tr>
+<td>OBS-05</td>
+<td>Visitante anônimo: a home chama <code>GET /users/me</code> (2×) e gera erro 401 no console do navegador</td>
+<td>Sem impacto funcional; ruído de console e requisições desnecessárias.</td>
+<td><code>evidencias/fase3-exploratorios/observacoes-OBS-05-OBS-07.log</code></td>
+</tr>
+<tr>
+<td>OBS-06</td>
+<td>Ambiente é re-semeado periodicamente: IDs dos produtos mudam</td>
+<td>Característica do ambiente de demonstração, mas quebra testes que fixam IDs.</td>
+<td><code>evidencias/fase4-automacao/reseed-ids-mudaram.log</code></td>
+</tr>
+<tr>
+<td>OBS-07</td>
+<td>O endereço do perfil é pré-preenchido no passo 3 de forma <strong>assíncrona</strong> (vazio em t=0, preenchido em t≈1 s). <em>Correção:</em> na SE-03 tínhamos anotado &quot;não é pré-preenchido&quot; porque lemos os campos cedo demais</td>
+<td>Intencional. Mas é uma das fontes da condição de corrida do BUG-007.</td>
+<td><code>observacoes-OBS-05-OBS-07.log</code>, <code>OBS-07-prefill-perfil.png</code></td>
+</tr>
+<tr>
+<td>OBS-08</td>
+<td>Latência com cauda longa (mediana ~0,9 s; p90 até ~10 s; máximo ~31 s)</td>
+<td>Ambiente público compartilhado; sem SLA documentado.</td>
+<td><code>evidencias/metricas/latencia-*.json</code></td>
+</tr>
+<tr>
+<td>OBS-09</td>
+<td><code>DELETE /favorites/{id}</code> de outro cliente responde <strong>204</strong>, mas não apaga nada</td>
+<td>A autorização funciona (nada é apagado); só o código de resposta engana (o esperado seria 404).</td>
+<td><code>sondagem-api-2.log</code>; teste API-AUTHZ-04</td>
+</tr>
+<tr>
+<td>OBS-10</td>
+<td><code>GET /invoices/search</code> retornou <strong>500</strong> uma vez (cliente B buscando a fatura de A)</td>
+<td><strong>Não reproduzido</strong> em nova tentativa (200 com lista vazia). O log da 1ª tentativa foi sobrescrito por engano, então <strong>não há evidência salva</strong>. Fica registrado só para transparência.</td>
+<td>—</td>
+</tr>
+<tr>
+<td>OBS-11</td>
+<td><code>POST /users/register</code> e <code>POST /users/login</code> estouraram 45 s algumas vezes durante as execuções completas</td>
+<td>Ambiente. Hipótese <strong>não verificada</strong>: o cadastro chama um serviço externo de senhas vazadas (<code>Password::uncompromised()</code> no código).</td>
+<td>relatórios das execuções (testes flaky)</td>
+</tr>
+<tr>
+<td>OBS-12</td>
+<td>No GitHub Actions, as rotas de produto, checkout e &quot;minha conta&quot; exibem o desafio anti-robô do Cloudflare; da rede local, não</td>
+<td>Proteção do ambiente contra IPs de datacenter, não é defeito funcional. Testes afetados são pulados com motivo no CI (doc 07 §7.6).</td>
+<td>artefato <code>ui-e2e-results</code> da execução 45035611690 (prints com &quot;Verify you are human&quot;)</td>
+</tr>
+</tbody></table>
+</section>
+<section class="doc"><h1>7. CI/CD e DevOps</h1>
+<blockquote>
+<p><strong>Eixo 6 — CI/CD e DevOps (10%)</strong>
+Arquivo: <a class="repo"><code>.github/workflows/qa-pipeline.yml</code></a> (GitHub Actions — gratuito para repositórios públicos).</p>
+</blockquote>
+<h2>7.1 Situação</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Repositório Git local, com histórico de commits</td>
+<td><strong>Implementado</strong></td>
+</tr>
+<tr>
+<td>Workflow do GitHub Actions</td>
+<td><strong>Implementado</strong></td>
+</tr>
+<tr>
+<td>Cada comando do pipeline executado com sucesso <strong>localmente</strong> (typecheck, lint com gate, jscpd com gate, testes por projeto, resumo, cobertura com gate)</td>
+<td><strong>Executado</strong> — ver 7.5</td>
+</tr>
+<tr>
+<td>Execução do workflow <strong>no GitHub</strong></td>
+<td><strong>Executado</strong> em 22/11 (execução 45035611690): estágios 1 e 2 OK; estágios 3 e 4 FALHOU por bloqueio anti-robô do Cloudflare (ver 7.6). Correção feita; <strong>nova execução no GitHub pendente</strong> (após o próximo push).</td>
+</tr>
+</tbody></table>
+<h2>7.2 Gatilhos</h2>
+<table>
+<thead>
+<tr>
+<th>Evento</th>
+<th>Por quê</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>push</code> na <code>main</code></td>
+<td>Toda mudança na suíte é validada.</td>
+</tr>
+<tr>
+<td><code>pull_request</code> para a <code>main</code></td>
+<td>Revisão de código acompanhada do resultado dos testes, antes do merge.</td>
+</tr>
+<tr>
+<td><code>workflow_dispatch</code></td>
+<td>Execução manual (útil na apresentação).</td>
+</tr>
+<tr>
+<td><code>schedule</code> (dias úteis, 09:00 UTC)</td>
+<td>O SUT é externo e muda sem aviso (vimos o re-seed). A regressão diária detecta mudanças <strong>do sistema</strong>, não só do nosso código.</td>
+</tr>
+</tbody></table>
+<p><code>concurrency</code> cancela execuções antigas do mesmo branch, para não gastar minutos com um commit já substituído.</p>
+<h2>7.3 Estágios</h2>
+<pre><code>┌──────────────────────────────┐
+│ 1 · Análise estática          │  npm ci → tsc → eslint (gate) → jscpd (gate)
+└──────────────┬───────────────┘
+               │ só segue se passar (fail fast)
+       ┌───────┴────────┐
+┌──────▼──────┐  ┌──────▼──────────────┐
+│ 2 · API      │  │ 3 · UI + E2E         │   em paralelo
+│ playwright   │  │ install chromium     │
+│ --project=api│  │ --project=ui,e2e     │
+└──────┬──────┘  └──────┬──────────────┘
+       │ artefatos: relatório HTML, JUnit, JSON, traces, vídeos, coverage-data
+       └───────┬────────┘
+┌──────────────▼───────────────┐
+│ 4 · Métricas e quality gates  │  resumo por estágio na página da execução
+│                              │  cobertura de endpoints (gate ≥ 60%)
+│                              │  gate: nenhum estágio de teste com falha
+└──────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Instalação de dependências:</strong> <code>npm ci</code> (versões exatas do <code>package-lock.json</code>, o que garante reprodutibilidade) com cache do npm.</li>
+<li><strong>Build:</strong> não há build de aplicação (o SUT já está publicado); o equivalente é o <strong>typecheck</strong> da suíte.</li>
+<li><strong>Relatórios e artefatos:</strong> HTML do Playwright, JUnit (lido por qualquer ferramenta de CI), JSON, traces, vídeos e prints de falha, guardados por 14 dias. Os artefatos são enviados <strong>mesmo quando o estágio falha</strong> (<code>if: always()</code>), porque o relatório é a evidência da falha.</li>
+<li><strong>Tratamento de falhas:</strong> 1 nova tentativa por teste (contabilizada como flaky); <code>timeout-minutes</code> por job (para não ficar preso se o SUT travar); cancelamento por concorrência.</li>
+</ul>
+<h2>7.4 Quality gates</h2>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Regra</th>
+<th>Onde</th>
+<th>Por quê</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G1 Tipos</td>
+<td><code>tsc --noEmit</code> sem erros</td>
+<td>estágio 1</td>
+<td>Código de teste quebrado não deve nem rodar.</td>
+</tr>
+<tr>
+<td>G2 Lint</td>
+<td>0 erros e no máximo 10 avisos (<code>--max-warnings 10</code>)</td>
+<td>estágio 1</td>
+<td>Barra anti-padrões (espera fixa, <code>test.only</code> esquecido, asserção ausente).</td>
+</tr>
+<tr>
+<td>G3 Duplicação</td>
+<td>≤ 5% (<code>jscpd --threshold 5</code>)</td>
+<td>estágio 1</td>
+<td>Duplicação na suíte multiplica o custo de manutenção.</td>
+</tr>
+<tr>
+<td>G4 Testes</td>
+<td>0 falhas <strong>inesperadas</strong> (defeitos conhecidos com <code>test.fail()</code> não bloqueiam)</td>
+<td>estágios 2–4</td>
+<td>Regressão verde = nada novo quebrou.</td>
+</tr>
+<tr>
+<td>G5 Cobertura</td>
+<td>Operações da API em escopo cobertas ≥ 60%</td>
+<td>estágio 4</td>
+<td>Impede que a suíte &quot;encolha&quot; sem ninguém perceber.</td>
+</tr>
+</tbody></table>
+<p>Os limites (10 avisos, 5%, 60%) foram escolhidos a partir dos valores atuais, com margem.</p>
+<h2>7.5 Validação local dos comandos do pipeline</h2>
+<p>Execução em Windows 11 / Node 24, em 20/11/2026 (<code>evidencias/cicd/</code>):</p>
+<ul>
+<li>Estágio 1: G1 typecheck OK; G2 lint 0 erros/4 avisos (exit 0); G3 duplicação 0,00% (exit 0). Arquivo: <code>validacao-local-estagio1.log</code>.</li>
+<li>Estágios 2–3: execução oficial 3, código de saída 0 (doc 04 §4.5).</li>
+<li>Estágio 4: <code>endpoint-coverage.mjs --min 60</code> → 79,2%, exit 0; <code>summarize-results.mjs</code> gerou o resumo.</li>
+<li>Clone limpo: <code>npm ci</code> + typecheck + lint OK; 104 testes listados (<code>reprodutibilidade-clone-limpo.md</code>).</li>
+</ul>
+<h2>7.6 Execução no GitHub Actions</h2>
+<p><strong>1ª execução — 22/11/2026, push na <code>main</code></strong> (<a href="https://github.com/PedroHAMedeiros/Projeto-Testes-e-qualidade/actions/runs/45035611690">execução 45035611690</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Estágio</th>
+<th>Resultado</th>
+<th>Observação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 · Análise estática</td>
+<td>OK 19 s</td>
+<td>0 erros; avisos de <code>max-lines-per-function</code></td>
+</tr>
+<tr>
+<td>2 · Testes de API</td>
+<td>OK 1 min</td>
+<td>todos os testes de API conforme o esperado</td>
+</tr>
+<tr>
+<td>3 · UI e E2E</td>
+<td>FALHOU 8 min 35 s</td>
+<td>falharam <strong>todos</strong> os testes que abrem produto, checkout ou &quot;minha conta&quot;; listagem, busca e mocks passaram</td>
+</tr>
+<tr>
+<td>4 · Quality gates</td>
+<td>FALHOU 10 s</td>
+<td>gate de cobertura OK; gate &quot;sem falhas inesperadas&quot; FALHOU por causa do estágio 3</td>
+</tr>
+</tbody></table>
+<p><strong>Diagnóstico</strong> (prints e traces do artefato <code>ui-e2e-results</code>): nessas rotas o navegador do runner recebeu a página do <strong>Cloudflare &quot;Performing security verification / Verify you are human&quot;</strong> em vez do site. O SUT protege essas rotas contra tráfego de datacenter, e os servidores do GitHub são datacenter. Da rede local, as mesmas rotas respondem 200 sem desafio (verificado em 23/11). <strong>Classificação:</strong> problema de ambiente (OBS-12), não defeito do SUT nem erro dos testes.</p>
+<p><strong>Correção</strong> (sem contornar o desafio, que é um controle de segurança de terceiros):</p>
+<ul>
+<li><strong>1ª tentativa (não funcionou):</strong> uma sonda que abria <code>/checkout</code> uma vez no início de cada worker. Na 2ª execução no GitHub (23/11, <a href="https://github.com/PedroHAMedeiros/Projeto-Testes-e-qualidade/actions/runs/45195958429">execução 45195958429</a>) ela deu <strong>falso negativo</strong>. O trace mostrou que o desafio depende do comportamento da sessão: <code>/checkout</code> 200 → produto 200 → <code>/checkout</code> <strong>403 <code>cf-mitigated: challenge</code></strong>. Uma verificação única no início não consegue prever isso.</li>
+<li><strong>Solução atual:</strong> um observador (<code>src/pages/bot-wall.ts</code>) marca a página assim que chega uma resposta de documento com <code>cf-mitigated: challenge</code>. Cada navegação dos page objects (home, produto, checkout, login → conta, cadastro) e o <code>reload</code> do UI-CART-05 verificam a marca e <strong>pulam o teste com o motivo escrito</strong>. Não viram falha nem somem: aparecem como &quot;pulados&quot; no relatório e no resumo da execução. Se um teste falhar por outro caminho com desafio observado, ele recebe a anotação <code>ambiente</code>.</li>
+<li><strong>Validação local (23/11):</strong> (1) caminho normal: UI + E2E completos, 0 falhas inesperadas; (2) <code>FORCE_BOT_WALL=1</code>: testes pulados com o motivo; (3) reprodução realista com <code>page.route</code>: produto 200 e depois <code>/checkout</code> 403 com <code>cf-mitigated: challenge</code> → teste pulado, como esperado.</li>
+</ul>
+<p><strong>Consequência e limitação:</strong> no CI ficam cobertos a análise estática, toda a API e a parte da UI sem desafio (catálogo, busca, cadastro, login com erro, mocks). Os fluxos de carrinho, checkout e E2E têm evidência das <strong>execuções locais</strong> (doc 04 §4.5). Para rodá-los também no CI, as alternativas seriam um runner self-hosted numa rede não bloqueada ou subir o SUT em Docker dentro do pipeline (trabalho futuro, doc 08).</p>
+</section>
+<section class="doc"><h1>8. Conclusões, Lições Aprendidas e Limitações</h1>
+<p>Neste trabalho, avaliamos o <strong>Practice Software Testing (Toolshop)</strong> usando testes manuais, exploratórios e automatizados. O objetivo foi verificar se as principais funcionalidades atendiam ao comportamento esperado, identificar defeitos e registrar evidências para justificar os resultados.</p>
+<h2>8.1 Conclusões sobre os testes</h2>
+<p>A estratégia de <strong>priorizar os testes pelos riscos</strong> foi importante porque direcionou a análise para funcionalidades que poderiam causar mais problemas ao usuário, como pagamento, carrinho e checkout. Foi nessas áreas que encontramos alguns dos defeitos mais relevantes, entre eles:</p>
+<ul>
+<li><strong>BUG-003:</strong> a API permite adicionar ao carrinho um produto sem estoque, embora a interface bloqueie essa ação.</li>
+<li><strong>BUG-005:</strong> a verificação de pagamento aceita um método que não existe.</li>
+<li><strong>BUG-007:</strong> o endereço informado pode ser substituído durante o checkout, afetando os dados da fatura.</li>
+<li><strong>BUG-008:</strong> uma requisição permite consultar um favorito pertencente a outro usuário.</li>
+</ul>
+<p>Na execução oficial local, realizada em <strong>20/11/2026</strong>, foram registrados <strong>104 testes automatizados</strong>: 77 de API, 25 de interface e 2 E2E. Desses, 93 passaram diretamente, 2 passaram após nova tentativa (<em>flaky</em>) e 9 apresentaram falhas esperadas por defeitos já conhecidos. <strong>Não houve falhas inesperadas nessa execução.</strong></p>
+<p>A cobertura das operações de API incluídas no escopo chegou a <strong>79,2% (38 de 48)</strong>, superando a meta de 60%. Os resultados mostram que os testes de API foram especialmente úteis para encontrar problemas nas regras do sistema. Já os testes de interface e E2E ajudaram a verificar o que acontece na prática durante o uso. No caso do BUG-007, por exemplo, foi importante conferir os dados da fatura no back-end, e não apenas o que aparecia na tela.</p>
+<p>Mesmo com esses resultados, <strong>não podemos dizer que o sistema está livre de falhas</strong>. Os nove defeitos identificados continuam documentados e ainda não foram corrigidos na aplicação testada.</p>
+<h2>8.2 Critérios de saída</h2>
+<p>Ao comparar os resultados com os critérios definidos no <a class="repo">plano de testes</a>, observamos que:</p>
+<ul>
+<li>A execução local atingiu a meta de <strong>zero falhas inesperadas</strong> na regressão automatizada.</li>
+<li>A taxa de testes <em>flaky</em> foi de <strong>1,9% (2 de 104)</strong>, abaixo do limite de 5%.</li>
+<li>A cobertura de operações de API em escopo (<strong>79,2%</strong>) superou a meta de 60%.</li>
+<li>Os <strong>9 defeitos confirmados</strong> possuem registros, evidências e testes associados.</li>
+<li>O pipeline do GitHub Actions foi implementado, mas sua validação remota ficou <strong>parcial</strong>, pois o Cloudflare bloqueou parte dos testes de interface e E2E. A solução para identificar esses bloqueios foi validada localmente, mas a documentação ainda apontava uma nova execução no GitHub como pendente.</li>
+</ul>
+<p>Além disso, a documentação indica que a <strong>execução manual dos casos e as sessões exploratórias feitas diretamente pela equipe</strong> ainda precisam ser concluídas e registradas. Por isso, consideramos que os objetivos técnicos da automação foram alcançados em boa parte, mas nem todos os critérios de encerramento do projeto foram atendidos.</p>
+<h2>8.3 Lições aprendidas</h2>
+<p>Um dos principais aprendizados foi perceber que <strong>um teste aprovado nem sempre significa que tudo está correto</strong>. Alguns problemas só apareceram quando verificamos a resposta da API ou os dados que realmente foram gravados, em vez de confiar apenas na interface.</p>
+<p>Também vimos a importância de <strong>conferir os próprios testes</strong>. Durante o desenvolvimento, um teste com <em>mock</em> chegou a passar sem verificar corretamente o cenário esperado. Isso mostrou que uma asserção mal construída pode dar uma falsa sensação de segurança.</p>
+<p>Outra dificuldade foi trabalhar com um <strong>sistema público, fora do nosso controle</strong>. Houve lentidão, mudanças nos identificadores dos produtos (<em>re-seed</em>) e bloqueios de acesso no ambiente de CI. Foi necessário adaptar os testes para buscar dados atualizados, esperar pelas respostas corretas e distinguir problemas do ambiente de defeitos reais da aplicação.</p>
+<p>Por fim, entendemos que <strong>testes automatizados e exploratórios se complementam</strong>. A automação ajuda a repetir os cenários e acompanhar regressões; a exploração ajuda a encontrar situações que ainda não tinham sido previstas. Os resultados precisam ser analisados, e não apenas contabilizados.</p>
+<h2>8.4 Limitações</h2>
+<p>O trabalho teve algumas limitações que devem ser consideradas ao interpretar os resultados:</p>
+<ul>
+<li><strong>Ambiente compartilhado:</strong> não controlamos os dados, as atualizações nem a disponibilidade do sistema testado.</li>
+<li><strong>Cobertura:</strong> os 79,2% correspondem às operações de API em escopo, <strong>não à cobertura do código-fonte</strong> da aplicação.</li>
+<li><strong>Navegadores e dispositivos:</strong> a automação da interface foi realizada no Chromium, sem uma avaliação completa em outros navegadores ou dispositivos móveis.</li>
+<li><strong>CI/CD:</strong> o Cloudflare impediu a execução remota de parte dos fluxos de interface e E2E.</li>
+<li><strong>Correção dos defeitos:</strong> os problemas foram registrados, mas não alteramos o código do sistema testado.</li>
+<li><strong>Execução manual:</strong> os casos MT-05, MT-10, MT-11 e MT-14 não foram executados (ver a <a class="repo">rastreabilidade do projeto</a>).</li>
+</ul>
+<p>Essas limitações não anulam os resultados, mas deixam claro <strong>até onde as conclusões podem ser aplicadas</strong>.</p>
+<h2>8.5 Considerações finais e melhorias futuras</h2>
+<p>De modo geral, o projeto permitiu aplicar técnicas de teste, acompanhar defeitos e avaliar a qualidade de um sistema real. A combinação de testes de API, interface e E2E trouxe uma visão mais completa do que seria possível usando apenas uma dessas abordagens.</p>
+<p>Se o trabalho fosse ampliado, os próximos passos seriam executar os testes em um ambiente local controlado, ampliar a cobertura para outros navegadores, concluir as atividades manuais da equipe e validar novamente o pipeline no GitHub Actions. Também seria importante encaminhar os defeitos aos responsáveis pelo sistema e repetir os testes depois das correções.</p>
+<p><strong>Não recomendaríamos liberar a versão avaliada sem antes tratar os defeitos de maior impacto</strong>, principalmente os relacionados a pagamento, estoque e endereço. A principal conclusão é que testar não consiste apenas em obter resultados positivos: também é necessário entender os riscos, verificar as evidências e reconhecer o que ainda não foi validado.</p>
+</section>
+<section class="doc"><h1>10. Rastreabilidade e Auditoria de Completude</h1>
+<h2>10.1 Requisitos da professora → atividade → artefato → evidência → situação</h2>
+<p>Legenda da coluna &quot;Situação&quot;: CONCLUÍDO = concluído e validado · PARCIAL = concluído parcialmente · IMPLEMENTADO = implementado, não validado · NÃO IMPLEMENTADO</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Requisito (PDF da professora)</th>
+<th>Atividade realizada</th>
+<th>Artefato</th>
+<th>Evidência</th>
+<th>Situação</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Capa: disciplina, professora, nomes, matrículas, opção</td>
+<td>Capa com os 6 integrantes e matrículas</td>
+<td><code>docs/00-capa.md</code></td>
+<td>—</td>
+<td>PARCIAL: link do repositório pendente na capa</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Estratégia de V&amp;V com escopo, riscos, critérios de entrada/saída e priorização</td>
+<td>Plano baseado na exploração real</td>
+<td><code>docs/01-plano-de-testes.md</code></td>
+<td><code>evidencias/fase1-*</code></td>
+<td>CONCLUÍDO (justificativas em 1.9.1 e 1.9.2)</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>Casos de teste manuais estruturados</td>
+<td>15 casos com todos os campos</td>
+<td><code>docs/02-casos-de-teste-manuais.md</code></td>
+<td><code>evidencias/fase1-exploracao/</code>, <code>evidencias/minha-execucao/manuais/</code></td>
+<td>PARCIAL: 11 executados (8 por exploração assistida; 6 manualmente, 3 deles reexecuções); 4 não executados (MT-05, MT-10, MT-11, MT-14)</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Sessões exploratórias com charter, objetivos e anotações</td>
+<td>6 sessões (SE-01..06) + modelo</td>
+<td><code>docs/03-sessoes-exploratorias.md</code></td>
+<td><code>evidencias/fase1-api/</code>, <code>fase3-exploratorios/</code>, <code>exploratorios-equipe/</code></td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>Testes de unidade, integração, E2E e/ou API</td>
+<td>104 testes: API (6 arquivos, 77 testes), UI (5 arquivos, 25), E2E (1 arquivo, 2); integração UI↔API</td>
+<td><code>tests/</code></td>
+<td><code>evidencias/execucao-oficial-*/</code></td>
+<td>CONCLUÍDO (unidade: não aplicável, justificado no doc 01 §1.9)</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Análise de cobertura</td>
+<td>Cobertura de operações da API × contrato OpenAPI (79,2% em escopo); cobertura de riscos e requisitos</td>
+<td><code>scripts/endpoint-coverage.mjs</code>, este doc</td>
+<td><code>reports/endpoint-coverage.md</code></td>
+<td>CONCLUÍDO (cobertura de código do SUT: indisponível, limitação declarada)</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Uso de mocks/stubs</td>
+<td>4 testes com <code>page.route</code></td>
+<td><code>tests/ui/mocks.ui.spec.ts</code></td>
+<td>relatório HTML</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>Suíte de regressão completa</td>
+<td>Tag <code>@regression</code> + CI diário</td>
+<td><code>package.json</code> (<code>test:regression</code>), workflow</td>
+<td><code>evidencias/execucao-oficial-*</code></td>
+<td>CONCLUÍDO local · IMPLEMENTADO: no GitHub</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>Métricas de qualidade</td>
+<td>Taxa de sucesso, flaky, duração, defeitos, lint, duplicação, latência</td>
+<td><code>scripts/summarize-results.mjs</code>, <code>measure-latency.mjs</code></td>
+<td><code>reports/summary.md</code>, <code>evidencias/metricas/</code>, <code>fase5-qualidade/</code></td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>Q1</td>
+<td>Análise de métricas e code smells</td>
+<td>SUT (6 smells ligados a defeitos) + suíte (7 smells reais)</td>
+<td><code>docs/05</code></td>
+<td><code>eslint-antes/depois</code>, <code>jscpd-antes</code></td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td>Revisão de código e propostas de refatoração com justificativa</td>
+<td>Refatorações aplicadas na suíte; propostas para o SUT</td>
+<td><code>docs/05</code></td>
+<td>diffs no histórico do Git</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>Análise de impacto de mudanças</td>
+<td>Impacto da correção BUG-007/009</td>
+<td><code>docs/05</code> §5.3</td>
+<td>—</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td>Proposta de evolução/correção com critérios de qualidade</td>
+<td>Validação de pagamento por Strategy (BUG-005)</td>
+<td><code>docs/05</code> §5.4</td>
+<td>testes API-PAY-* já existentes</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Reportes de bugs estruturados, com acompanhamento</td>
+<td>9 defeitos + 11 observações</td>
+<td><code>docs/06</code></td>
+<td>por defeito, no doc 06</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Classificação por severidade e prioridade</td>
+<td>Critérios definidos e aplicados</td>
+<td><code>docs/06</code> §6.1</td>
+<td>—</td>
+<td>CONCLUÍDO (prioridades justificadas no doc 01, 1.9.2)</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Pipeline de CI: build + testes automatizados</td>
+<td>Workflow em 4 estágios</td>
+<td><code>.github/workflows/qa-pipeline.yml</code></td>
+<td><code>evidencias/cicd/</code></td>
+<td>CONCLUÍDO: 1ª execução no GitHub (22/11): estágios 1–2 aprovados, 3–4 bloqueados por Cloudflare (OBS-12) · IMPLEMENTADO: correção feita, reexecução pendente</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Quality gates básicos</td>
+<td>5 gates (tipos, lint, duplicação, testes, cobertura)</td>
+<td>workflow + <code>docs/07</code></td>
+<td><code>evidencias/cicd/</code></td>
+<td>IMPLEMENTADO: idem</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>Conclusões e lições aprendidas</td>
+<td>Conclusões, lições e limitações</td>
+<td><code>docs/08</code></td>
+<td>—</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>Apêndices com evidências (prints, logs, relatórios)</td>
+<td>Pasta organizada por fase</td>
+<td><code>evidencias/</code></td>
+<td>—</td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>Entrega: um PDF (ou link do repositório + PDF); repositório público</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>PARCIAL: repositório publicado e PDF gerado; link do repositório pendente na capa</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>Evidências de execução real, justificativas próprias e análise crítica</td>
+<td>Evidências reais em todo o projeto</td>
+<td><code>docs/</code></td>
+<td><code>evidencias/</code></td>
+<td>CONCLUÍDO</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Demonstração ao vivo e respostas na apresentação</td>
+<td>Roteiro, plano B, perguntas de estudo</td>
+<td><code>docs/09</code></td>
+<td>—</td>
+<td>PARCIAL: roteiro pronto; ensaio pendente</td>
+</tr>
+</tbody></table>
+<h2>10.2 Requisitos do SUT → riscos → testes → defeitos</h2>
+<table>
+<thead>
+<tr>
+<th>Requisito</th>
+<th>Risco</th>
+<th>Testes automatizados</th>
+<th>Casos manuais</th>
+<th>Defeitos/observações</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RF-01 Listagem/paginação</td>
+<td>R7</td>
+<td>API-PROD-01..03, UI-CAT-01, UI-CAT-06, UI-MOCK-01</td>
+<td>—</td>
+<td>OBS-01</td>
+</tr>
+<tr>
+<td>RF-02 Busca</td>
+<td>R7, R8</td>
+<td>API-PROD-07/08, UI-CAT-02/03</td>
+<td>MT-12</td>
+<td>—</td>
+</tr>
+<tr>
+<td>RF-03 Filtros</td>
+<td>R7</td>
+<td>API-PROD-05/06, API-CAT-01..04, UI-CAT-05</td>
+<td>MT-13</td>
+<td>OBS-02</td>
+</tr>
+<tr>
+<td>RF-04 Ordenação</td>
+<td>R8</td>
+<td>API-PROD-04, API-PROD-13, UI-CAT-04</td>
+<td>MT-13</td>
+<td><strong>BUG-001</strong></td>
+</tr>
+<tr>
+<td>RF-05 Detalhe/estoque</td>
+<td>R7, R4</td>
+<td>API-PROD-09..12, UI-CAT-07/08, UI-MOCK-02</td>
+<td>MT-04</td>
+<td>—</td>
+</tr>
+<tr>
+<td>RF-06 Carrinho</td>
+<td>R3, R4</td>
+<td>API-CART-01..09, UI-CART-01..05</td>
+<td>MT-05, MT-15</td>
+<td><strong>BUG-002, BUG-003</strong></td>
+</tr>
+<tr>
+<td>RF-07 Cadastro</td>
+<td>R4, R6</td>
+<td>API-AUTH-01..05c, API-AUTH-10, UI-AUTH-04/05</td>
+<td>MT-08..11</td>
+<td><strong>BUG-004, BUG-006</strong>, OBS-03</td>
+</tr>
+<tr>
+<td>RF-08 Login/sessão/conta</td>
+<td>R5</td>
+<td>API-AUTH-06..09, API-ACC-01/02, UI-AUTH-01..03</td>
+<td>MT-06, MT-07</td>
+<td>OBS-11</td>
+</tr>
+<tr>
+<td>RF-09 Pagamento</td>
+<td>R1</td>
+<td>API-PAY-01..04</td>
+<td>MT-01</td>
+<td><strong>BUG-005</strong></td>
+</tr>
+<tr>
+<td>RF-10 Checkout/fatura</td>
+<td>R2, R5</td>
+<td>E2E-01/02, UI-CHK-01/02, API-AUTHZ-05..07, API-CEP-01/02</td>
+<td>MT-01..03</td>
+<td><strong>BUG-007, BUG-009</strong>, OBS-04, OBS-07</td>
+</tr>
+<tr>
+<td>RF-11 Contato</td>
+<td>R4</td>
+<td>API-MSG-01/02</td>
+<td>MT-14</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Favoritos (conta)</td>
+<td>R5</td>
+<td>API-AUTHZ-01..04</td>
+<td>—</td>
+<td><strong>BUG-008</strong>, OBS-09</td>
+</tr>
+<tr>
+<td>(resiliência da UI)</td>
+<td>R8</td>
+<td>UI-MOCK-03/04</td>
+<td>—</td>
+<td>OBS-05</td>
+</tr>
+</tbody></table>
+<p><strong>Cobertura de riscos:</strong> todos os riscos com nota ≥ 6 (R1, R2, R3, R4, R9) têm testes automatizados; R9 (ambiente) é mitigado no desenho da suíte (doc 04 §4.6).</p>
+<h2>10.3 Auditoria de completude — o que foi verificado</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Os testes foram realmente executados: 4 execuções completas registradas (<code>evidencias/execucao-*</code>), mais execuções parciais citadas no PROGRESSO.</li>
+<li><input checked="" disabled="" type="checkbox"> Os resultados do doc 04 vêm do <code>results.json</code> da execução final, copiado para <code>evidencias/</code>.</li>
+<li><input checked="" disabled="" type="checkbox"> Cada defeito tem evidência e teste associado (doc 06).</li>
+<li><input checked="" disabled="" type="checkbox"> Os scripts funcionam: <code>typecheck</code>, <code>lint</code>, <code>jscpd</code>, <code>metrics</code> foram executados (<code>evidencias/cicd/</code>).</li>
+<li><input checked="" disabled="" type="checkbox"> O README descreve instalação e execução, e a suíte foi reproduzida em outra máquina em 23/11/2026: 104 testes, 0 falhas inesperadas (<code>evidencias/minha-execucao/summary.md</code>).</li>
+<li>[~] O pipeline rodou no GitHub (22/11): API e análise estática OK; UI/E2E bloqueados pelo Cloudflare → testes afetados agora são pulados com motivo; nova execução pendente.</li>
+<li><input checked="" disabled="" type="checkbox"> Erros nossos foram separados de defeitos do SUT (doc 06 §6.1).</li>
+</ul>
+</section><section class="doc"><h1>Apêndice A — Prints de evidência</h1><figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/auth_forgot-password.png"><figcaption>evidencias/fase1-exploracao/auth_forgot-password.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/auth_login.png"><figcaption>evidencias/fase1-exploracao/auth_login.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/auth_register.png"><figcaption>evidencias/fase1-exploracao/auth_register.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/cadastro-email-invalido-ui.png"><figcaption>evidencias/fase1-exploracao/cadastro-email-invalido-ui.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/category_hand-tools.png"><figcaption>evidencias/fase1-exploracao/category_hand-tools.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/checkout-confirmacao.png"><figcaption>evidencias/fase1-exploracao/checkout-confirmacao.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/checkout-step1-cart.png"><figcaption>evidencias/fase1-exploracao/checkout-step1-cart.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/checkout-step2-guest.png"><figcaption>evidencias/fase1-exploracao/checkout-step2-guest.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/checkout-step2-signin.png"><figcaption>evidencias/fase1-exploracao/checkout-step2-signin.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/checkout-step3-endereco.png"><figcaption>evidencias/fase1-exploracao/checkout-step3-endereco.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/checkout-step4-pagamento-ok.png"><figcaption>evidencias/fase1-exploracao/checkout-step4-pagamento-ok.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/checkout.png"><figcaption>evidencias/fase1-exploracao/checkout.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/conta-apos-login.png"><figcaption>evidencias/fase1-exploracao/conta-apos-login.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/contact.png"><figcaption>evidencias/fase1-exploracao/contact.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/home.png"><figcaption>evidencias/fase1-exploracao/home.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/product-detail.png"><figcaption>evidencias/fase1-exploracao/product-detail.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase1-exploracao/produto-sem-estoque.png"><figcaption>evidencias/fase1-exploracao/produto-sem-estoque.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase3-exploratorios/OBS-07-prefill-perfil.png"><figcaption>evidencias/fase3-exploratorios/OBS-07-prefill-perfil.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase3-exploratorios/SE-04-cep-execucao-1.png"><figcaption>evidencias/fase3-exploratorios/SE-04-cep-execucao-1.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase3-exploratorios/SE-04-cep-execucao-2.png"><figcaption>evidencias/fase3-exploratorios/SE-04-cep-execucao-2.png</figcaption></figure>
+<figure><img src="file:///C:/Users/phame/Downloads/Projeto%20Testes%20e%20qualidade/evidencias/fase3-exploratorios/SE-04-cep-execucao-3.png"><figcaption>evidencias/fase3-exploratorios/SE-04-cep-execucao-3.png</figcaption></figure></section></body></html>

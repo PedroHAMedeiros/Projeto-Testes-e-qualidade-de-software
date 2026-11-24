@@ -1,0 +1,20 @@
+[201] POST /users/register :: {"first_name":"Qa","last_name":"Probe","email":"qa.probe2.mwpkyic5a@example.com","dob":"1995-05-20","id":"01m7xjxcdychkh1q2zx16r685n","created_at":"2026-11-20 22:58:23","address":{"street":null,"house_number":null,"city":null,"state":null,"country":null,"posta
+[200] POST /users/login :: {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvbG9naW4iLCJpYXQiOjE3OTUyMTU1MDQsImV4cCI6MTc5NTIxNTgwNCwibmJmIjoxNzk1MjE1NTA0LCJqdGkiOiJLcm5SRjZSTGFTWjFyN21GIiwic3ViIjoiMDFtN3hqeGNkeW
+[201] POST /users/register :: {"first_name":"Qa","last_name":"Probe","email":"qa.probe2.mwpkykrvb@example.com","dob":"1995-05-20","id":"01m7xjxefd4ta82cfwe8n9kw6j","created_at":"2026-11-20 22:58:25","address":{"street":null,"house_number":null,"city":null,"state":null,"country":null,"posta
+[200] POST /users/login :: {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvbG9naW4iLCJpYXQiOjE3OTUyMTU1MDYsImV4cCI6MTc5NTIxNTgwNiwibmJmIjoxNzk1MjE1NTA2LCJqdGkiOiJveENjOUJhUDBoMlA2UEtFIiwic3ViIjoiMDFtN3hqeGVmZD
+[201] POST /favorites :: {"product_id":"01M7XFJZ83MYBF3MSEC92NR7C0","user_id":"01m7xjxcdychkh1q2zx16r685n","id":"01m7xjxm3r7215jnnvcn7v6yet"}
+[200] GET /favorites :: [{"id":"01m7xjxm3r7215jnnvcn7v6yet","user_id":"01m7xjxcdychkh1q2zx16r685n","product_id":"01M7XFJZ83MYBF3MSEC92NR7C0","product":{"id":"01M7XFJZ83MYBF3MSEC92NR7C0","name":"Combination Pliers","description":"Versatile combination pliers designed for gripping, ben
+[200] GET /favorites/01m7xjxm3r7215jnnvcn7v6yet :: {"id":"01m7xjxm3r7215jnnvcn7v6yet","user_id":"01m7xjxcdychkh1q2zx16r685n","product_id":"01M7XFJZ83MYBF3MSEC92NR7C0"}
+[204] DELETE /favorites/01m7xjxm3r7215jnnvcn7v6yet :: 
+[200] GET /favorites/01m7xjxm3r7215jnnvcn7v6yet :: {"id":"01m7xjxm3r7215jnnvcn7v6yet","user_id":"01m7xjxcdychkh1q2zx16r685n","product_id":"01M7XFJZ83MYBF3MSEC92NR7C0"}
+[201] POST /carts :: {"id":"01m7xjxv7qsek195br816pdfxb"}
+[200] POST /carts/01m7xjxv7qsek195br816pdfxb :: {"result":"item added or updated"}
+[422] POST /invoices :: {"billing_country":["The billing_country does not match the entered address. The city does not belong to the selected country."]}
+[200] GET /users/refresh :: {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5wcmFjdGljZXNvZnR3YXJldGVzdGluZy5jb20vdXNlcnMvcmVmcmVzaCIsImlhdCI6MTc5NTIxNTUwNCwiZXhwIjoxNzk1MjE1ODIxLCJuYmYiOjE3OTUyMTU1MjEsImp0aSI6Ik04U20wUHdQcDdPWE9iVTUiLCJzdWIiOiIwMW03eGp4Y2
+[200] GET /categories :: [{"id":"01M7XFJZ6R1QV0DE4SKGA9SH3S","name":"Hand Tools","slug":"hand-tools","parent_id":null},{"id":"01M7XFJZ6S4WJYM27RSP5NGVEW","name":"Power Tools","slug":"power-tools","parent_id":null},{"id":"01M7XFJZ6S4WJYM27RSP5NGVEX","name":"Other","slug":"other","paren
+[200] GET /categories/search?q=pliers :: [{"id":"01M7XFJZ72VKEFZXBENQ67FP8D","name":"Pliers","slug":"pliers","parent_id":"01M7XFJZ6R1QV0DE4SKGA9SH3S","sub_categories":[]}]
+[200] GET /brands/search?q=forge :: [{"id":"01M7XFJYWMZ5K3NANTFJ5Q2G7Y","name":"ForgeFlex Tools","slug":"forgeflex-tools"}]
+[200] GET /brands/01M7XFJYWMZ5K3NANTFJ5Q2G7Y :: {"id":"01M7XFJYWMZ5K3NANTFJ5Q2G7Y","name":"ForgeFlex Tools","slug":"forgeflex-tools"}
+[200] GET /products/01M7XFJZ83MYBF3MSEC92NR7C0/specs :: [{"id":"01M7XFJZJZE70YG6RA19ZHR1SW","product_id":"01M7XFJZ83MYBF3MSEC92NR7C0","spec_name":"Handle Material","spec_value":"Bi-component","spec_unit":null},{"id":"01M7XFJZJZE70YG6RA19ZHR1ST","product_id":"01M7XFJZ83MYBF3MSEC92NR7C0","spec_name":"Length","spec_va
+[200] GET /product-specs/names :: [{"name":"Adjustable","values":["Yes"],"unit":null},{"name":"Anti-fog","values":["Yes"],"unit":null},{"name":"Battery","values":["2.0","3.0","4.0","5.0"],"unit":"Ah"},{"name":"Belt Size","values":["76x533"],"unit":"mm"},{"name":"Belt Speed","values":["380"],"u
+[422] POST /messages :: {"email":["The email field must be a valid email address."],"message":["The message field must not be greater than 250 characters."]}

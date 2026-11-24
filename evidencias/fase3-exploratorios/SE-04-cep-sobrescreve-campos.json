@@ -1,0 +1,47 @@
+{
+  "executado_em": "2026-11-20T22:30:19.615Z",
+  "resultados": [
+    {
+      "run": 1,
+      "typed": {
+        "street": "Rua das Flores",
+        "city": "Natal",
+        "state": "RN"
+      },
+      "after": {
+        "street": "R. Horácio",
+        "city": "Carmona d'Oeste",
+        "state": "Santa Catarina"
+      },
+      "sobrescrito": true
+    },
+    {
+      "run": 2,
+      "typed": {
+        "street": "Rua das Flores",
+        "city": "Natal",
+        "state": "RN"
+      },
+      "after": {
+        "street": "R. Horácio",
+        "city": "Carmona d'Oeste",
+        "state": "Santa Catarina"
+      },
+      "sobrescrito": true
+    },
+    {
+      "run": 3,
+      "typed": {
+        "street": "Rua das Flores",
+        "city": "Natal",
+        "state": "RN"
+      },
+      "after": {
+        "street": "",
+        "city": "",
+        "state": ""
+      },
+      "sobrescrito": true
+    }
+  ]
+}

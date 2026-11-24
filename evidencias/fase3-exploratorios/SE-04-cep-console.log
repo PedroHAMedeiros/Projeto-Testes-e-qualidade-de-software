@@ -1,0 +1,7 @@
+register 201
+  [rede] 200 country=BR&postcode=59000-000&house_number=100 {"street":"R. Hor\u00e1cio","house_number":"100","city":"Carmona d'Oeste","state":"Santa Catarina","country":"BR","postcode":"59000-000"}
+execução 1: digitado={"street":"Rua das Flores","city":"Natal","state":"RN"} → após 5 s={"street":"R. Horácio","city":"Carmona d'Oeste","state":"Santa Catarina"}
+  [rede] 200 country=BR&postcode=59000-000&house_number=100 {"street":"R. Hor\u00e1cio","house_number":"100","city":"Carmona d'Oeste","state":"Santa Catarina","country":"BR","postcode":"59000-000"}
+  [rede] 200 country=BR&postcode=59000-000&house_number=100 {"street":"R. Hor\u00e1cio","house_number":"100","city":"Carmona d'Oeste","state":"Santa Catarina","country":"BR","postcode":"59000-000"}
+execução 2: digitado={"street":"Rua das Flores","city":"Natal","state":"RN"} → após 5 s={"street":"R. Horácio","city":"Carmona d'Oeste","state":"Santa Catarina"}
+execução 3: digitado={"street":"Rua das Flores","city":"Natal","state":"RN"} → após 5 s={"street":"","city":"","state":""}

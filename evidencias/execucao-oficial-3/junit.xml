@@ -1,0 +1,347 @@
+<testsuites id="" name="" tests="104" failures="0" skipped="0" errors="0" time="450.329657">
+<testsuite name="api\auth.api.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="api" tests="19" failures="0" skipped="0" time="78.295" errors="0">
+<testcase name="API · Cadastro e autenticação › API-AUTH-01 cadastro válido retorna 201 sem expor a senha @smoke @regression" classname="api\auth.api.spec.ts" time="5.581">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-02 e-mail duplicado é rejeitado com 409 Conflict @negative @regression" classname="api\auth.api.spec.ts" time="6.559">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-03 campos obrigatórios ausentes @negative @regression" classname="api\auth.api.spec.ts" time="0.959">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-04 senha inválida (menos de 8 caracteres) é rejeitada @negative @regression" classname="api\auth.api.spec.ts" time="0.903">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem maiúscula) é rejeitada @negative @regression" classname="api\auth.api.spec.ts" time="0.942">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem minúscula) é rejeitada @negative @regression" classname="api\auth.api.spec.ts" time="2.4">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem número) é rejeitada @negative @regression" classname="api\auth.api.spec.ts" time="2.5">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem símbolo) é rejeitada @negative @regression" classname="api\auth.api.spec.ts" time="24.505">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-05 idade 17 anos e 364 dias (dob=2008-11-21) → rejeitada @boundary @regression" classname="api\auth.api.spec.ts" time="2.117">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-05 idade 18 anos e 1 dia (dob=2008-11-19) → aceita @boundary @regression" classname="api\auth.api.spec.ts" time="1.22">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-05 idade 75 anos menos 1 dia (dob=1951-11-21) → aceita @boundary @regression" classname="api\auth.api.spec.ts" time="7.575">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-05b idade acima de 75 anos deve ser rejeitada @boundary @known-defect" classname="api\auth.api.spec.ts" time="8.721">
+<properties>
+<property name="defect" value="BUG-006 — limite superior de idade efetivo é 93 anos (Carbon mutável)">
+</property>
+<property name="fail" value="BUG-006 aberto: dob de 75 anos e 1 dia é aceita (201).">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\auth.api-API-·-Cadastro-e--ffe47-itada-boundary-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-05c limite efetivo atual: 93 anos é rejeitado (documenta o comportamento real) @boundary @regression" classname="api\auth.api.spec.ts" time="1.094">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-06 login válido retorna token JWT e /users/me identifica o usuário @smoke @regression" classname="api\auth.api.spec.ts" time="3.289">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-07 login com senha errada retorna 401 @negative @regression" classname="api\auth.api.spec.ts" time="3.039">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-08 rota protegida sem token retorna 401 @negative @regression" classname="api\auth.api.spec.ts" time="0.88">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-08 rota protegida token malformado retorna 401 @negative @regression" classname="api\auth.api.spec.ts" time="0.953">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-09 logout invalida o token @regression" classname="api\auth.api.spec.ts" time="3.95">
+</testcase>
+<testcase name="API · Cadastro e autenticação › API-AUTH-10 cadastro com e-mail em formato inválido deve ser rejeitado @negative @known-defect" classname="api\auth.api.spec.ts" time="1.108">
+<properties>
+<property name="defect" value="BUG-004 — API aceita e-mail sem formato válido no cadastro">
+</property>
+<property name="fail" value="BUG-004 aberto: POST /users/register aceita &quot;nao-e-email&quot; (201).">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\auth.api-API-·-Cadastro-e--4aaa6-itado-negative-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="api\authorization.api.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="api" tests="9" failures="0" skipped="0" time="148.856" errors="0">
+<testcase name="API · Autorização e conta do cliente › API-AUTHZ-01 cliente cria, lista, consulta e remove o próprio favorito @smoke @regression" classname="api\authorization.api.spec.ts" time="6.509">
+</testcase>
+<testcase name="API · Autorização e conta do cliente › API-AUTHZ-02 favoritos exigem autenticação @negative @regression" classname="api\authorization.api.spec.ts" time="0.877">
+</testcase>
+<testcase name="API · Autorização e conta do cliente › API-AUTHZ-03 cliente B NÃO pode ler o favorito do cliente A @negative @known-defect" classname="api\authorization.api.spec.ts" time="5.823">
+<properties>
+<property name="defect" value="BUG-008 — GET /favorites/{id} não verifica o dono (BOLA/IDOR)">
+</property>
+<property name="fail" value="BUG-008 aberto: B recebe 200 com o favorito de A.">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\authorization.api-API-·-Au-64e04-nte-A-negative-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API · Autorização e conta do cliente › API-AUTHZ-04 cliente B não consegue apagar o favorito do cliente A @negative @regression" classname="api\authorization.api.spec.ts" time="13.524">
+</testcase>
+<testcase name="API · Autorização e conta do cliente › faturas › API-AUTHZ-05 cliente consulta a própria fatura com total coerente @regression" classname="api\authorization.api.spec.ts" time="17.775">
+</testcase>
+<testcase name="API · Autorização e conta do cliente › faturas › API-AUTHZ-06 cliente B NÃO pode ler nem encontrar a fatura do cliente A @negative @regression" classname="api\authorization.api.spec.ts" time="26.474">
+</testcase>
+<testcase name="API · Autorização e conta do cliente › faturas › API-AUTHZ-07 fatura com cidade incompatível com o CEP é rejeitada @negative @regression" classname="api\authorization.api.spec.ts" time="19.619">
+</testcase>
+<testcase name="API · Autorização e conta do cliente › API-ACC-01 refresh de token gera um novo token válido @regression" classname="api\authorization.api.spec.ts" time="34.332">
+</testcase>
+<testcase name="API · Autorização e conta do cliente › API-ACC-02 troca de senha: nova senha entra, antiga não @regression" classname="api\authorization.api.spec.ts" time="23.923">
+</testcase>
+</testsuite>
+<testsuite name="api\cart.api.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="api" tests="15" failures="0" skipped="0" time="205.713" errors="0">
+<testcase name="API · Carrinho › API-CART-01 cria carrinho e adiciona item @smoke @regression" classname="api\cart.api.spec.ts" time="66.81">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\cart.api-API-·-Carrinho-AP-6de1c-ciona-item-smoke-regression-api\error-context.md]]
+
+[[ATTACHMENT|..\test-results\cart.api-API-·-Carrinho-AP-6de1c-ciona-item-smoke-regression-api\trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API · Carrinho › API-CART-02 quantidade válida 1 — mínimo (1) @boundary @regression" classname="api\cart.api.spec.ts" time="34.243">
+</testcase>
+<testcase name="API · Carrinho › API-CART-02 quantidade válida 99 — máximo (99) @boundary @regression" classname="api\cart.api.spec.ts" time="3.555">
+</testcase>
+<testcase name="API · Carrinho › API-CART-02 quantidade inválida 0 — abaixo do mínimo (0) @boundary @negative @regression" classname="api\cart.api.spec.ts" time="2.657">
+</testcase>
+<testcase name="API · Carrinho › API-CART-02 quantidade inválida 100 — acima do máximo (100) @boundary @negative @regression" classname="api\cart.api.spec.ts" time="2.712">
+</testcase>
+<testcase name="API · Carrinho › API-CART-02 quantidade inválida -1 — negativo @boundary @negative @regression" classname="api\cart.api.spec.ts" time="7.839">
+</testcase>
+<testcase name="API · Carrinho › API-CART-02 quantidade inválida 1.5 — decimal @boundary @negative @regression" classname="api\cart.api.spec.ts" time="6.885">
+</testcase>
+<testcase name="API · Carrinho › API-CART-02 quantidade inválida &quot;abc&quot; — texto @boundary @negative @regression" classname="api\cart.api.spec.ts" time="5.629">
+</testcase>
+<testcase name="API · Carrinho › API-CART-03 produto inexistente é rejeitado @negative @regression" classname="api\cart.api.spec.ts" time="3.638">
+</testcase>
+<testcase name="API · Carrinho › API-CART-04 atualiza quantidade e remove item @regression" classname="api\cart.api.spec.ts" time="10.523">
+</testcase>
+<testcase name="API · Carrinho › API-CART-05 atualizar quantidade para 0 é rejeitado e preserva o valor anterior @negative @regression" classname="api\cart.api.spec.ts" time="7.563">
+</testcase>
+<testcase name="API · Carrinho › API-CART-06 adicionar o mesmo produto duas vezes soma as quantidades @regression" classname="api\cart.api.spec.ts" time="15.371">
+</testcase>
+<testcase name="API · Carrinho › API-CART-07 carrinho inexistente retorna 404 @negative @regression" classname="api\cart.api.spec.ts" time="1.718">
+</testcase>
+<testcase name="API · Carrinho › API-CART-08 adições acumuladas não podem ultrapassar o máximo de 99 @boundary @known-defect" classname="api\cart.api.spec.ts" time="17.236">
+<properties>
+<property name="defect" value="BUG-002 — soma de adições ultrapassa o limite de 99 unidades">
+</property>
+<property name="fail" value="BUG-002 aberto: 60 + 60 resulta em 120 no carrinho.">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\cart.api-API-·-Carrinho-AP-d56e5-de-99-boundary-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API · Carrinho › API-CART-09 produto sem estoque não deve ser aceito no carrinho @negative @known-defect" classname="api\cart.api.spec.ts" time="19.334">
+<properties>
+<property name="defect" value="BUG-003 — API aceita produto sem estoque (UI bloqueia)">
+</property>
+<property name="fail" value="BUG-003 aberto: a API retorna 200 para produto com in_stock=false.">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\cart.api-API-·-Carrinho-AP-91f01-rinho-negative-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="api\catalog-and-forms.api.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="api" tests="8" failures="0" skipped="0" time="78.371" errors="0">
+<testcase name="API · Catálogo auxiliar › API-CAT-01 lista e busca de categorias são consistentes com a árvore @regression" classname="api\catalog-and-forms.api.spec.ts" time="2.58">
+</testcase>
+<testcase name="API · Catálogo auxiliar › API-CAT-02 subárvore de categoria inexistente retorna 404 @negative @regression" classname="api\catalog-and-forms.api.spec.ts" time="46.093">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\catalog-and-forms.api-API--4ad18-rna-404-negative-regression-api\error-context.md]]
+
+[[ATTACHMENT|..\test-results\catalog-and-forms.api-API--4ad18-rna-404-negative-regression-api\trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API · Catálogo auxiliar › API-CAT-03 marca por ID e por busca retornam o mesmo registro @regression" classname="api\catalog-and-forms.api.spec.ts" time="5.901">
+</testcase>
+<testcase name="API · Catálogo auxiliar › API-CAT-04 especificações do produto usam nomes do dicionário de especificações @regression" classname="api\catalog-and-forms.api.spec.ts" time="1.887">
+</testcase>
+<testcase name="API · Formulário de contato (somente validação) › API-MSG-01 mensagem sem assunto e sem texto é rejeitada @negative @regression" classname="api\catalog-and-forms.api.spec.ts" time="16.308">
+</testcase>
+<testcase name="API · Formulário de contato (somente validação) › API-MSG-02 texto acima de 250 caracteres e e-mail inválido são rejeitados @negative @boundary @regression" classname="api\catalog-and-forms.api.spec.ts" time="2.883">
+</testcase>
+<testcase name="API · Serviço de CEP › API-CEP-01 busca de CEP devolve endereço completo @regression" classname="api\catalog-and-forms.api.spec.ts" time="0.877">
+</testcase>
+<testcase name="API · Serviço de CEP › API-CEP-02 o mesmo CEP com e sem hífen deve devolver a mesma cidade @known-defect" classname="api\catalog-and-forms.api.spec.ts" time="1.842">
+<properties>
+<property name="defect" value="BUG-009 — 59000000 e 59000-000 (mesmo CEP) retornam endereços diferentes">
+</property>
+<property name="fail" value="BUG-009 aberto: o serviço não normaliza o CEP antes da consulta.">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\catalog-and-forms.api-API--2d224-a-mesma-cidade-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="api\payment.api.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="api" tests="7" failures="0" skipped="0" time="6.625" errors="0">
+<testcase name="API · Pagamento › API-PAY-01 cartão válido é aceito @smoke @regression" classname="api\payment.api.spec.ts" time="1.02">
+</testcase>
+<testcase name="API · Pagamento › API-PAY-02 pagamento na entrega não exige detalhes @regression" classname="api\payment.api.spec.ts" time="0.973">
+</testcase>
+<testcase name="API · Pagamento › API-PAY-03 cartão inválido: número fora do padrão 0000-0000-0000-0000 @negative @regression" classname="api\payment.api.spec.ts" time="0.98">
+</testcase>
+<testcase name="API · Pagamento › API-PAY-03 cartão inválido: cartão vencido @negative @regression" classname="api\payment.api.spec.ts" time="0.983">
+</testcase>
+<testcase name="API · Pagamento › API-PAY-03 cartão inválido: CVV com 2 dígitos @negative @regression" classname="api\payment.api.spec.ts" time="0.922">
+</testcase>
+<testcase name="API · Pagamento › API-PAY-03 cartão inválido: titular com dígitos @negative @regression" classname="api\payment.api.spec.ts" time="0.848">
+</testcase>
+<testcase name="API · Pagamento › API-PAY-04 método de pagamento fora da lista deve ser rejeitado @negative @known-defect" classname="api\payment.api.spec.ts" time="0.899">
+<properties>
+<property name="defect" value="BUG-005 — /payment/check aprova método inexistente">
+</property>
+<property name="fail" value="BUG-005 aberto: payment_method=&quot;bitcoin&quot; retorna 200 &quot;Payment was successful&quot;.">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\payment.api-API-·-Pagament-291d5-itado-negative-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="api\products.api.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="api" tests="19" failures="0" skipped="0" time="21.692" errors="0">
+<testcase name="API · Produtos › API-PROD-01 lista produtos paginada com contrato esperado @smoke @regression" classname="api\products.api.spec.ts" time="0.985">
+</testcase>
+<testcase name="API · Produtos › API-PROD-02 última página contém o restante dos itens (fronteira de paginação) @regression @boundary" classname="api\products.api.spec.ts" time="2.73">
+</testcase>
+<testcase name="API · Produtos › API-PROD-03 páginas consecutivas não repetem produtos @regression" classname="api\products.api.spec.ts" time="1.847">
+</testcase>
+<testcase name="API · Produtos › API-PROD-04 ordena por price,asc @regression" classname="api\products.api.spec.ts" time="0.935">
+</testcase>
+<testcase name="API · Produtos › API-PROD-04 ordena por price,desc @regression" classname="api\products.api.spec.ts" time="0.894">
+</testcase>
+<testcase name="API · Produtos › API-PROD-04 ordena por name,asc @regression" classname="api\products.api.spec.ts" time="0.941">
+</testcase>
+<testcase name="API · Produtos › API-PROD-04 ordena por name,desc @regression" classname="api\products.api.spec.ts" time="0.915">
+</testcase>
+<testcase name="API · Produtos › API-PROD-05 filtro por faixa de preço retorna apenas itens dentro da faixa @regression @boundary" classname="api\products.api.spec.ts" time="0.925">
+</testcase>
+<testcase name="API · Produtos › API-PROD-06 filtro por categoria retorna somente a categoria pedida @regression" classname="api\products.api.spec.ts" time="0.953">
+</testcase>
+<testcase name="API · Produtos › API-PROD-07 busca por termo existente encontra o produto @smoke @regression" classname="api\products.api.spec.ts" time="0.856">
+</testcase>
+<testcase name="API · Produtos › API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: zzzzzzzz @negative @regression" classname="api\products.api.spec.ts" time="0.89">
+</testcase>
+<testcase name="API · Produtos › API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: &apos; OR 1=1 -- @negative @regression" classname="api\products.api.spec.ts" time="0.878">
+</testcase>
+<testcase name="API · Produtos › API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: &lt;script&gt;alert(1)&lt;/script&gt; @negative @regression" classname="api\products.api.spec.ts" time="1.022">
+</testcase>
+<testcase name="API · Produtos › API-PROD-09 detalhe de produto existente @smoke @regression" classname="api\products.api.spec.ts" time="0.924">
+</testcase>
+<testcase name="API · Produtos › API-PROD-10 produto inexistente/ID inválido retorna 404: 01AAAAAAAAAAAAAAAAAAAAAAAA @negative @regression" classname="api\products.api.spec.ts" time="1.036">
+</testcase>
+<testcase name="API · Produtos › API-PROD-10 produto inexistente/ID inválido retorna 404: abc @negative @regression" classname="api\products.api.spec.ts" time="1.167">
+</testcase>
+<testcase name="API · Produtos › API-PROD-11 produtos relacionados não incluem o próprio produto @regression" classname="api\products.api.spec.ts" time="1.007">
+</testcase>
+<testcase name="API · Produtos › API-PROD-12 árvore de categorias e marcas disponíveis @regression" classname="api\products.api.spec.ts" time="1.823">
+</testcase>
+<testcase name="API · Produtos › API-PROD-13 ordenação com parâmetro inválido deve ser rejeitada com 4xx, não 500 @negative @known-defect" classname="api\products.api.spec.ts" time="0.964">
+<properties>
+<property name="defect" value="BUG-001 — GET /products?sort=&lt;inválido&gt; retorna HTTP 500">
+</property>
+<property name="fail" value="BUG-001 aberto: o SUT responde 500. Quando corrigido, este teste passará e o Playwright avisará para remover o test.fail().">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\products.api-API-·-Produto-590c8-o-500-negative-known-defect-api\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ui\auth.ui.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="ui" tests="5" failures="0" skipped="0" time="28.354" errors="0">
+<testcase name="UI · Autenticação › UI-AUTH-01 login válido leva à área do cliente e mostra o nome @smoke @regression" classname="ui\auth.ui.spec.ts" time="9.806">
+</testcase>
+<testcase name="UI · Autenticação › UI-AUTH-02 senha incorreta exibe mensagem genérica (não revela se o e-mail existe) @negative @regression" classname="ui\auth.ui.spec.ts" time="8.4">
+</testcase>
+<testcase name="UI · Autenticação › UI-AUTH-03 e-mail inexistente exibe a MESMA mensagem (evita enumeração de usuários) @negative @regression" classname="ui\auth.ui.spec.ts" time="4.696">
+</testcase>
+<testcase name="UI · Autenticação › UI-AUTH-04 cadastro vazio exibe as mensagens de campo obrigatório @negative @regression" classname="ui\auth.ui.spec.ts" time="2.43">
+</testcase>
+<testcase name="UI · Autenticação › UI-AUTH-05 cadastro com e-mail inválido é bloqueado no front-end @negative @regression" classname="ui\auth.ui.spec.ts" time="3.022">
+</testcase>
+</testsuite>
+<testsuite name="ui\cart.ui.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="ui" tests="5" failures="0" skipped="0" time="74.371" errors="0">
+<testcase name="UI · Carrinho › UI-CART-01 adicionar produto atualiza o contador e aparece no carrinho @smoke @regression" classname="ui\cart.ui.spec.ts" time="11.289">
+</testcase>
+<testcase name="UI · Carrinho › UI-CART-02 total da linha e do carrinho = preço unitário × quantidade @regression" classname="ui\cart.ui.spec.ts" time="14.765">
+</testcase>
+<testcase name="UI · Carrinho › UI-CART-03 alterar a quantidade no carrinho recalcula o total @regression" classname="ui\cart.ui.spec.ts" time="26.186">
+</testcase>
+<testcase name="UI · Carrinho › UI-CART-04 remover o único item deixa o carrinho vazio @regression" classname="ui\cart.ui.spec.ts" time="15.207">
+</testcase>
+<testcase name="UI · Carrinho › UI-CART-05 carrinho persiste após recarregar a página @regression" classname="ui\cart.ui.spec.ts" time="6.924">
+</testcase>
+</testsuite>
+<testsuite name="ui\catalog.ui.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="ui" tests="9" failures="0" skipped="0" time="48.885" errors="0">
+<testcase name="UI · Catálogo › UI-CAT-01 home exibe a primeira página de produtos com nome e preço @smoke @regression" classname="ui\catalog.ui.spec.ts" time="3.498">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-02 busca por termo existente mostra o produto e a contagem @smoke @regression" classname="ui\catalog.ui.spec.ts" time="4.53">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-03 busca sem resultado informa que nada foi encontrado @negative @regression" classname="ui\catalog.ui.spec.ts" time="3.859">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-04 ordenação price,asc exibe preços em ordem @regression" classname="ui\catalog.ui.spec.ts" time="3.904">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-04 ordenação price,desc exibe preços em ordem @regression" classname="ui\catalog.ui.spec.ts" time="3.897">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-05 filtro de categoria na UI é consistente com a API (integração UI↔API) @regression" classname="ui\catalog.ui.spec.ts" time="7.709">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-06 segunda página exibe produtos diferentes da primeira @regression" classname="ui\catalog.ui.spec.ts" time="8.367">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-07 detalhe do produto exibe os mesmos dados da API @regression" classname="ui\catalog.ui.spec.ts" time="6.4">
+</testcase>
+<testcase name="UI · Catálogo › UI-CAT-08 produto sem estoque não pode ser adicionado ao carrinho @negative @regression" classname="ui\catalog.ui.spec.ts" time="6.721">
+</testcase>
+</testsuite>
+<testsuite name="ui\checkout-address.ui.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="ui" tests="2" failures="0" skipped="0" time="34.113" errors="0">
+<testcase name="UI · Checkout — endereço de cobrança › UI-CHK-01 endereço incompleto não permite avançar para o pagamento @negative @regression" classname="ui\checkout-address.ui.spec.ts" time="20.797">
+</testcase>
+<testcase name="UI · Checkout — endereço de cobrança › UI-CHK-02 endereço digitado pelo usuário não pode ser sobrescrito pela busca de CEP @known-defect" classname="ui\checkout-address.ui.spec.ts" time="13.316">
+<properties>
+<property name="defect" value="BUG-007 — busca automática de CEP sobrescreve/apaga endereço já digitado">
+</property>
+<property name="fail" value="BUG-007 aberto: após a resposta de /postcode-lookup, rua/cidade/estado digitados são substituídos ou apagados.">
+</property>
+</properties>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\test-results\checkout-address.ui-UI-·-C-e00e1-a-busca-de-CEP-known-defect-ui\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="ui\mocks.ui.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="ui" tests="4" failures="0" skipped="0" time="17.302" errors="0">
+<testcase name="UI · Mocks e stubs da API › UI-MOCK-01 catálogo vazio (stub) não quebra a home @regression" classname="ui\mocks.ui.spec.ts" time="3.595">
+</testcase>
+<testcase name="UI · Mocks e stubs da API › UI-MOCK-02 dados controlados (stub) são renderizados fielmente, incluindo preço com centavos @regression" classname="ui\mocks.ui.spec.ts" time="3.724">
+</testcase>
+<testcase name="UI · Mocks e stubs da API › UI-MOCK-03 falha 500 da API não derruba a aplicação (resiliência) @negative @regression" classname="ui\mocks.ui.spec.ts" time="3.051">
+</testcase>
+<testcase name="UI · Mocks e stubs da API › UI-MOCK-04 latência alta: a UI espera a resposta sem esperas fixas no teste (sincronização) @regression" classname="ui\mocks.ui.spec.ts" time="6.932">
+</testcase>
+</testsuite>
+<testsuite name="e2e\checkout.e2e.spec.ts" timestamp="2026-11-20T23:08:40.763Z" hostname="e2e" tests="2" failures="0" skipped="0" time="51.763" errors="0">
+<testcase name="E2E · Compra completa › E2E-01 cliente autenticado compra 2 produtos com pagamento na entrega @smoke @regression @e2e" classname="e2e\checkout.e2e.spec.ts" time="42.977">
+</testcase>
+<testcase name="E2E · Compra completa › E2E-02 visitante não autenticado é solicitado a entrar no passo 2 @regression @e2e" classname="e2e\checkout.e2e.spec.ts" time="8.786">
+</testcase>
+</testsuite>
+</testsuites>

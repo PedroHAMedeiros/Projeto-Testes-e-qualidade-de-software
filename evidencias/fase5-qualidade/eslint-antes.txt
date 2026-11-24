@@ -1,0 +1,24 @@
+npm notice run pst-qa@1.0.0 npx
+npm notice run eslint .
+
+\tests\api\auth.api.spec.ts
+  7:51  warning  Arrow function has too many lines (83). Maximum allowed is 60  max-lines-per-function
+
+\tests\api\cart.api.spec.ts
+   8:36  warning  Arrow function has too many lines (73). Maximum allowed is 60  max-lines-per-function
+  10:3   warning  Expected blank line before this statement                      playwright/consistent-spacing-between-blocks
+  36:7   warning  Avoid having conditionals in tests                             playwright/no-conditional-in-test
+  36:18  warning  Avoid calling `expect` conditionally                           playwright/no-conditional-expect
+
+\tests\api\products.api.spec.ts
+   8:36  warning  Arrow function has too many lines (102). Maximum allowed is 60  max-lines-per-function
+  28:30  warning  Use toHaveLength() instead                                      playwright/prefer-to-have-length
+
+\tests\e2e\checkout.e2e.spec.ts
+   9:43  warning  Arrow function has too many lines (65). Maximum allowed is 60  max-lines-per-function
+  18:5   warning  Expected blank line before this statement                      playwright/consistent-spacing-between-blocks
+  51:5   warning  Expected blank line before this statement                      playwright/consistent-spacing-between-blocks
+
+✖ 10 problems (0 errors, 10 warnings)
+  0 errors and 4 warnings potentially fixable with the `--fix` option.
+

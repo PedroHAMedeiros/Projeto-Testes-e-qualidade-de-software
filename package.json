@@ -1,0 +1,37 @@
+{
+  "name": "pst-qa",
+  "version": "1.0.0",
+  "description": "Projeto final de Testes e Qualidade de Software — Practice Software Testing (Opção 1)",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "playwright test --project=api",
+    "test:ui": "playwright test --project=ui",
+    "test:e2e": "playwright test --project=e2e",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:known-defects": "playwright test --grep @known-defect",
+    "report": "playwright show-report reports/html",
+    "metrics": "node scripts/summarize-results.mjs --md reports/summary.md && node scripts/endpoint-coverage.mjs --md reports/endpoint-coverage.md",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "clean:coverage": "node -e \"require('fs').rmSync('coverage-data',{recursive:true,force:true})\"",
+    "latency": "node scripts/measure-latency.mjs 10",
+    "pdf": "node scripts/build-pdf.mjs"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "eslint-plugin-playwright": "^2.12.2",
+    "jscpd": "^5.4.3",
+    "marked": "^15.0.12",
+    "typescript": "~5.9.0",
+    "typescript-eslint": "^8.73.0"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

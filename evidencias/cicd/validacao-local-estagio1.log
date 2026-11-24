@@ -1,0 +1,8 @@
+# Validação local dos estágios do pipeline — 2026-11-20T22:47:33Z
+## G1 typecheck
+G1 OK (exit 0)
+## G2 lint (--max-warnings 10)
+G2 exit=0 (✖ 4 problems (0 errors, 4 warnings))
+## G3 duplicação (jscpd --threshold 5)
+[1mDuplications detection: Found 0 exact clones with 0(0.00%) duplicated lines in 20 (1 formats) files.[22m
+G3 exit=0

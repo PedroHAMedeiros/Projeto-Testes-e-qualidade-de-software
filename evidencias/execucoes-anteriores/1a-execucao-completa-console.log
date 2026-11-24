@@ -1,0 +1,299 @@
+npm notice run pst-qa@1.0.0 npx
+npm notice run playwright test
+
+Running 87 tests using 2 workers
+
+  ok  1 [api] › tests\api\auth.api.spec.ts:8:3 › API · Cadastro e autenticação › API-AUTH-01 cadastro válido retorna 201 sem expor a senha @smoke @regression (6.7s)
+  ok  2 [api] › tests\api\auth.api.spec.ts:17:3 › API · Cadastro e autenticação › API-AUTH-02 e-mail duplicado é rejeitado com 409 Conflict @negative @regression (35.2s)
+  x   3 [api] › tests\api\auth.api.spec.ts:24:3 › API · Cadastro e autenticação › API-AUTH-03 campos obrigatórios ausentes @negative @regression (45.1s)
+  ok  5 [api] › tests\api\auth.api.spec.ts:24:3 › API · Cadastro e autenticação › API-AUTH-03 campos obrigatórios ausentes @negative @regression (retry #1) (1.0s)
+  ok  6 [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem maiúscula) é rejeitada @negative @regression (958ms)
+  ok  7 [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem minúscula) é rejeitada @negative @regression (2.5s)
+  ok  8 [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem número) é rejeitada @negative @regression (1.2s)
+  ok  9 [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (sem símbolo) é rejeitada @negative @regression (959ms)
+  ok 10 [api] › tests\api\auth.api.spec.ts:53:5 › API · Cadastro e autenticação › API-AUTH-05 idade 17 anos e 364 dias (dob=2008-11-21) → rejeitada @boundary @regression (2.9s)
+  ok 11 [api] › tests\api\auth.api.spec.ts:53:5 › API · Cadastro e autenticação › API-AUTH-05 idade 18 anos e 1 dia (dob=2008-11-19) → aceita @boundary @regression (7.0s)
+  ok 12 [api] › tests\api\auth.api.spec.ts:53:5 › API · Cadastro e autenticação › API-AUTH-05 idade 75 anos menos 1 dia (dob=1951-11-21) → aceita @boundary @regression (2.8s)
+  x  13 [api] › tests\api\auth.api.spec.ts:59:3 › API · Cadastro e autenticação › API-AUTH-05b idade acima de 75 anos deve ser rejeitada @boundary @known-defect (2.4s)
+  ok 14 [api] › tests\api\auth.api.spec.ts:66:3 › API · Cadastro e autenticação › API-AUTH-05c limite efetivo atual: 93 anos é rejeitado (documenta o comportamento real) @boundary @regression (1.4s)
+  ok 15 [api] › tests\api\auth.api.spec.ts:73:3 › API · Cadastro e autenticação › API-AUTH-06 login válido retorna token JWT e /users/me identifica o usuário @smoke @regression (3.1s)
+  x   4 [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (menos de 8 caracteres) é rejeitada @negative @regression (45.1s)
+  ok 16 [api] › tests\api\auth.api.spec.ts:80:3 › API · Cadastro e autenticação › API-AUTH-07 login com senha errada retorna 401 @negative @regression (3.1s)
+  ok 17 [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (menos de 8 caracteres) é rejeitada @negative @regression (retry #1) (924ms)
+  ok 19 [api] › tests\api\auth.api.spec.ts:86:5 › API · Cadastro e autenticação › API-AUTH-08 rota protegida token malformado retorna 401 @negative @regression (881ms)
+  ok 18 [api] › tests\api\auth.api.spec.ts:86:5 › API · Cadastro e autenticação › API-AUTH-08 rota protegida sem token retorna 401 @negative @regression (946ms)
+  x  21 [api] › tests\api\auth.api.spec.ts:98:3 › API · Cadastro e autenticação › API-AUTH-10 cadastro com e-mail em formato inválido deve ser rejeitado @negative @known-defect (1.1s)
+  ok 20 [api] › tests\api\auth.api.spec.ts:92:3 › API · Cadastro e autenticação › API-AUTH-09 logout invalida o token @regression (3.9s)
+  ok 22 [api] › tests\api\cart.api.spec.ts:15:3 › API · Carrinho › API-CART-01 cria carrinho e adiciona item @smoke @regression (3.5s)
+  ok 23 [api] › tests\api\cart.api.spec.ts:39:5 › API · Carrinho › API-CART-02 quantidade válida 1 — mínimo (1) @boundary @regression (3.6s)
+  ok 25 [api] › tests\api\cart.api.spec.ts:45:5 › API · Carrinho › API-CART-02 quantidade inválida 0 — abaixo do mínimo (0) @boundary @negative @regression (2.9s)
+  ok 24 [api] › tests\api\cart.api.spec.ts:39:5 › API · Carrinho › API-CART-02 quantidade válida 99 — máximo (99) @boundary @regression (3.9s)
+  ok 26 [api] › tests\api\cart.api.spec.ts:45:5 › API · Carrinho › API-CART-02 quantidade inválida 100 — acima do máximo (100) @boundary @negative @regression (2.8s)
+  ok 27 [api] › tests\api\cart.api.spec.ts:45:5 › API · Carrinho › API-CART-02 quantidade inválida -1 — negativo @boundary @negative @regression (2.7s)
+  ok 29 [api] › tests\api\cart.api.spec.ts:45:5 › API · Carrinho › API-CART-02 quantidade inválida "abc" — texto @boundary @negative @regression (3.0s)
+  ok 28 [api] › tests\api\cart.api.spec.ts:45:5 › API · Carrinho › API-CART-02 quantidade inválida 1.5 — decimal @boundary @negative @regression (5.7s)
+  ok 30 [api] › tests\api\cart.api.spec.ts:52:3 › API · Carrinho › API-CART-03 produto inexistente é rejeitado @negative @regression (6.4s)
+  ok 31 [api] › tests\api\cart.api.spec.ts:58:3 › API · Carrinho › API-CART-04 atualiza quantidade e remove item @regression (11.2s)
+  ok 33 [api] › tests\api\cart.api.spec.ts:72:3 › API · Carrinho › API-CART-06 adicionar o mesmo produto duas vezes soma as quantidades @regression (20.6s)
+  ok 34 [api] › tests\api\cart.api.spec.ts:80:3 › API · Carrinho › API-CART-07 carrinho inexistente retorna 404 @negative @regression (4.6s)
+  ok 32 [api] › tests\api\cart.api.spec.ts:66:3 › API · Carrinho › API-CART-05 atualizar quantidade para 0 é rejeitado e preserva o valor anterior @negative @regression (33.3s)
+  x  35 [api] › tests\api\cart.api.spec.ts:84:3 › API · Carrinho › API-CART-08 adições acumuladas não podem ultrapassar o máximo de 99 @boundary @known-defect (8.8s)
+  x  36 [api] › tests\api\cart.api.spec.ts:94:3 › API · Carrinho › API-CART-09 produto sem estoque não deve ser aceito no carrinho @negative @known-defect (9.5s)
+  ok 38 [api] › tests\api\payment.api.spec.ts:13:3 › API · Pagamento › API-PAY-02 pagamento na entrega não exige detalhes @regression (4.1s)
+  ok 39 [api] › tests\api\payment.api.spec.ts:25:5 › API · Pagamento › API-PAY-03 cartão inválido: número fora do padrão 0000-0000-0000-0000 @negative @regression (868ms)
+  ok 40 [api] › tests\api\payment.api.spec.ts:25:5 › API · Pagamento › API-PAY-03 cartão inválido: cartão vencido @negative @regression (888ms)
+  ok 41 [api] › tests\api\payment.api.spec.ts:25:5 › API · Pagamento › API-PAY-03 cartão inválido: CVV com 2 dígitos @negative @regression (906ms)
+  ok 37 [api] › tests\api\payment.api.spec.ts:7:3 › API · Pagamento › API-PAY-01 cartão válido é aceito @smoke @regression (9.6s)
+  ok 42 [api] › tests\api\payment.api.spec.ts:25:5 › API · Pagamento › API-PAY-03 cartão inválido: titular com dígitos @negative @regression (957ms)
+  x  43 [api] › tests\api\payment.api.spec.ts:32:3 › API · Pagamento › API-PAY-04 método de pagamento fora da lista deve ser rejeitado @negative @known-defect (851ms)
+  ok 44 [api] › tests\api\products.api.spec.ts:9:3 › API · Produtos › API-PROD-01 lista produtos paginada com contrato esperado @smoke @regression (896ms)
+  ok 46 [api] › tests\api\products.api.spec.ts:33:3 › API · Produtos › API-PROD-03 páginas consecutivas não repetem produtos @regression (2.0s)
+  ok 47 [api] › tests\api\products.api.spec.ts:45:5 › API · Produtos › API-PROD-04 ordena por price,asc @regression (860ms)
+  ok 45 [api] › tests\api\products.api.spec.ts:24:3 › API · Produtos › API-PROD-02 última página contém o restante dos itens (fronteira de paginação) @regression @boundary (3.5s)
+  ok 49 [api] › tests\api\products.api.spec.ts:45:5 › API · Produtos › API-PROD-04 ordena por name,asc @regression (964ms)
+  ok 48 [api] › tests\api\products.api.spec.ts:45:5 › API · Produtos › API-PROD-04 ordena por price,desc @regression (1.9s)
+  ok 50 [api] › tests\api\products.api.spec.ts:45:5 › API · Produtos › API-PROD-04 ordena por name,desc @regression (939ms)
+  ok 51 [api] › tests\api\products.api.spec.ts:54:3 › API · Produtos › API-PROD-05 filtro por faixa de preço retorna apenas itens dentro da faixa @regression @boundary (1.1s)
+  ok 53 [api] › tests\api\products.api.spec.ts:72:3 › API · Produtos › API-PROD-07 busca por termo existente encontra o produto @smoke @regression (1.0s)
+  ok 52 [api] › tests\api\products.api.spec.ts:65:3 › API · Produtos › API-PROD-06 filtro por categoria retorna somente a categoria pedida @regression (2.7s)
+  ok 54 [api] › tests\api\products.api.spec.ts:80:5 › API · Produtos › API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: zzzzzzzz @negative @regression (972ms)
+  ok 56 [api] › tests\api\products.api.spec.ts:80:5 › API · Produtos › API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: <script>alert(1)</script> @negative @regression (867ms)
+  ok 55 [api] › tests\api\products.api.spec.ts:80:5 › API · Produtos › API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: ' OR 1=1 -- @negative @regression (920ms)
+  ok 57 [api] › tests\api\products.api.spec.ts:87:3 › API · Produtos › API-PROD-09 detalhe de produto existente @smoke @regression (948ms)
+  ok 58 [api] › tests\api\products.api.spec.ts:94:5 › API · Produtos › API-PROD-10 produto inexistente/ID inválido retorna 404: 01AAAAAAAAAAAAAAAAAAAAAAAA @negative @regression (962ms)
+  ok 59 [api] › tests\api\products.api.spec.ts:94:5 › API · Produtos › API-PROD-10 produto inexistente/ID inválido retorna 404: abc @negative @regression (922ms)
+  ok 60 [api] › tests\api\products.api.spec.ts:101:3 › API · Produtos › API-PROD-11 produtos relacionados não incluem o próprio produto @regression (941ms)
+  ok 61 [api] › tests\api\products.api.spec.ts:108:3 › API · Produtos › API-PROD-12 árvore de categorias e marcas disponíveis @regression (4.8s)
+  x  62 [api] › tests\api\products.api.spec.ts:115:3 › API · Produtos › API-PROD-13 ordenação com parâmetro inválido deve ser rejeitada com 4xx, não 500 @negative @known-defect (15.0s)
+  ok 63 [ui] › tests\ui\auth.ui.spec.ts:5:3 › UI · Autenticação › UI-AUTH-01 login válido leva à área do cliente e mostra o nome @smoke @regression (12.7s)
+  ok 65 [ui] › tests\ui\auth.ui.spec.ts:19:3 › UI · Autenticação › UI-AUTH-03 e-mail inexistente exibe a MESMA mensagem (evita enumeração de usuários) @negative @regression (3.7s)
+  ok 64 [ui] › tests\ui\auth.ui.spec.ts:13:3 › UI · Autenticação › UI-AUTH-02 senha incorreta exibe mensagem genérica (não revela se o e-mail existe) @negative @regression (6.4s)
+  ok 66 [ui] › tests\ui\auth.ui.spec.ts:25:3 › UI · Autenticação › UI-AUTH-04 cadastro vazio exibe as mensagens de campo obrigatório @negative @regression (2.5s)
+  ok 67 [ui] › tests\ui\auth.ui.spec.ts:34:3 › UI · Autenticação › UI-AUTH-05 cadastro com e-mail inválido é bloqueado no front-end @negative @regression (2.5s)
+  ok 68 [ui] › tests\ui\cart.ui.spec.ts:6:3 › UI · Carrinho › UI-CART-01 adicionar produto atualiza o contador e aparece no carrinho @smoke @regression (7.5s)
+  ok 69 [ui] › tests\ui\cart.ui.spec.ts:15:3 › UI · Carrinho › UI-CART-02 total da linha e do carrinho = preço unitário × quantidade @regression (7.2s)
+  ok 71 [ui] › tests\ui\cart.ui.spec.ts:38:3 › UI · Carrinho › UI-CART-04 remover o único item deixa o carrinho vazio @regression (11.7s)
+  ok 70 [ui] › tests\ui\cart.ui.spec.ts:26:3 › UI · Carrinho › UI-CART-03 alterar a quantidade no carrinho recalcula o total @regression (12.7s)
+  ok 73 [ui] › tests\ui\catalog.ui.spec.ts:10:3 › UI · Catálogo › UI-CAT-01 home exibe a primeira página de produtos com nome e preço @smoke @regression (6.3s)
+  ok 72 [ui] › tests\ui\cart.ui.spec.ts:47:3 › UI · Carrinho › UI-CART-05 carrinho persiste após recarregar a página @regression (7.0s)
+  ok 75 [ui] › tests\ui\catalog.ui.spec.ts:21:3 › UI · Catálogo › UI-CAT-03 busca sem resultado informa que nada foi encontrado @negative @regression (6.1s)
+  ok 74 [ui] › tests\ui\catalog.ui.spec.ts:15:3 › UI · Catálogo › UI-CAT-02 busca por termo existente mostra o produto e a contagem @smoke @regression (7.2s)
+  ok 76 [ui] › tests\ui\catalog.ui.spec.ts:28:5 › UI · Catálogo › UI-CAT-04 ordenação price,asc exibe preços em ordem @regression (5.8s)
+  ok 77 [ui] › tests\ui\catalog.ui.spec.ts:28:5 › UI · Catálogo › UI-CAT-04 ordenação price,desc exibe preços em ordem @regression (5.4s)
+  ok 78 [ui] › tests\ui\catalog.ui.spec.ts:35:3 › UI · Catálogo › UI-CAT-05 filtro de categoria na UI é consistente com a API (integração UI↔API) @regression (23.8s)
+  x  79 [ui] › tests\ui\catalog.ui.spec.ts:42:3 › UI · Catálogo › UI-CAT-06 segunda página exibe produtos diferentes da primeira @regression (22.6s)
+  ok 81 [ui] › tests\ui\catalog.ui.spec.ts:42:3 › UI · Catálogo › UI-CAT-06 segunda página exibe produtos diferentes da primeira @regression (retry #1) (8.1s)
+  ok 80 [ui] › tests\ui\catalog.ui.spec.ts:50:3 › UI · Catálogo › UI-CAT-07 detalhe do produto exibe os mesmos dados da API @regression (12.2s)
+  ok 83 [ui] › tests\ui\checkout-address.ui.spec.ts:20:3 › UI · Checkout — endereço de cobrança › UI-CHK-01 endereço incompleto não permite avançar para o pagamento @negative @regression (24.6s)
+  x  84 [ui] › tests\ui\checkout-address.ui.spec.ts:27:3 › UI · Checkout — endereço de cobrança › UI-CHK-02 endereço digitado pelo usuário não pode ser sobrescrito pela busca de CEP @known-defect (21.0s)
+  ok 82 [ui] › tests\ui\catalog.ui.spec.ts:58:3 › UI · Catálogo › UI-CAT-08 produto sem estoque não pode ser adicionado ao carrinho @negative @regression (6.8s)
+  ok 85 [ui] › tests\ui\mocks.ui.spec.ts:32:3 › UI · Mocks e stubs da API › UI-MOCK-01 catálogo vazio (stub) não quebra a home @regression (3.4s)
+  ok 86 [ui] › tests\ui\mocks.ui.spec.ts:45:3 › UI · Mocks e stubs da API › UI-MOCK-02 dados controlados (stub) são renderizados fielmente, incluindo preço com centavos @regression (3.2s)
+  ok 87 [ui] › tests\ui\mocks.ui.spec.ts:55:3 › UI · Mocks e stubs da API › UI-MOCK-03 falha 500 da API não derruba a aplicação (resiliência) @negative @regression (2.4s)
+  ok 88 [ui] › tests\ui\mocks.ui.spec.ts:72:3 › UI · Mocks e stubs da API › UI-MOCK-04 latência alta: a UI espera a resposta sem esperas fixas no teste (sincronização) @regression (6.5s)
+  ok 90 [e2e] › tests\e2e\checkout.e2e.spec.ts:73:3 › E2E · Compra completa › E2E-02 visitante não autenticado é solicitado a entrar no passo 2 @regression @e2e (10.2s)
+  x  89 [e2e] › tests\e2e\checkout.e2e.spec.ts:10:3 › E2E · Compra completa › E2E-01 cliente autenticado compra 2 produtos com pagamento na entrega @smoke @regression @e2e (46.0s)
+  x  91 [e2e] › tests\e2e\checkout.e2e.spec.ts:10:3 › E2E · Compra completa › E2E-01 cliente autenticado compra 2 produtos com pagamento na entrega @smoke @regression @e2e (retry #1) (22.2s)
+
+
+  1) [e2e] › tests\e2e\checkout.e2e.spec.ts:10:3 › E2E · Compra completa › E2E-01 cliente autenticado compra 2 produtos com pagamento na entrega @smoke @regression @e2e 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByTestId('product-title')
+    Expected: 2
+    Received: 0
+    Timeout:  20000ms
+
+    Call log:
+      - Expect "toHaveCount" getByTestId('product-title') with timeout 20000ms
+      - waiting for getByTestId('product-title')
+        43 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      29 |     await test.step('passo 1: confere carrinho e total', async () => {
+      30 |       await checkoutPage.goto();
+    > 31 |       await expect(checkoutPage.cartItems).toHaveCount(2);
+         |                                            ^
+      32 |       await expect(checkoutPage.cartTotal).toHaveText(`$${expectedTotal.toFixed(2)}`);
+      33 |       await checkoutPage.proceedFromCart();
+      34 |     });
+        at C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\tests\e2e\checkout.e2e.spec.ts:31:44
+        at C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\tests\e2e\checkout.e2e.spec.ts:29:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Júlio d'Oeste"
+    Received: "Carmona d'Oeste"
+
+      67 |       expect(invoice, `fatura ${invoiceNumber} deve existir`).toBeDefined();
+      68 |       expect(invoice!.total).toBeCloseTo(expectedTotal, 2);
+    > 69 |       expect(invoice!.billing_city).toBe(billing.city); // o pedido registra exatamente o endereço do formulário
+         |                                     ^
+      70 |     });
+      71 |   });
+      72 |
+        at C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\tests\e2e\checkout.e2e.spec.ts:69:37
+        at C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\tests\e2e\checkout.e2e.spec.ts:62:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e-retry1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e-retry1\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\checkout.e2e-E2E-·-Compra--940b0-ntrega-smoke-regression-e2e-e2e-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [api] › tests\api\auth.api.spec.ts:24:3 › API · Cadastro e autenticação › API-AUTH-03 campos obrigatórios ausentes @negative @regression 
+
+    TimeoutError: apiRequestContext.fetch: Timeout 45000ms exceeded.
+    Call log:
+      - → POST https://api.practicesoftwaretesting.com/users/register
+        - user-agent: Playwright/1.65.1 (x64; windows 10.0) node/24.22
+        - accept: application/json
+        - accept-encoding: gzip,deflate,br
+        - content-type: application/json
+        - content-length: 2
+
+
+       at ..\src\api\api-client.ts:27
+
+      25 |     if (this.token) headers.Authorization = `Bearer ${this.token}`;
+      26 |     // timeout de 45 s: cobre a cauda de latência medida no SUT (máx. observado ≈ 31 s)
+    > 27 |     const res = await this.request.fetch(url, { method, data, headers, failOnStatusCode: false, timeout: 45_000 });
+         |                                    ^
+      28 |     recordEndpoint(method, url, 'api', res.status());
+      29 |     return res;
+      30 |   }
+        at ApiClient.send (C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\src\api\api-client.ts:27:36)
+        at ApiClient.register (C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\src\api\api-client.ts:57:76)
+        at C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\tests\api\auth.api.spec.ts:25:27
+
+    Error Context: test-results\auth.api-API-·-Cadastro-e--e85e4-usentes-negative-regression-api\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\auth.api-API-·-Cadastro-e--e85e4-usentes-negative-regression-api\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\auth.api-API-·-Cadastro-e--e85e4-usentes-negative-regression-api\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (menos de 8 caracteres) é rejeitada @negative @regression 
+
+    TimeoutError: apiRequestContext.fetch: Timeout 45000ms exceeded.
+    Call log:
+      - → POST https://api.practicesoftwaretesting.com/users/register
+        - user-agent: Playwright/1.65.1 (x64; windows 10.0) node/24.22
+        - accept: application/json
+        - accept-encoding: gzip,deflate,br
+        - content-type: application/json
+        - content-length: 272
+
+
+       at ..\src\api\api-client.ts:27
+
+      25 |     if (this.token) headers.Authorization = `Bearer ${this.token}`;
+      26 |     // timeout de 45 s: cobre a cauda de latência medida no SUT (máx. observado ≈ 31 s)
+    > 27 |     const res = await this.request.fetch(url, { method, data, headers, failOnStatusCode: false, timeout: 45_000 });
+         |                                    ^
+      28 |     recordEndpoint(method, url, 'api', res.status());
+      29 |     return res;
+      30 |   }
+        at ApiClient.send (C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\src\api\api-client.ts:27:36)
+        at ApiClient.register (C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\src\api\api-client.ts:57:76)
+        at C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\tests\api\auth.api.spec.ts:40:29
+
+    Error Context: test-results\auth.api-API-·-Cadastro-e--58a61-jeitada-negative-regression-api\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\auth.api-API-·-Cadastro-e--58a61-jeitada-negative-regression-api\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\auth.api-API-·-Cadastro-e--58a61-jeitada-negative-regression-api\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [ui] › tests\ui\catalog.ui.spec.ts:42:3 › UI · Catálogo › UI-CAT-06 segunda página exibe produtos diferentes da primeira @regression 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('a[data-test^="product-01"]').first()
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('a[data-test^="product-01"]').first() with timeout 20000ms
+      - waiting for locator('a[data-test^="product-01"]').first()
+
+
+       at ..\src\pages\home-page.ts:22
+
+      20 |   async goto(path = '/') {
+      21 |     await this.page.goto(path);
+    > 22 |     await expect(this.productCards.first()).toBeVisible();
+         |                                             ^
+      23 |   }
+      24 |
+      25 |   /**
+        at HomePage.goto (C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\src\pages\home-page.ts:22:45)
+        at C:\Users\phame\AppData\Local\Claude-Data\claude_pzs8sxrjxfjjc\scratch-workspaces\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\scratch-2026-11-20-a92c19\pst-qa\tests\ui\catalog.ui.spec.ts:7:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\catalog.ui-UI-·-Catálogo-U-34ac7-ntes-da-primeira-regression-ui\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\catalog.ui-UI-·-Catálogo-U-34ac7-ntes-da-primeira-regression-ui\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\catalog.ui-UI-·-Catálogo-U-34ac7-ntes-da-primeira-regression-ui\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\catalog.ui-UI-·-Catálogo-U-34ac7-ntes-da-primeira-regression-ui\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\catalog.ui-UI-·-Catálogo-U-34ac7-ntes-da-primeira-regression-ui\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [e2e] › tests\e2e\checkout.e2e.spec.ts:10:3 › E2E · Compra completa › E2E-01 cliente autenticado compra 2 produtos com pagamento na entrega @smoke @regression @e2e 
+  3 flaky
+    [api] › tests\api\auth.api.spec.ts:24:3 › API · Cadastro e autenticação › API-AUTH-03 campos obrigatórios ausentes @negative @regression 
+    [api] › tests\api\auth.api.spec.ts:39:5 › API · Cadastro e autenticação › API-AUTH-04 senha inválida (menos de 8 caracteres) é rejeitada @negative @regression 
+    [ui] › tests\ui\catalog.ui.spec.ts:42:3 › UI · Catálogo › UI-CAT-06 segunda página exibe produtos diferentes da primeira @regression 
+  83 passed (7.7m)
+exit=1

@@ -1,0 +1,411 @@
+{
+  "executado_em": "2026-11-20T21:43:26.439Z",
+  "resultados": [
+    {
+      "label": "lista produtos",
+      "method": "GET",
+      "path": "/products",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[{\"id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat grippi"
+    },
+    {
+      "label": "pagina 0",
+      "method": "GET",
+      "path": "/products?page=0",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[{\"id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat grippi"
+    },
+    {
+      "label": "pagina -1",
+      "method": "GET",
+      "path": "/products?page=-1",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[{\"id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat grippi"
+    },
+    {
+      "label": "pagina alem do fim",
+      "method": "GET",
+      "path": "/products?page=999",
+      "status": 200,
+      "resp": "{\"current_page\":999,\"data\":[],\"from\":null,\"last_page\":6,\"per_page\":9,\"to\":null,\"total\":50}"
+    },
+    {
+      "label": "pagina texto",
+      "method": "GET",
+      "path": "/products?page=abc",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[{\"id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat grippi"
+    },
+    {
+      "label": "sort price asc",
+      "method": "GET",
+      "path": "/products?sort=price,asc",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[{\"id\":\"01M7XC56S7SQ465X4FXGZYH6PZ\",\"name\":\"Washers\",\"description\":\"Assorted pack of 150 zinc-plated steel flat washers in popular metric sizes ranging from M4 to M10, covering the most commonly needed sizes for workshop, garage, and job site fastener work. These washers distribute the clamping force of bolts and nuts over a larger surface area, preventing damage to soft m"
+    },
+    {
+      "label": "sort invalido",
+      "method": "GET",
+      "path": "/products?sort=foo,bar",
+      "status": 500,
+      "resp": "{\"message\":\"Something went wrong\"}"
+    },
+    {
+      "label": "between price 10-20",
+      "method": "GET",
+      "path": "/products?between=price,10,20",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[{\"id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium steel construction with induction-hardened cutting edges, these pliers deliver excellent grip and leverage for a wide range of tasks. The precision-machined jaws combine flat grippi"
+    },
+    {
+      "label": "between invertido 20-10",
+      "method": "GET",
+      "path": "/products?between=price,20,10",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[],\"from\":null,\"last_page\":1,\"per_page\":9,\"to\":null,\"total\":0}"
+    },
+    {
+      "label": "between negativo",
+      "method": "GET",
+      "path": "/products?between=price,-5,-1",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[],\"from\":null,\"last_page\":1,\"per_page\":9,\"to\":null,\"total\":0}"
+    },
+    {
+      "label": "busca thor",
+      "method": "GET",
+      "path": "/products/search?q=thor",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[{\"id\":\"01M7XC56PX8CT3JJ69VA7QT4AA\",\"name\":\"Thor Hammer\",\"description\":\"The legendary Thor Hammer combines premium craftsmanship with raw striking power in a tool that is truly built to last generations. Forged from Uru metal with a hand-wrapped leather grip, this extraordinary 5kg masterpiece delivers unmatched impact force for the most demanding demolition, forging, and "
+    },
+    {
+      "label": "busca vazia",
+      "method": "GET",
+      "path": "/products/search?q=",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[],\"from\":null,\"last_page\":1,\"per_page\":9,\"to\":null,\"total\":0}"
+    },
+    {
+      "label": "busca sem resultado",
+      "method": "GET",
+      "path": "/products/search?q=zzzzzzzz",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[],\"from\":null,\"last_page\":1,\"per_page\":9,\"to\":null,\"total\":0}"
+    },
+    {
+      "label": "busca SQL-like",
+      "method": "GET",
+      "path": "/products/search?q='%20OR%201%3D1%20--",
+      "status": 200,
+      "resp": "{\"current_page\":1,\"data\":[],\"from\":null,\"last_page\":1,\"per_page\":9,\"to\":null,\"total\":0}"
+    },
+    {
+      "label": "produto inexistente (ULID valido)",
+      "method": "GET",
+      "path": "/products/01AAAAAAAAAAAAAAAAAAAAAAAA",
+      "status": 404,
+      "resp": "{\"message\":\"Requested item not found\"}"
+    },
+    {
+      "label": "produto id invalido",
+      "method": "GET",
+      "path": "/products/abc",
+      "status": 404,
+      "resp": "{\"message\":\"Requested item not found\"}"
+    },
+    {
+      "label": "related",
+      "method": "GET",
+      "path": "/products/01M7XC56PE2A3HM6VQJDSCYSHQ/related",
+      "status": 200,
+      "resp": "[{\"id\":\"01M7XC56PGCRPYYAAYQ9A2BPXV\",\"name\":\"Pliers\",\"description\":\"Reliable general-purpose pliers crafted from drop-forged carbon steel for long-lasting durability in demanding working conditions. The serrated jaws provide a firm grip on a variety of materials including wire, nails, small fasteners, and irregularly shaped objects. Comfortable rubber-coated handles absorb vibration and reduce hand"
+    },
+    {
+      "label": "categoria inexistente",
+      "method": "GET",
+      "path": "/categories/tree/01AAAAAAAAAAAAAAAAAAAAAAAA",
+      "status": 404,
+      "resp": "{\"message\":\"Requested item not found\"}"
+    },
+    {
+      "label": "cria carrinho",
+      "method": "POST",
+      "path": "/carts",
+      "status": 201,
+      "resp": "{\"id\":\"01m7xehsxd686n6f39ym98qxzk\"}"
+    },
+    {
+      "label": "add qty 1",
+      "method": "POST",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "body": {
+        "product_id": "01M7XC56PE2A3HM6VQJDSCYSHQ",
+        "quantity": 1
+      },
+      "status": 200,
+      "resp": "{\"result\":\"item added or updated\"}"
+    },
+    {
+      "label": "add qty 0",
+      "method": "POST",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "body": {
+        "product_id": "01M7XC56PGCRPYYAAYQ9A2BPXV",
+        "quantity": 0
+      },
+      "status": 422,
+      "resp": "{\"message\":\"The quantity field must be at least 1.\",\"errors\":{\"quantity\":[\"The quantity field must be at least 1.\"]}}"
+    },
+    {
+      "label": "add qty -1",
+      "method": "POST",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "body": {
+        "product_id": "01M7XC56PGCRPYYAAYQ9A2BPXV",
+        "quantity": -1
+      },
+      "status": 422,
+      "resp": "{\"message\":\"The quantity field must be at least 1.\",\"errors\":{\"quantity\":[\"The quantity field must be at least 1.\"]}}"
+    },
+    {
+      "label": "add qty 1000000",
+      "method": "POST",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "body": {
+        "product_id": "01M7XC56PJ7YBFA7E08QS8P1N2",
+        "quantity": 1000000
+      },
+      "status": 422,
+      "resp": "{\"message\":\"The quantity field must not be greater than 99.\",\"errors\":{\"quantity\":[\"The quantity field must not be greater than 99.\"]}}"
+    },
+    {
+      "label": "add qty decimal",
+      "method": "POST",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "body": {
+        "product_id": "01M7XC56PJ7YBFA7E08QS8P1N2",
+        "quantity": 1.5
+      },
+      "status": 422,
+      "resp": "{\"message\":\"The quantity field must be an integer.\",\"errors\":{\"quantity\":[\"The quantity field must be an integer.\"]}}"
+    },
+    {
+      "label": "add produto inexistente",
+      "method": "POST",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "body": {
+        "product_id": "01AAAAAAAAAAAAAAAAAAAAAAAA",
+        "quantity": 1
+      },
+      "status": 422,
+      "resp": "{\"message\":\"The selected product id is invalid.\",\"errors\":{\"product_id\":[\"The selected product id is invalid.\"]}}"
+    },
+    {
+      "label": "add out-of-stock (Long Nose Pliers)",
+      "method": "POST",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "body": {
+        "product_id": "01M7XC56PMV40G7HKEPVECHFZ4",
+        "quantity": 1
+      },
+      "status": 200,
+      "resp": "{\"result\":\"item added or updated\"}"
+    },
+    {
+      "label": "ver carrinho",
+      "method": "GET",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "status": 200,
+      "resp": "{\"id\":\"01m7xehsxd686n6f39ym98qxzk\",\"additional_discount_percentage\":null,\"lat\":null,\"lng\":null,\"cart_items\":[{\"id\":\"01m7xehv7gwkvnwvh7nhz4k4sh\",\"quantity\":1,\"discount_percentage\":null,\"cart_id\":\"01m7xehsxd686n6f39ym98qxzk\",\"product_id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"product\":{\"id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripp"
+    },
+    {
+      "label": "update qty -> 3",
+      "method": "PUT",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk/product/quantity",
+      "body": {
+        "product_id": "01M7XC56PE2A3HM6VQJDSCYSHQ",
+        "quantity": 3
+      },
+      "status": 200,
+      "resp": "{\"result\":\"item added or updated\"}"
+    },
+    {
+      "label": "update qty -> 0",
+      "method": "PUT",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk/product/quantity",
+      "body": {
+        "product_id": "01M7XC56PE2A3HM6VQJDSCYSHQ",
+        "quantity": 0
+      },
+      "status": 422,
+      "resp": "{\"message\":\"The quantity field must be at least 1.\",\"errors\":{\"quantity\":[\"The quantity field must be at least 1.\"]}}"
+    },
+    {
+      "label": "ver carrinho 2",
+      "method": "GET",
+      "path": "/carts/01m7xehsxd686n6f39ym98qxzk",
+      "status": 200,
+      "resp": "{\"id\":\"01m7xehsxd686n6f39ym98qxzk\",\"additional_discount_percentage\":null,\"lat\":null,\"lng\":null,\"cart_items\":[{\"id\":\"01m7xehv7gwkvnwvh7nhz4k4sh\",\"quantity\":3,\"discount_percentage\":null,\"cart_id\":\"01m7xehsxd686n6f39ym98qxzk\",\"product_id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"product\":{\"id\":\"01M7XC56PE2A3HM6VQJDSCYSHQ\",\"name\":\"Combination Pliers\",\"description\":\"Versatile combination pliers designed for gripp"
+    },
+    {
+      "label": "carrinho inexistente",
+      "method": "GET",
+      "path": "/carts/01AAAAAAAAAAAAAAAAAAAAAAAA",
+      "status": 404,
+      "resp": "{\"message\":\"Requested item not found\"}"
+    },
+    {
+      "label": "login senha errada",
+      "method": "POST",
+      "path": "/users/login",
+      "body": {
+        "email": "naoexiste@example.com",
+        "password": "Errada#123"
+      },
+      "status": 401,
+      "resp": "{\"error\":\"Unauthorized\"}"
+    },
+    {
+      "label": "login corpo vazio",
+      "method": "POST",
+      "path": "/users/login",
+      "body": {},
+      "status": 401,
+      "resp": "{\"error\":\"Invalid login request\"}"
+    },
+    {
+      "label": "me sem token",
+      "method": "GET",
+      "path": "/users/me",
+      "status": 401,
+      "resp": "{\"message\":\"Unauthorized\"}"
+    },
+    {
+      "label": "me token invalido",
+      "method": "GET",
+      "path": "/users/me",
+      "body": null,
+      "status": 401,
+      "resp": "{\"message\":\"Unauthorized\"}"
+    },
+    {
+      "label": "register vazio",
+      "method": "POST",
+      "path": "/users/register",
+      "body": {},
+      "status": 422,
+      "resp": "{\"first_name\":[\"The first name field is required.\"],\"last_name\":[\"The last name field is required.\"],\"email\":[\"The email field is required.\"],\"password\":[\"The password field is required.\"]}"
+    },
+    {
+      "label": "register senha fraca",
+      "method": "POST",
+      "path": "/users/register",
+      "body": {
+        "first_name": "Qa",
+        "last_name": "Probe",
+        "email": "qa.probe.1795210994255@example.com",
+        "password": "abc",
+        "dob": "1990-01-01",
+        "address": {
+          "street": "Rua 1",
+          "city": "Natal",
+          "state": "RN",
+          "country": "BR",
+          "postal_code": "59000000"
+        },
+        "phone": "84999999999"
+      },
+      "status": 422,
+      "resp": "{\"password\":[\"The password field must be at least 8 characters.\",\"The password field must contain at least one uppercase and one lowercase letter.\",\"The password field must contain at least one symbol.\",\"The password field must contain at least one number.\"]}"
+    },
+    {
+      "label": "register menor de idade",
+      "method": "POST",
+      "path": "/users/register",
+      "body": {
+        "first_name": "Qa",
+        "last_name": "Probe",
+        "email": "qa.probe.1795210995567@example.com",
+        "password": "Sup3r$ecretQA!",
+        "dob": "2015-01-01",
+        "address": {
+          "street": "Rua 1",
+          "city": "Natal",
+          "state": "RN",
+          "country": "BR",
+          "postal_code": "59000000"
+        },
+        "phone": "84999999999"
+      },
+      "status": 422,
+      "resp": "{\"dob\":[\"Customer must be 18 years old.\"]}"
+    },
+    {
+      "label": "register email invalido",
+      "method": "POST",
+      "path": "/users/register",
+      "body": {
+        "first_name": "Qa",
+        "last_name": "Probe",
+        "email": "nao-e-email",
+        "password": "Sup3r$ecretQA!",
+        "dob": "1990-01-01"
+      },
+      "status": 201,
+      "resp": "{\"first_name\":\"Qa\",\"last_name\":\"Probe\",\"email\":\"nao-e-email\",\"dob\":\"1990-01-01\",\"id\":\"01m7xekxnp55mah2gy55gr7065\",\"created_at\":\"2026-11-20 21:43:19\",\"address\":{\"street\":null,\"house_number\":null,\"city\":null,\"state\":null,\"country\":null,\"postal_code\":null}}"
+    },
+    {
+      "label": "payment check cc invalido",
+      "method": "POST",
+      "path": "/payment/check",
+      "body": {
+        "payment_method": "credit-card",
+        "payment_details": {
+          "credit_card_number": "1234",
+          "expiration_date": "01/2020",
+          "cvv": "1",
+          "card_holder_name": "X"
+        }
+      },
+      "status": 422,
+      "resp": "{\"message\":\"The payment details.credit card number field format is invalid. (and 2 more errors)\",\"errors\":{\"payment_details.credit_card_number\":[\"The payment details.credit card number field format is invalid.\"],\"payment_details.expiration_date\":[\"The payment details.expiration date field must be a date after today.\"],\"payment_details.cvv\":[\"The payment details.cvv field format is invalid.\"]}}"
+    },
+    {
+      "label": "payment check metodo invalido",
+      "method": "POST",
+      "path": "/payment/check",
+      "body": {
+        "payment_method": "bitcoin",
+        "payment_details": {}
+      },
+      "status": 200,
+      "resp": "{\"message\":\"Payment was successful\"}"
+    },
+    {
+      "label": "payment check cod",
+      "method": "POST",
+      "path": "/payment/check",
+      "body": {
+        "payment_method": "cash-on-delivery",
+        "payment_details": {}
+      },
+      "status": 200,
+      "resp": "{\"message\":\"Payment was successful\"}"
+    },
+    {
+      "label": "contato vazio",
+      "method": "POST",
+      "path": "/messages",
+      "body": {},
+      "status": 422,
+      "resp": "{\"subject\":[\"The subject field is required.\"],\"message\":[\"The message field is required.\"]}"
+    },
+    {
+      "label": "metodo nao permitido",
+      "method": "DELETE",
+      "path": "/products",
+      "status": 405,
+      "resp": "{\"message\":\"Method is not allowed for the requested route\"}"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+# Pipeline de CI do projeto de Testes e Qualidade — Practice Software Testing.
+# Estágios: (1) análise estática da suíte → (2) testes de API → (3) testes de UI/E2E → (4) consolidação de métricas e quality gates.
+# Os estágios 2 e 3 só rodam se o 1 passar (fail fast: não gastamos tempo de execução com código que nem compila).
+name: QA Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: # execução manual (útil na apresentação)
+  schedule:
+    - cron: '0 9 * * 1-5' # regressão diária: o SUT é externo e muda sem aviso (ex.: re-seed dos dados)
+
+concurrency:
+  group: qa-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: 'true'
+  NODE_VERSION: '22'
+
+jobs:
+  static-analysis:
+    name: 1 · Análise estática (typecheck, lint, duplicação)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Typecheck (tsc --noEmit)
+        run: npm run typecheck
+      - name: Lint (gate — zero erros; avisos são reportados)
+        run: npx eslint . --max-warnings 10
+      - name: Duplicação de código (gate — máximo 5%)
+        run: npx jscpd src tests --min-tokens 40 --threshold 5 --reporters console
+
+  api-tests:
+    name: 2 · Testes de API
+    needs: static-analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Executa projeto "api"
+        run: npx playwright test --project=api
+      - name: Publica relatórios e dados de cobertura
+        if: always() # mesmo se falhar: o relatório é a evidência da falha
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-results
+          path: |
+            reports/
+            coverage-data/
+            test-results/
+          retention-days: 14
+
+  ui-e2e-tests:
+    name: 3 · Testes de UI e E2E (Chromium)
+    needs: static-analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - run: npm ci
+      - name: Instala o navegador
+        run: npx playwright install --with-deps chromium
+      - name: Executa projetos "ui" e "e2e"
+        run: npx playwright test --project=ui --project=e2e
+      - name: Publica relatórios, traces e vídeos de falha
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-e2e-results
+          path: |
+            reports/
+            coverage-data/
+            test-results/
+          retention-days: 14
+
+  quality-gates:
+    name: 4 · Métricas e quality gates
+    needs: [api-tests, ui-e2e-tests]
+    if: always() && needs.api-tests.result != 'skipped'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Resumo por estágio (vai para a página da execução)
+        run: |
+          for stage in api-results ui-e2e-results; do
+            if [ -f "artifacts/$stage/reports/results.json" ]; then
+              node scripts/summarize-results.mjs "artifacts/$stage/reports/results.json" --md "summary-$stage.md"
+              cat "summary-$stage.md" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+      - name: Gate — cobertura de endpoints da API em escopo (mínimo 60%)
+        run: |
+          mkdir -p coverage-data
+          find artifacts -path '*coverage-data/*.jsonl' -exec cp {} coverage-data/ \;
+          node scripts/endpoint-coverage.mjs --md endpoint-coverage.md --min 60
+          cat endpoint-coverage.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Gate — os estágios de teste não podem ter falhas inesperadas
+        run: |
+          echo "api-tests: ${{ needs.api-tests.result }} | ui-e2e-tests: ${{ needs.ui-e2e-tests.result }}"
+          test "${{ needs.api-tests.result }}" = "success" && test "${{ needs.ui-e2e-tests.result }}" = "success"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: metricas-consolidadas
+          path: |
+            summary-*.md
+            endpoint-coverage.md

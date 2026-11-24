@@ -1,0 +1,4106 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\playwright.config.ts",
+    "rootDir": "C:/Users/phame/AppData/Local/Claude-Data/claude_pzs8sxrjxfjjc/scratch-workspaces/6c83d183-a4ed-40ac-b9f2-7b7115b0ea37/4033cfcc-cdd4-4a01-8f35-0e56211e62e8/scratch-2026-11-20-a92c19/pst-qa/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/phame/AppData/Local/Claude-Data/claude_pzs8sxrjxfjjc/scratch-workspaces/6c83d183-a4ed-40ac-b9f2-7b7115b0ea37/4033cfcc-cdd4-4a01-8f35-0e56211e62e8/scratch-2026-11-20-a92c19/pst-qa/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "C:/Users/phame/AppData/Local/Claude-Data/claude_pzs8sxrjxfjjc/scratch-workspaces/6c83d183-a4ed-40ac-b9f2-7b7115b0ea37/4033cfcc-cdd4-4a01-8f35-0e56211e62e8/scratch-2026-11-20-a92c19/pst-qa/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "C:/Users/phame/AppData/Local/Claude-Data/claude_pzs8sxrjxfjjc/scratch-workspaces/6c83d183-a4ed-40ac-b9f2-7b7115b0ea37/4033cfcc-cdd4-4a01-8f35-0e56211e62e8/scratch-2026-11-20-a92c19/pst-qa/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "ui",
+        "name": "ui",
+        "testDir": "C:/Users/phame/AppData/Local/Claude-Data/claude_pzs8sxrjxfjjc/scratch-workspaces/6c83d183-a4ed-40ac-b9f2-7b7115b0ea37/4033cfcc-cdd4-4a01-8f35-0e56211e62e8/scratch-2026-11-20-a92c19/pst-qa/tests/ui",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      },
+      {
+        "outputDir": "C:/Users/phame/AppData/Local/Claude-Data/claude_pzs8sxrjxfjjc/scratch-workspaces/6c83d183-a4ed-40ac-b9f2-7b7115b0ea37/4033cfcc-cdd4-4a01-8f35-0e56211e62e8/scratch-2026-11-20-a92c19/pst-qa/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "e2e",
+        "name": "e2e",
+        "testDir": "C:/Users/phame/AppData/Local/Claude-Data/claude_pzs8sxrjxfjjc/scratch-workspaces/6c83d183-a4ed-40ac-b9f2-7b7115b0ea37/4033cfcc-cdd4-4a01-8f35-0e56211e62e8/scratch-2026-11-20-a92c19/pst-qa/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "api",
+        "testDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api",
+        "snapshotDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "https://api.practicesoftwaretesting.com",
+          "testIdAttribute": "data-test",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "actionTimeout": 20000,
+          "navigationTimeout": 45000
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "api"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "ui",
+        "testDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui",
+        "snapshotDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "https://practicesoftwaretesting.com",
+          "testIdAttribute": "data-test",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "actionTimeout": 20000,
+          "navigationTimeout": 45000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/159.0.8154.6 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "ui"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "e2e",
+        "testDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 120000,
+        "use": {
+          "baseURL": "https://practicesoftwaretesting.com",
+          "testIdAttribute": "data-test",
+          "trace": "retain-on-failure",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "actionTimeout": 20000,
+          "navigationTimeout": 45000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/159.0.8154.6 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "e2e"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "api\\auth.api.spec.ts",
+      "file": "api/auth.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API · Cadastro e autenticação",
+          "file": "api/auth.api.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "API-AUTH-01 cadastro válido retorna 201 sem expor a senha @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1236,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:32.342Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-18764924fd7b3debb81f",
+              "file": "api/auth.api.spec.ts",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-02 e-mail duplicado é rejeitado com 409 Conflict @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8539,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:32.318Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-738460b5a3a74c482bd8",
+              "file": "api/auth.api.spec.ts",
+              "line": 17,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-03 campos obrigatórios ausentes @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 935,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:33.617Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-97e6507921da51784864",
+              "file": "api/auth.api.spec.ts",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-04 senha inválida (menos de 8 caracteres) é rejeitada @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13666,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:34.566Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-bceccddb67c5a6c996f2",
+              "file": "api/auth.api.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-04 senha inválida (sem maiúscula) é rejeitada @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2803,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:40.898Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-902697d61118af0077e8",
+              "file": "api/auth.api.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-04 senha inválida (sem minúscula) é rejeitada @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4790,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:43.715Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-345777765436f50fd120",
+              "file": "api/auth.api.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-04 senha inválida (sem número) é rejeitada @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1568,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:48.244Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-bb02801ac4e7da713689",
+              "file": "api/auth.api.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-04 senha inválida (sem símbolo) é rejeitada @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1212,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:48.517Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-48e1b2bcec00286a5247",
+              "file": "api/auth.api.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-05 idade 17 anos e 364 dias (dob=2008-11-21) → rejeitada @boundary @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2413,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:49.739Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-6e8f4e26be77e4b254dd",
+              "file": "api/auth.api.spec.ts",
+              "line": 53,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-05 idade 18 anos e 1 dia (dob=2008-11-19) → aceita @boundary @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4568,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:49.824Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-177d474b18c69cd3a9c6",
+              "file": "api/auth.api.spec.ts",
+              "line": 53,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-05 idade 75 anos menos 1 dia (dob=1951-11-21) → aceita @boundary @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1089,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:52.166Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-226dd2ffbe2827d9c26f",
+              "file": "api/auth.api.spec.ts",
+              "line": 53,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-05b idade acima de 75 anos deve ser rejeitada @boundary @known-defect",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "known-defect"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "defect",
+                      "description": "BUG-006 — limite superior de idade efetivo é 93 anos (Carbon mutável)"
+                    },
+                    {
+                      "type": "fail",
+                      "description": "BUG-006 aberto: dob de 75 anos e 1 dia é aceita (201).",
+                      "location": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                        "line": 61,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1139,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts:63:26",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                          "column": 26,
+                          "line": 63
+                        },
+                        "snippet": " \u001b[90m 61 |\u001b[39m     test\u001b[33m.\u001b[39mfail(\u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'BUG-006 aberto: dob de 75 anos e 1 dia é aceita (201).'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 62 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mregister(buildUser({ dob\u001b[33m:\u001b[39m dateYearsAgo(\u001b[35m75\u001b[39m\u001b[33m,\u001b[39m \u001b[33m-\u001b[39m\u001b[35m1\u001b[39m) }))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 63 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 64 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 65 |\u001b[39m\n \u001b[90m 66 |\u001b[39m   test(\u001b[32m'API-AUTH-05c limite efetivo atual: 93 anos é rejeitado (documenta o comportamento real) @boundary @regression'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ api }) \u001b[33m=>\u001b[39m {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                            "column": 26,
+                            "line": 63
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  61 |     test.fail(true, 'BUG-006 aberto: dob de 75 anos e 1 dia é aceita (201).');\n  62 |     const res = await api.register(buildUser({ dob: dateYearsAgo(75, -1) }));\n> 63 |     expect(res.status()).toBe(422);\n     |                          ^\n  64 |   });\n  65 |\n  66 |   test('API-AUTH-05c limite efetivo atual: 93 anos é rejeitado (documenta o comportamento real) @boundary @regression', async ({ api }) => {\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts:63:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:53.275Z",
+                      "annotations": [
+                        {
+                          "type": "defect",
+                          "description": "BUG-006 — limite superior de idade efetivo é 93 anos (Carbon mutável)"
+                        },
+                        {
+                          "type": "fail",
+                          "description": "BUG-006 aberto: dob de 75 anos e 1 dia é aceita (201).",
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                            "line": 61,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\auth.api-API-·-Cadastro-e--ffe47-itada-boundary-known-defect-api\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                        "column": 26,
+                        "line": 63
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-2243f84059f02109e1b9",
+              "file": "api/auth.api.spec.ts",
+              "line": 59,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-05c limite efetivo atual: 93 anos é rejeitado (documenta o comportamento real) @boundary @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1012,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:54.404Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-02535b8fb32e4578b517",
+              "file": "api/auth.api.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-06 login válido retorna token JWT e /users/me identifica o usuário @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2870,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:54.445Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-4054a4a34632547f82cb",
+              "file": "api/auth.api.spec.ts",
+              "line": 73,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-07 login com senha errada retorna 401 @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4334,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:55.441Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-abbec08d0a50e4af60b5",
+              "file": "api/auth.api.spec.ts",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-08 rota protegida sem token retorna 401 @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2790,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:57.331Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-ab8f271200b831b63392",
+              "file": "api/auth.api.spec.ts",
+              "line": 86,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-08 rota protegida token malformado retorna 401 @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1966,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:52:59.790Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-a03cc81ade2be17fc035",
+              "file": "api/auth.api.spec.ts",
+              "line": 86,
+              "column": 5
+            },
+            {
+              "title": "API-AUTH-09 logout invalida o token @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7738,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:00.138Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-2f54979dbe8f0b17b21b",
+              "file": "api/auth.api.spec.ts",
+              "line": 92,
+              "column": 3
+            },
+            {
+              "title": "API-AUTH-10 cadastro com e-mail em formato inválido deve ser rejeitado @negative @known-defect",
+              "ok": true,
+              "tags": [
+                "negative",
+                "known-defect"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "defect",
+                      "description": "BUG-004 — API aceita e-mail sem formato válido no cadastro"
+                    },
+                    {
+                      "type": "fail",
+                      "description": "BUG-004 aberto: POST /users/register aceita \"nao-e-email\" (201).",
+                      "location": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                        "line": 100,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1771,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts:102:26",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                          "column": 26,
+                          "line": 102
+                        },
+                        "snippet": " \u001b[90m 100 |\u001b[39m     test\u001b[33m.\u001b[39mfail(\u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'BUG-004 aberto: POST /users/register aceita \"nao-e-email\" (201).'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 101 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mregister(buildUser({ email\u001b[33m:\u001b[39m \u001b[32m`nao-e-email-${Date.now()}`\u001b[39m }))\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 105 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                            "column": 26,
+                            "line": 102
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m201\u001b[39m\n\n  100 |     test.fail(true, 'BUG-004 aberto: POST /users/register aceita \"nao-e-email\" (201).');\n  101 |     const res = await api.register(buildUser({ email: `nao-e-email-${Date.now()}` }));\n> 102 |     expect(res.status()).toBe(422);\n      |                          ^\n  103 |   });\n  104 | });\n  105 |\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts:102:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:01.782Z",
+                      "annotations": [
+                        {
+                          "type": "defect",
+                          "description": "BUG-004 — API aceita e-mail sem formato válido no cadastro"
+                        },
+                        {
+                          "type": "fail",
+                          "description": "BUG-004 aberto: POST /users/register aceita \"nao-e-email\" (201).",
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                            "line": 100,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\auth.api-API-·-Cadastro-e--4aaa6-itado-negative-known-defect-api\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\auth.api.spec.ts",
+                        "column": 26,
+                        "line": 102
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1880dd47a9b883be6a63-58cd97475063e467c6c6",
+              "file": "api/auth.api.spec.ts",
+              "line": 98,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api\\cart.api.spec.ts",
+      "file": "api/cart.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API · Carrinho",
+          "file": "api/cart.api.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "API-CART-01 cria carrinho e adiciona item @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3525,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:04.059Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-780eeb8c6fb2f268bc52",
+              "file": "api/cart.api.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "API-CART-02 quantidade válida 1 — mínimo (1) @boundary @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3724,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:07.907Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-3558dba0088c983b7212",
+              "file": "api/cart.api.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "API-CART-02 quantidade válida 99 — máximo (99) @boundary @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3510,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:21.848Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-5603245d38e97f6d12f3",
+              "file": "api/cart.api.spec.ts",
+              "line": 39,
+              "column": 5
+            },
+            {
+              "title": "API-CART-02 quantidade inválida 0 — abaixo do mínimo (0) @boundary @negative @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2717,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:22.259Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-7656b5eeeb3352050ad6",
+              "file": "api/cart.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-CART-02 quantidade inválida 100 — acima do máximo (100) @boundary @negative @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3741,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:25.019Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-b6cee33da016cdb678cf",
+              "file": "api/cart.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-CART-02 quantidade inválida -1 — negativo @boundary @negative @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2750,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:25.411Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-09206d061138d54e4475",
+              "file": "api/cart.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-CART-02 quantidade inválida 1.5 — decimal @boundary @negative @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2616,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:28.188Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-505f6f56794cc43055f0",
+              "file": "api/cart.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-CART-02 quantidade inválida \"abc\" — texto @boundary @negative @regression",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2610,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:28.784Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-618af1de5bdaf6de43a9",
+              "file": "api/cart.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-CART-03 produto inexistente é rejeitado @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2664,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:30.820Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-87808b6f52349050d6bf",
+              "file": "api/cart.api.spec.ts",
+              "line": 52,
+              "column": 3
+            },
+            {
+              "title": "API-CART-04 atualiza quantidade e remove item @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6244,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:31.433Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-faac8f53c897f369b114",
+              "file": "api/cart.api.spec.ts",
+              "line": 58,
+              "column": 3
+            },
+            {
+              "title": "API-CART-05 atualizar quantidade para 0 é rejeitado e preserva o valor anterior @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4402,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:33.514Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-644187b6f74a311798fc",
+              "file": "api/cart.api.spec.ts",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "API-CART-06 adicionar o mesmo produto duas vezes soma as quantidades @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4474,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:37.702Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-9a72138aa6202d1c5a35",
+              "file": "api/cart.api.spec.ts",
+              "line": 72,
+              "column": 3
+            },
+            {
+              "title": "API-CART-07 carrinho inexistente retorna 404 @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 981,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:37.935Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-16f8b2c5d329f520496c",
+              "file": "api/cart.api.spec.ts",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "API-CART-08 adições acumuladas não podem ultrapassar o máximo de 99 @boundary @known-defect",
+              "ok": true,
+              "tags": [
+                "boundary",
+                "known-defect"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "defect",
+                      "description": "BUG-002 — soma de adições ultrapassa o limite de 99 unidades"
+                    },
+                    {
+                      "type": "fail",
+                      "description": "BUG-002 aberto: 60 + 60 resulta em 120 no carrinho.",
+                      "location": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                        "line": 86,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4433,
+                      "error": {
+                        "message": "Error: a segunda adição deveria ser rejeitada\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m",
+                        "stack": "Error: a segunda adição deveria ser rejeitada\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts:90:76",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                          "column": 76,
+                          "line": 90
+                        },
+                        "snippet": " \u001b[90m 88 |\u001b[39m     \u001b[36mconst\u001b[39m second \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39maddToCart(cartId\u001b[33m,\u001b[39m \u001b[33mP\u001b[39m\u001b[33m,\u001b[39m \u001b[35m60\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 89 |\u001b[39m     \u001b[36mconst\u001b[39m qty \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m (\u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mgetCart(cartId))\u001b[33m.\u001b[39mjson())\u001b[33m.\u001b[39mcart_items[\u001b[35m0\u001b[39m]\u001b[33m.\u001b[39mquantity\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 90 |\u001b[39m     expect\u001b[33m.\u001b[39msoft(second\u001b[33m.\u001b[39mstatus()\u001b[33m,\u001b[39m \u001b[32m'a segunda adição deveria ser rejeitada'\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 91 |\u001b[39m     expect(qty)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[33mCART_QTY\u001b[39m\u001b[33m.\u001b[39mmax)\u001b[33m;\u001b[39m\n \u001b[90m 92 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                            "column": 76,
+                            "line": 90
+                          },
+                          "message": "Error: a segunda adição deveria ser rejeitada\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n\n  88 |     const second = await api.addToCart(cartId, P, 60);\n  89 |     const qty = (await (await api.getCart(cartId)).json()).cart_items[0].quantity;\n> 90 |     expect.soft(second.status(), 'a segunda adição deveria ser rejeitada').toBe(422);\n     |                                                                            ^\n  91 |     expect(qty).toBeLessThanOrEqual(CART_QTY.max);\n  92 |   });\n  93 |\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts:90:76"
+                        },
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                            "column": 17,
+                            "line": 91
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m99\u001b[39m\nReceived:    \u001b[31m120\u001b[39m\n\n  89 |     const qty = (await (await api.getCart(cartId)).json()).cart_items[0].quantity;\n  90 |     expect.soft(second.status(), 'a segunda adição deveria ser rejeitada').toBe(422);\n> 91 |     expect(qty).toBeLessThanOrEqual(CART_QTY.max);\n     |                 ^\n  92 |   });\n  93 |\n  94 |   test('API-CART-09 produto sem estoque não deve ser aceito no carrinho @negative @known-defect', async ({ api, cartId, catalog }) => {\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts:91:17"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:38.935Z",
+                      "annotations": [
+                        {
+                          "type": "defect",
+                          "description": "BUG-002 — soma de adições ultrapassa o limite de 99 unidades"
+                        },
+                        {
+                          "type": "fail",
+                          "description": "BUG-002 aberto: 60 + 60 resulta em 120 no carrinho.",
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                            "line": 86,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\cart.api-API-·-Carrinho-AP-d56e5-de-99-boundary-known-defect-api\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                        "column": 76,
+                        "line": 90
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-f2fd0dce1c22b0bd2cef",
+              "file": "api/cart.api.spec.ts",
+              "line": 84,
+              "column": 3
+            },
+            {
+              "title": "API-CART-09 produto sem estoque não deve ser aceito no carrinho @negative @known-defect",
+              "ok": true,
+              "tags": [
+                "negative",
+                "known-defect"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "defect",
+                      "description": "BUG-003 — API aceita produto sem estoque (UI bloqueia)"
+                    },
+                    {
+                      "type": "fail",
+                      "description": "BUG-003 aberto: a API retorna 200 para produto com in_stock=false.",
+                      "location": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                        "line": 99,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 5939,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts:101:26",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                          "column": 26,
+                          "line": 101
+                        },
+                        "snippet": " \u001b[90m  99 |\u001b[39m     test\u001b[33m.\u001b[39mfail(\u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'BUG-003 aberto: a API retorna 200 para produto com in_stock=false.'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 100 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39maddToCart(cartId\u001b[33m,\u001b[39m catalog\u001b[33m.\u001b[39mproduct(\u001b[32m'longNosePliersOutOfStock'\u001b[39m)\u001b[33m.\u001b[39mid\u001b[33m,\u001b[39m \u001b[35m1\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 101 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 102 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 103 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                            "column": 26,
+                            "line": 101
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n\n   99 |     test.fail(true, 'BUG-003 aberto: a API retorna 200 para produto com in_stock=false.');\n  100 |     const res = await api.addToCart(cartId, catalog.product('longNosePliersOutOfStock').id, 1);\n> 101 |     expect(res.status()).toBe(422);\n      |                          ^\n  102 |   });\n  103 | });\n  104 |\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts:101:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:42.191Z",
+                      "annotations": [
+                        {
+                          "type": "defect",
+                          "description": "BUG-003 — API aceita produto sem estoque (UI bloqueia)"
+                        },
+                        {
+                          "type": "fail",
+                          "description": "BUG-003 aberto: a API retorna 200 para produto com in_stock=false.",
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                            "line": 99,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\cart.api-API-·-Carrinho-AP-91f01-rinho-negative-known-defect-api\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\cart.api.spec.ts",
+                        "column": 26,
+                        "line": 101
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8fa8429308a706575046-d313ae3f74b5ec9ca192",
+              "file": "api/cart.api.spec.ts",
+              "line": 94,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api\\payment.api.spec.ts",
+      "file": "api/payment.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API · Pagamento",
+          "file": "api/payment.api.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "API-PAY-01 cartão válido é aceito @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 863,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:43.397Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "148cc0fa91d1188a2121-7fa0ee9d3c1c0134c403",
+              "file": "api/payment.api.spec.ts",
+              "line": 7,
+              "column": 3
+            },
+            {
+              "title": "API-PAY-02 pagamento na entrega não exige detalhes @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5192,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:44.274Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "148cc0fa91d1188a2121-4875708c27f8056027e8",
+              "file": "api/payment.api.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "API-PAY-03 cartão inválido: número fora do padrão 0000-0000-0000-0000 @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1277,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:48.163Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "148cc0fa91d1188a2121-c8b7698e44abc14fdbd5",
+              "file": "api/payment.api.spec.ts",
+              "line": 25,
+              "column": 5
+            },
+            {
+              "title": "API-PAY-03 cartão inválido: cartão vencido @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 905,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:49.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "148cc0fa91d1188a2121-e550578f1cf702b49686",
+              "file": "api/payment.api.spec.ts",
+              "line": 25,
+              "column": 5
+            },
+            {
+              "title": "API-PAY-03 cartão inválido: CVV com 2 dígitos @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 871,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:49.480Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "148cc0fa91d1188a2121-87561ecf36c0b74ce619",
+              "file": "api/payment.api.spec.ts",
+              "line": 25,
+              "column": 5
+            },
+            {
+              "title": "API-PAY-03 cartão inválido: titular com dígitos @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 978,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:50.387Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "148cc0fa91d1188a2121-c6d4b7f232c4c0660c1a",
+              "file": "api/payment.api.spec.ts",
+              "line": 25,
+              "column": 5
+            },
+            {
+              "title": "API-PAY-04 método de pagamento fora da lista deve ser rejeitado @negative @known-defect",
+              "ok": true,
+              "tags": [
+                "negative",
+                "known-defect"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "defect",
+                      "description": "BUG-005 — /payment/check aprova método inexistente"
+                    },
+                    {
+                      "type": "fail",
+                      "description": "BUG-005 aberto: payment_method=\"bitcoin\" retorna 200 \"Payment was successful\".",
+                      "location": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\payment.api.spec.ts",
+                        "line": 34,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 938,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\payment.api.spec.ts:36:26",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\payment.api.spec.ts",
+                          "column": 26,
+                          "line": 36
+                        },
+                        "snippet": " \u001b[90m 34 |\u001b[39m     test\u001b[33m.\u001b[39mfail(\u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'BUG-005 aberto: payment_method=\"bitcoin\" retorna 200 \"Payment was successful\".'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 35 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mpaymentCheck(\u001b[32m'bitcoin'\u001b[39m\u001b[33m,\u001b[39m {})\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 36 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBe(\u001b[35m422\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 37 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 38 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 39 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\payment.api.spec.ts",
+                            "column": 26,
+                            "line": 36
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m422\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n\n  34 |     test.fail(true, 'BUG-005 aberto: payment_method=\"bitcoin\" retorna 200 \"Payment was successful\".');\n  35 |     const res = await api.paymentCheck('bitcoin', {});\n> 36 |     expect(res.status()).toBe(422);\n     |                          ^\n  37 |   });\n  38 | });\n  39 |\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\payment.api.spec.ts:36:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:50.402Z",
+                      "annotations": [
+                        {
+                          "type": "defect",
+                          "description": "BUG-005 — /payment/check aprova método inexistente"
+                        },
+                        {
+                          "type": "fail",
+                          "description": "BUG-005 aberto: payment_method=\"bitcoin\" retorna 200 \"Payment was successful\".",
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\payment.api.spec.ts",
+                            "line": 34,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\payment.api-API-·-Pagament-291d5-itado-negative-known-defect-api\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\payment.api.spec.ts",
+                        "column": 26,
+                        "line": 36
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "148cc0fa91d1188a2121-a0134b6f30863de8c7b5",
+              "file": "api/payment.api.spec.ts",
+              "line": 32,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api\\products.api.spec.ts",
+      "file": "api/products.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API · Produtos",
+          "file": "api/products.api.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "API-PROD-01 lista produtos paginada com contrato esperado @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8019,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:51.400Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-5f660a24c956392f1547",
+              "file": "api/products.api.spec.ts",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-02 última página contém o restante dos itens (fronteira de paginação) @regression @boundary",
+              "ok": true,
+              "tags": [
+                "regression",
+                "boundary"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6444,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:51.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-70f267592bda2b8301c8",
+              "file": "api/products.api.spec.ts",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-03 páginas consecutivas não repetem produtos @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7336,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:57.860Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-28f95a94586c6c3fa7a4",
+              "file": "api/products.api.spec.ts",
+              "line": 33,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-04 ordena por price,asc @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 10234,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:53:59.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-3ed46fa1528a1fc2e878",
+              "file": "api/products.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-04 ordena por price,desc @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29591,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:05.214Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-7664ff119800fc987c26",
+              "file": "api/products.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-04 ordena por name,asc @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1967,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:09.710Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-f6f84f04f0711016ac92",
+              "file": "api/products.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-04 ordena por name,desc @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 977,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:11.701Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-f3662d431562f7431ba8",
+              "file": "api/products.api.spec.ts",
+              "line": 45,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-05 filtro por faixa de preço retorna apenas itens dentro da faixa @regression @boundary",
+              "ok": true,
+              "tags": [
+                "regression",
+                "boundary"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5516,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:12.740Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-97061d07bee89903cc36",
+              "file": "api/products.api.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-06 filtro por categoria retorna somente a categoria pedida @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 884,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:18.274Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-95711e046d4a12094f89",
+              "file": "api/products.api.spec.ts",
+              "line": 65,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-07 busca por termo existente encontra o produto @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 28672,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:19.172Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-ab449d6ec02f224dd360",
+              "file": "api/products.api.spec.ts",
+              "line": 72,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: zzzzzzzz @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4670,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:34.842Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-c61f82b225dc018e4706",
+              "file": "api/products.api.spec.ts",
+              "line": 80,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: ' OR 1=1 -- @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 893,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:39.545Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-e02b659fc68dea14e5cb",
+              "file": "api/products.api.spec.ts",
+              "line": 80,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-08 busca sem correspondência/maliciosa retorna lista vazia: <script>alert(1)</script> @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 911,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:40.455Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-1857ac1cd70b5791f48b",
+              "file": "api/products.api.spec.ts",
+              "line": 80,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-09 detalhe de produto existente @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 904,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:41.390Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-7028303a5ae3e9b5fd85",
+              "file": "api/products.api.spec.ts",
+              "line": 87,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-10 produto inexistente/ID inválido retorna 404: 01AAAAAAAAAAAAAAAAAAAAAAAA @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 862,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:42.306Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-f093c82954eb51562dd8",
+              "file": "api/products.api.spec.ts",
+              "line": 94,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-10 produto inexistente/ID inválido retorna 404: abc @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 844,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:43.188Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-13e92b969038933b4e3c",
+              "file": "api/products.api.spec.ts",
+              "line": 94,
+              "column": 5
+            },
+            {
+              "title": "API-PROD-11 produtos relacionados não incluem o próprio produto @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 943,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:44.055Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-8da5cf95143e46f8ace7",
+              "file": "api/products.api.spec.ts",
+              "line": 101,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-12 árvore de categorias e marcas disponíveis @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1821,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:45.035Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-bc2c2494d33c6f7efba9",
+              "file": "api/products.api.spec.ts",
+              "line": 108,
+              "column": 3
+            },
+            {
+              "title": "API-PROD-13 ordenação com parâmetro inválido deve ser rejeitada com 4xx, não 500 @negative @known-defect",
+              "ok": true,
+              "tags": [
+                "negative",
+                "known-defect"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "defect",
+                      "description": "BUG-001 — GET /products?sort=<inválido> retorna HTTP 500"
+                    },
+                    {
+                      "type": "fail",
+                      "description": "BUG-001 aberto: o SUT responde 500. Quando corrigido, este teste passará e o Playwright avisará para remover o test.fail().",
+                      "location": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\products.api.spec.ts",
+                        "line": 117,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "api",
+                  "projectName": "api",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 935,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m500\u001b[39m\nReceived:   \u001b[31m500\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m500\u001b[39m\nReceived:   \u001b[31m500\u001b[39m\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\products.api.spec.ts:120:26",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\products.api.spec.ts",
+                          "column": 26,
+                          "line": 120
+                        },
+                        "snippet": " \u001b[90m 118 |\u001b[39m     \u001b[36mconst\u001b[39m res \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m api\u001b[33m.\u001b[39mlistProducts(\u001b[32m'?sort=foo,bar'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 119 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(\u001b[35m400\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 120 |\u001b[39m     expect(res\u001b[33m.\u001b[39mstatus())\u001b[33m.\u001b[39mtoBeLessThan(\u001b[35m500\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 121 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 122 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 123 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\products.api.spec.ts",
+                            "column": 26,
+                            "line": 120
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m500\u001b[39m\nReceived:   \u001b[31m500\u001b[39m\n\n  118 |     const res = await api.listProducts('?sort=foo,bar');\n  119 |     expect(res.status()).toBeGreaterThanOrEqual(400);\n> 120 |     expect(res.status()).toBeLessThan(500);\n      |                          ^\n  121 |   });\n  122 | });\n  123 |\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\products.api.spec.ts:120:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:46.901Z",
+                      "annotations": [
+                        {
+                          "type": "defect",
+                          "description": "BUG-001 — GET /products?sort=<inválido> retorna HTTP 500"
+                        },
+                        {
+                          "type": "fail",
+                          "description": "BUG-001 aberto: o SUT responde 500. Quando corrigido, este teste passará e o Playwright avisará para remover o test.fail().",
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\products.api.spec.ts",
+                            "line": 117,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\products.api-API-·-Produto-590c8-o-500-negative-known-defect-api\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\api\\products.api.spec.ts",
+                        "column": 26,
+                        "line": 120
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "18b23f8e2707fc53e8e2-ac613c2532b6dc777258",
+              "file": "api/products.api.spec.ts",
+              "line": 115,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\auth.ui.spec.ts",
+      "file": "ui/auth.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UI · Autenticação",
+          "file": "ui/auth.ui.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "UI-AUTH-01 login válido leva à área do cliente e mostra o nome @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 20117,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:48.451Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6d6d9ab81445391c32a9-45b10110241e17973ed1",
+              "file": "ui/auth.ui.spec.ts",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "UI-AUTH-02 senha incorreta exibe mensagem genérica (não revela se o e-mail existe) @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7395,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:48.430Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6d6d9ab81445391c32a9-650f1f7dfffaeffbf69a",
+              "file": "ui/auth.ui.spec.ts",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "UI-AUTH-03 e-mail inexistente exibe a MESMA mensagem (evita enumeração de usuários) @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4678,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:54:56.018Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6d6d9ab81445391c32a9-8bb5d14c93326c70ead6",
+              "file": "ui/auth.ui.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "UI-AUTH-04 cadastro vazio exibe as mensagens de campo obrigatório @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2486,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:00.718Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6d6d9ab81445391c32a9-cdc61cced6ca20f7108e",
+              "file": "ui/auth.ui.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "UI-AUTH-05 cadastro com e-mail inválido é bloqueado no front-end @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2334,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:03.226Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "6d6d9ab81445391c32a9-6d8ba4adf173d7c19150",
+              "file": "ui/auth.ui.spec.ts",
+              "line": 34,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\cart.ui.spec.ts",
+      "file": "ui/cart.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UI · Carrinho",
+          "file": "ui/cart.ui.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "UI-CART-01 adicionar produto atualiza o contador e aparece no carrinho @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6112,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:05.598Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e88c70aacd9dfd405610-f9ea29d009d61256af4b",
+              "file": "ui/cart.ui.spec.ts",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "UI-CART-02 total da linha e do carrinho = preço unitário × quantidade @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6714,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:08.747Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e88c70aacd9dfd405610-d41884e41b079b05f23c",
+              "file": "ui/cart.ui.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "UI-CART-03 alterar a quantidade no carrinho recalcula o total @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8862,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:17.229Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e88c70aacd9dfd405610-822d5b1d08ea12bfceca",
+              "file": "ui/cart.ui.spec.ts",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "UI-CART-04 remover o único item deixa o carrinho vazio @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7779,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:22.186Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e88c70aacd9dfd405610-7b1f05fdff8427812ff4",
+              "file": "ui/cart.ui.spec.ts",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "UI-CART-05 carrinho persiste após recarregar a página @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5904,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:26.124Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e88c70aacd9dfd405610-1860d8716d1b5c02547d",
+              "file": "ui/cart.ui.spec.ts",
+              "line": 47,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\catalog.ui.spec.ts",
+      "file": "ui/catalog.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UI · Catálogo",
+          "file": "ui/catalog.ui.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "UI-CAT-01 home exibe a primeira página de produtos com nome e preço @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3538,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:30.048Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-d401a7848e928cd66d46",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "UI-CAT-02 busca por termo existente mostra o produto e a contagem @smoke @regression",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4278,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:32.075Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-f64bb3c628ebd5c776d7",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "UI-CAT-03 busca sem resultado informa que nada foi encontrado @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4375,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:33.655Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-de464c4418482e9820d0",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "UI-CAT-04 ordenação price,asc exibe preços em ordem @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7181,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:36.385Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-728e7aed1c567c35be00",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 28,
+              "column": 5
+            },
+            {
+              "title": "UI-CAT-04 ordenação price,desc exibe preços em ordem @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5152,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:38.065Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-c248f411910c8571f6dc",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 28,
+              "column": 5
+            },
+            {
+              "title": "UI-CAT-05 filtro de categoria na UI é consistente com a API (integração UI↔API) @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8697,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:43.256Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-8053afab82c16b8c70c6",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "UI-CAT-06 segunda página exibe produtos diferentes da primeira @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7523,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:43.607Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-282a30b6418fb986258e",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "UI-CAT-07 detalhe do produto exibe os mesmos dados da API @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5927,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:51.161Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-dfc87d95e203ae901216",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 50,
+              "column": 3
+            },
+            {
+              "title": "UI-CAT-08 produto sem estoque não pode ser adicionado ao carrinho @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4900,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:51.991Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "02e3d31f5f03e6528b27-03300b7a9b6f7cbd87f2",
+              "file": "ui/catalog.ui.spec.ts",
+              "line": 58,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\checkout-address.ui.spec.ts",
+      "file": "ui/checkout-address.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UI · Checkout — endereço de cobrança",
+          "file": "ui/checkout-address.ui.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "UI-CHK-01 endereço incompleto não permite avançar para o pagamento @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 38782,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('proceed-3')\nExpected: disabled\nReceived: enabled\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('proceed-3') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('proceed-3')\u001b[22m\n\u001b[2m    43 × locator resolved to <button type=\"button\" awnextstep=\"\" data-test=\"proceed-3\" class=\"btn btn-success\">Proceed to checkout </button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('proceed-3')\nExpected: disabled\nReceived: enabled\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('proceed-3') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('proceed-3')\u001b[22m\n\u001b[2m    43 × locator resolved to <button type=\"button\" awnextstep=\"\" data-test=\"proceed-3\" class=\"btn btn-success\">Proceed to checkout </button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts:24:49",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                          "column": 49,
+                          "line": 24
+                        },
+                        "snippet": " \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'street'\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 23 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'city'\u001b[39m)\u001b[33m.\u001b[39mfill(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 24 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'proceed-3'\u001b[39m))\u001b[33m.\u001b[39mtoBeDisabled()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 25 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 26 |\u001b[39m\n \u001b[90m 27 |\u001b[39m   test(\u001b[32m'UI-CHK-02 endereço digitado pelo usuário não pode ser sobrescrito pela busca de CEP @known-defect'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                            "column": 49,
+                            "line": 24
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeDisabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('proceed-3')\nExpected: disabled\nReceived: enabled\nTimeout:  20000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeDisabled\" getByTestId('proceed-3') with timeout 20000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('proceed-3')\u001b[22m\n\u001b[2m    43 × locator resolved to <button type=\"button\" awnextstep=\"\" data-test=\"proceed-3\" class=\"btn btn-success\">Proceed to checkout </button>\u001b[22m\n\u001b[2m       - unexpected value \"enabled\"\u001b[22m\n\n\n  22 |     await page.getByTestId('street').fill('');\n  23 |     await page.getByTestId('city').fill('');\n> 24 |     await expect(page.getByTestId('proceed-3')).toBeDisabled();\n     |                                                 ^\n  25 |   });\n  26 |\n  27 |   test('UI-CHK-02 endereço digitado pelo usuário não pode ser sobrescrito pela busca de CEP @known-defect', async ({ page }) => {\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts:24:49"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:56.940Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\checkout-address.ui-UI-·-C-b77cc-gamento-negative-regression-ui\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\checkout-address.ui-UI-·-C-b77cc-gamento-negative-regression-ui\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\checkout-address.ui-UI-·-C-b77cc-gamento-negative-regression-ui\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\checkout-address.ui-UI-·-C-b77cc-gamento-negative-regression-ui\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                        "column": 49,
+                        "line": 24
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 25020,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-11-20T22:56:39.120Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "flaky"
+                }
+              ],
+              "id": "50369784c3314653b8ac-dbdb314764f114eb3262",
+              "file": "ui/checkout-address.ui.spec.ts",
+              "line": 20,
+              "column": 3
+            },
+            {
+              "title": "UI-CHK-02 endereço digitado pelo usuário não pode ser sobrescrito pela busca de CEP @known-defect",
+              "ok": true,
+              "tags": [
+                "known-defect"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "defect",
+                      "description": "BUG-007 — busca automática de CEP sobrescreve/apaga endereço já digitado"
+                    },
+                    {
+                      "type": "fail",
+                      "description": "BUG-007 aberto: após a resposta de /postcode-lookup, rua/cidade/estado digitados são substituídos ou apagados.",
+                      "location": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                        "line": 29,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 23122,
+                      "error": {
+                        "message": "Error: cidade digitada foi alterada para \"Júlio d'Oeste\" sem ação do usuário\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                        "stack": "Error: cidade digitada foi alterada para \"Júlio d'Oeste\" sem ação do usuário\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts:45:144",
+                        "location": {
+                          "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                          "column": 144,
+                          "line": 45
+                        },
+                        "snippet": " \u001b[90m 43 |\u001b[39m       \u001b[33m.\u001b[39mwaitForFunction(() \u001b[33m=>\u001b[39m (document\u001b[33m.\u001b[39mquerySelector(\u001b[32m'[data-test=\"city\"]'\u001b[39m) \u001b[36mas\u001b[39m \u001b[33mHTMLInputElement\u001b[39m \u001b[33m|\u001b[39m \u001b[36mnull\u001b[39m)\u001b[33m?.\u001b[39mvalue \u001b[33m!==\u001b[39m \u001b[32m'Natal'\u001b[39m\u001b[33m,\u001b[39m undefined\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m8_000\u001b[39m })\n \u001b[90m 44 |\u001b[39m       \u001b[33m.\u001b[39mthen(() \u001b[33m=>\u001b[39m \u001b[36mtrue\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m \u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 45 |\u001b[39m     expect(changedWithoutUserAction\u001b[33m,\u001b[39m \u001b[32m`cidade digitada foi alterada para \"${await page.getByTestId('city').inputValue()}\" sem ação do usuário`\u001b[39m)\u001b[33m.\u001b[39mtoBe(\u001b[36mfalse\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                                                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 46 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 48 |\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                            "column": 144,
+                            "line": 45
+                          },
+                          "message": "Error: cidade digitada foi alterada para \"Júlio d'Oeste\" sem ação do usuário\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  43 |       .waitForFunction(() => (document.querySelector('[data-test=\"city\"]') as HTMLInputElement | null)?.value !== 'Natal', undefined, { timeout: 8_000 })\n  44 |       .then(() => true, () => false);\n> 45 |     expect(changedWithoutUserAction, `cidade digitada foi alterada para \"${await page.getByTestId('city').inputValue()}\" sem ação do usuário`).toBe(false);\n     |                                                                                                                                                ^\n  46 |   });\n  47 | });\n  48 |\n    at C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts:45:144"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:55:57.131Z",
+                      "annotations": [
+                        {
+                          "type": "defect",
+                          "description": "BUG-007 — busca automática de CEP sobrescreve/apaga endereço já digitado"
+                        },
+                        {
+                          "type": "fail",
+                          "description": "BUG-007 aberto: após a resposta de /postcode-lookup, rua/cidade/estado digitados são substituídos ou apagados.",
+                          "location": {
+                            "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                            "line": 29,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\test-results\\checkout-address.ui-UI-·-C-e00e1-a-busca-de-CEP-known-defect-ui\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\phame\\AppData\\Local\\Claude-Data\\claude_pzs8sxrjxfjjc\\scratch-workspaces\\6c83d183-a4ed-40ac-b9f2-7b7115b0ea37\\4033cfcc-cdd4-4a01-8f35-0e56211e62e8\\scratch-2026-11-20-a92c19\\pst-qa\\tests\\ui\\checkout-address.ui.spec.ts",
+                        "column": 144,
+                        "line": 45
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "50369784c3314653b8ac-54322057a98df5c2a42b",
+              "file": "ui/checkout-address.ui.spec.ts",
+              "line": 27,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui\\mocks.ui.spec.ts",
+      "file": "ui/mocks.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UI · Mocks e stubs da API",
+          "file": "ui/mocks.ui.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "UI-MOCK-01 catálogo vazio (stub) não quebra a home @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2407,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:56:20.309Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "40e1d70818780ba01483-b22273862748182ad9d1",
+              "file": "ui/mocks.ui.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "UI-MOCK-02 dados controlados (stub) são renderizados fielmente, incluindo preço com centavos @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3263,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:56:22.742Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "40e1d70818780ba01483-b422aeaa713b25111e92",
+              "file": "ui/mocks.ui.spec.ts",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "UI-MOCK-03 falha 500 da API não derruba a aplicação (resiliência) @negative @regression",
+              "ok": true,
+              "tags": [
+                "negative",
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2884,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:56:26.030Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "40e1d70818780ba01483-b09637b0030ffb3728df",
+              "file": "ui/mocks.ui.spec.ts",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "UI-MOCK-04 latência alta: a UI espera a resposta sem esperas fixas no teste (sincronização) @regression",
+              "ok": true,
+              "tags": [
+                "regression"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "ui",
+                  "projectName": "ui",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6998,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:56:28.944Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "40e1d70818780ba01483-c41583d1de5870977f17",
+              "file": "ui/mocks.ui.spec.ts",
+              "line": 72,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e\\checkout.e2e.spec.ts",
+      "file": "e2e/checkout.e2e.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "E2E · Compra completa",
+          "file": "e2e/checkout.e2e.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-01 cliente autenticado compra 2 produtos com pagamento na entrega @smoke @regression @e2e",
+              "ok": true,
+              "tags": [
+                "smoke",
+                "regression",
+                "e2e"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 35398,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "login",
+                          "duration": 6321
+                        },
+                        {
+                          "title": "adiciona 2 produtos ao carrinho",
+                          "duration": 6438
+                        },
+                        {
+                          "title": "passo 1: confere carrinho e total",
+                          "duration": 1429
+                        },
+                        {
+                          "title": "passo 2: já autenticado",
+                          "duration": 270
+                        },
+                        {
+                          "title": "passo 3: endereço de cobrança",
+                          "duration": 4416
+                        },
+                        {
+                          "title": "passo 4: pagamento e confirmação",
+                          "duration": 2245
+                        },
+                        {
+                          "title": "integração: a fatura existe na API com o total correto",
+                          "duration": 1018
+                        }
+                      ],
+                      "startTime": "2026-11-20T22:56:37.589Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7cd0e4ba44ed189b3306-873f9c85ecafbb068079",
+              "file": "e2e/checkout.e2e.spec.ts",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "E2E-02 visitante não autenticado é solicitado a entrar no passo 2 @regression @e2e",
+              "ok": true,
+              "tags": [
+                "regression",
+                "e2e"
+              ],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "e2e",
+                  "projectName": "e2e",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6983,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-20T22:57:19.110Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7cd0e4ba44ed189b3306-4919b865cfa7485875a5",
+              "file": "e2e/checkout.e2e.spec.ts",
+              "line": 74,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-20T22:52:31.618Z",
+    "duration": 300745.22400000005,
+    "expected": 86,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 1
+  }
+}

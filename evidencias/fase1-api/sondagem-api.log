@@ -1,0 +1,46 @@
+[200] lista produtos :: {"current_page":1,"data":[{"id":"01M7XC56PE2A3HM6VQJDSCYSHQ","name":"Combination Pliers","description":"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium s
+   total= 50 per_page= 9 last_page= 6
+[200] pagina 0 :: {"current_page":1,"data":[{"id":"01M7XC56PE2A3HM6VQJDSCYSHQ","name":"Combination Pliers","description":"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium s
+[200] pagina -1 :: {"current_page":1,"data":[{"id":"01M7XC56PE2A3HM6VQJDSCYSHQ","name":"Combination Pliers","description":"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium s
+[200] pagina alem do fim :: {"current_page":999,"data":[],"from":null,"last_page":6,"per_page":9,"to":null,"total":50}
+[200] pagina texto :: {"current_page":1,"data":[{"id":"01M7XC56PE2A3HM6VQJDSCYSHQ","name":"Combination Pliers","description":"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium s
+[200] sort price asc :: {"current_page":1,"data":[{"id":"01M7XC56S7SQ465X4FXGZYH6PZ","name":"Washers","description":"Assorted pack of 150 zinc-plated steel flat washers in popular metric sizes ranging from M4 to M10, covering the most commonly 
+[500] sort invalido :: {"message":"Something went wrong"}
+[200] between price 10-20 :: {"current_page":1,"data":[{"id":"01M7XC56PE2A3HM6VQJDSCYSHQ","name":"Combination Pliers","description":"Versatile combination pliers designed for gripping, bending, and cutting wire with ease. Featuring chrome vanadium s
+[200] between invertido 20-10 :: {"current_page":1,"data":[],"from":null,"last_page":1,"per_page":9,"to":null,"total":0}
+[200] between negativo :: {"current_page":1,"data":[],"from":null,"last_page":1,"per_page":9,"to":null,"total":0}
+[200] busca thor :: {"current_page":1,"data":[{"id":"01M7XC56PX8CT3JJ69VA7QT4AA","name":"Thor Hammer","description":"The legendary Thor Hammer combines premium craftsmanship with raw striking power in a tool that is truly built to last gene
+[200] busca vazia :: {"current_page":1,"data":[],"from":null,"last_page":1,"per_page":9,"to":null,"total":0}
+[200] busca sem resultado :: {"current_page":1,"data":[],"from":null,"last_page":1,"per_page":9,"to":null,"total":0}
+[200] busca SQL-like :: {"current_page":1,"data":[],"from":null,"last_page":1,"per_page":9,"to":null,"total":0}
+[404] produto inexistente (ULID valido) :: {"message":"Requested item not found"}
+[404] produto id invalido :: {"message":"Requested item not found"}
+[200] related :: [{"id":"01M7XC56PGCRPYYAAYQ9A2BPXV","name":"Pliers","description":"Reliable general-purpose pliers crafted from drop-forged carbon steel for long-lasting durability in demanding working conditions. The serrated jaws prov
+[404] categoria inexistente :: {"message":"Requested item not found"}
+[201] cria carrinho :: {"id":"01m7xehsxd686n6f39ym98qxzk"}
+[200] add qty 1 :: {"result":"item added or updated"}
+[422] add qty 0 :: {"message":"The quantity field must be at least 1.","errors":{"quantity":["The quantity field must be at least 1."]}}
+[422] add qty -1 :: {"message":"The quantity field must be at least 1.","errors":{"quantity":["The quantity field must be at least 1."]}}
+[422] add qty 1000000 :: {"message":"The quantity field must not be greater than 99.","errors":{"quantity":["The quantity field must not be greater than 99."]}}
+[422] add qty decimal :: {"message":"The quantity field must be an integer.","errors":{"quantity":["The quantity field must be an integer."]}}
+[422] add produto inexistente :: {"message":"The selected product id is invalid.","errors":{"product_id":["The selected product id is invalid."]}}
+[200] add out-of-stock (Long Nose Pliers) :: {"result":"item added or updated"}
+   (falha de rede, tentativa 1: UND_ERR_CONNECT_TIMEOUT)
+[200] ver carrinho :: {"id":"01m7xehsxd686n6f39ym98qxzk","additional_discount_percentage":null,"lat":null,"lng":null,"cart_items":[{"id":"01m7xehv7gwkvnwvh7nhz4k4sh","quantity":1,"discount_percentage":null,"cart_id":"01m7xehsxd686n6f39ym98qxz
+[200] update qty -> 3 :: {"result":"item added or updated"}
+[422] update qty -> 0 :: {"message":"The quantity field must be at least 1.","errors":{"quantity":["The quantity field must be at least 1."]}}
+[200] ver carrinho 2 :: {"id":"01m7xehsxd686n6f39ym98qxzk","additional_discount_percentage":null,"lat":null,"lng":null,"cart_items":[{"id":"01m7xehv7gwkvnwvh7nhz4k4sh","quantity":3,"discount_percentage":null,"cart_id":"01m7xehsxd686n6f39ym98qxz
+[404] carrinho inexistente :: {"message":"Requested item not found"}
+[401] login senha errada :: {"error":"Unauthorized"}
+[401] login corpo vazio :: {"error":"Invalid login request"}
+[401] me sem token :: {"message":"Unauthorized"}
+[401] me token invalido :: {"message":"Unauthorized"}
+[422] register vazio :: {"first_name":["The first name field is required."],"last_name":["The last name field is required."],"email":["The email field is required."],"password":["The password field is required."]}
+[422] register senha fraca :: {"password":["The password field must be at least 8 characters.","The password field must contain at least one uppercase and one lowercase letter.","The password field must contain at least one symbol.","The password fie
+[422] register menor de idade :: {"dob":["Customer must be 18 years old."]}
+[201] register email invalido :: {"first_name":"Qa","last_name":"Probe","email":"nao-e-email","dob":"1990-01-01","id":"01m7xekxnp55mah2gy55gr7065","created_at":"2026-11-20 21:43:19","address":{"street":null,"house_number":null,"city":null,"state":null,"
+[422] payment check cc invalido :: {"message":"The payment details.credit card number field format is invalid. (and 2 more errors)","errors":{"payment_details.credit_card_number":["The payment details.credit card number field format is invalid."],"payment
+[200] payment check metodo invalido :: {"message":"Payment was successful"}
+[200] payment check cod :: {"message":"Payment was successful"}
+[422] contato vazio :: {"subject":["The subject field is required."],"message":["The message field is required."]}
+[405] metodo nao permitido :: {"message":"Method is not allowed for the requested route"}
